@@ -4,7 +4,7 @@ public class Tea {
     private int teaId;//奶茶编号
     private String name;//奶茶名称
     private String remark;//对奶茶的备注信息
-    private String type;//奶茶类型type，用于对奶茶进行分类。如 0：其他类型 1：招牌奶茶 2：清爽果茶 ... 默认为0。
+    private String type;//奶茶类型
     private double price;//奶茶价格
 
     //==标识属性==
