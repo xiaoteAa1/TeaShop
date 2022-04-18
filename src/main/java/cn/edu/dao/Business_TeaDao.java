@@ -4,14 +4,10 @@ import cn.edu.domain.Tea;
 
 import java.util.List;
 
-/*
-    商家操作奶茶
 
-    奶茶信息管理：
-    增：添加新品种奶茶
-    删：删除某一品种奶茶
-    改：修改奶茶的某项信息
-    查：查看指定内容相关的奶茶
+/**
+ *@author  LXJ
+ *@date    2022/04/18 16:08
  */
 public interface Business_TeaDao {
 
@@ -21,11 +17,9 @@ public interface Business_TeaDao {
     boolean addTea(Tea tea);
 
     /*
-        修改奶茶属性： 名称、图片、描述信息、备注信息、类型、价格
+        修改奶茶属性： 名称、备注信息、类型、价格
      */
     boolean updateTeaName(String name);
-    boolean updateTeaImg(String url);
-    boolean updateDescription(String description);
     boolean updateRemark(String remark);
     boolean updateTeaType(int type);
     boolean updateTeaPrice(double price);
@@ -51,7 +45,6 @@ public interface Business_TeaDao {
         通过奶茶id获得单个奶茶对象
      */
     Tea getTeaById(int id);
-
 
 
     /*

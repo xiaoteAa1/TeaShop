@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Order {
     private int orderId;//订单编号
-    private int userId;//用户编号
+    private int userId;//用户编号(虚拟编号)
     private int teaId;//奶茶编号
     private Date startTime;//订单发起时间
 
@@ -15,12 +15,25 @@ public class Order {
         -1：订单失败
      */
     private int status;
+    private String remark;
 
-    public Order(int userId, int teaId, Date startTime, int status) {
+    public Order() {
+    }
+    public Order(int orderId, int userId, int teaId, Date startTime, int status, String remark) {
+        this.orderId = orderId;
         this.userId = userId;
         this.teaId = teaId;
         this.startTime = startTime;
         this.status = status;
+        this.remark = remark;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public int getOrderId() {

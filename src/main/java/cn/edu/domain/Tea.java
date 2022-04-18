@@ -9,14 +9,11 @@ public class Tea {
     private String name;//奶茶名称
 
     //----------------------非必须属性-----------------------
-    private String image;//奶茶的图片url地址
-    private String description = "暂无~";//对奶茶的描述信息
     private String remark = "暂无~";//对奶茶的备注信息
     private int type = 100;//奶茶类型type，用于对奶茶进行分类。如0：招牌奶茶 1：芒果家族 2：清爽果茶 ... 100：其他类型。默认为100。
     private double price;//奶茶价格
 
     //==标识属性==
-    private boolean isSale;//是否可以销售
     private int remain;//奶茶剩余数量
 
     //==统计属性==
@@ -63,13 +60,24 @@ public class Tea {
         this.name = name;
     }
 
-    public Tea(String name, String image, String description, String remark, int type, double price) {
+    public Tea(String name, String remark, int type, double price) {
         this.name = name;
-        this.image = image;
-        this.description = description;
         this.remark = remark;
         this.type = type;
         this.price = price;
+    }
+
+    public Tea(int teaId, String name, String remark, int type, double price, int remain, int sales, int daySales, int monthSales, int yearSales) {
+        this.teaId = teaId;
+        this.name = name;
+        this.remark = remark;
+        this.type = type;
+        this.price = price;
+        this.remain = remain;
+        this.sales = sales;
+        this.daySales = daySales;
+        this.monthSales = monthSales;
+        this.yearSales = yearSales;
     }
 
     public int getTeaId() {
@@ -86,22 +94,6 @@ public class Tea {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getRemark() {
@@ -126,14 +118,6 @@ public class Tea {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public boolean isSale() {
-        return isSale;
-    }
-
-    public void setSale(boolean sale) {
-        isSale = sale;
     }
 
     public int getRemain() {
@@ -174,5 +158,21 @@ public class Tea {
 
     public void setYearSales(int yearSales) {
         this.yearSales = yearSales;
+    }
+
+    @Override
+    public String toString() {
+        return "Tea{" +
+                "teaId=" + teaId +
+                ", name='" + name + '\'' +
+                ", remark='" + remark + '\'' +
+                ", type=" + type +
+                ", price=" + price +
+                ", remain=" + remain +
+                ", sales=" + sales +
+                ", daySales=" + daySales +
+                ", monthSales=" + monthSales +
+                ", yearSales=" + yearSales +
+                '}';
     }
 }
