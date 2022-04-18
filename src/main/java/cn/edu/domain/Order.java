@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Order {
     private int orderId;//订单编号
-    private int userId;//用户编号(虚拟编号)
+    private String userId;//用户虚拟编号，用户自己填写
     private int teaId;//奶茶编号
     private Date startTime;//订单发起时间
 
@@ -19,7 +19,7 @@ public class Order {
 
     public Order() {
     }
-    public Order(int orderId, int userId, int teaId, Date startTime, int status, String remark) {
+    public Order(int orderId, String userId, int teaId, Date startTime, int status, String remark) {
         this.orderId = orderId;
         this.userId = userId;
         this.teaId = teaId;
@@ -44,11 +44,11 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

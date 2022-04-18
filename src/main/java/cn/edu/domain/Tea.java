@@ -1,16 +1,10 @@
 package cn.edu.domain;
 
-import java.util.HashMap;
-import java.util.List;
-
 public class Tea {
-    //----------------------必须属性-------------------------
     private int teaId;//奶茶编号
     private String name;//奶茶名称
-
-    //----------------------非必须属性-----------------------
-    private String remark = "暂无~";//对奶茶的备注信息
-    private int type = 100;//奶茶类型type，用于对奶茶进行分类。如0：招牌奶茶 1：芒果家族 2：清爽果茶 ... 100：其他类型。默认为100。
+    private String remark;//对奶茶的备注信息
+    private String type;//奶茶类型type，用于对奶茶进行分类。如 0：其他类型 1：招牌奶茶 2：清爽果茶 ... 默认为0。
     private double price;//奶茶价格
 
     //==标识属性==
@@ -22,52 +16,18 @@ public class Tea {
     private int monthSales;//月销量
     private int yearSales;//年销量
 
-
-//    /*
-//        假设商品价格 price = ，对应[半塘、小杯、正常]
-//        {糖量：{[多糖,1]、[少糖,-1]、[半塘,0]}
-//         份量：{[大杯,4]、[中杯,2]、[小杯,0]}
-//         冰量：{[多冰,2],[少冰,-1],[正常,0]} }。
-//         例：
-//         [多糖，大杯，多冰] = 10+1+4+2 = 17
-//         [半塘、小杯、正常] = 10+0+0+0 = 10
-//         [多糖，中杯，少冰] = 10+1+2-1 = 12
-//
-//         //---------------------------------------------
-//
-//         {S1 : {[s11,p11],[s12,p12],[s13,p13],
-//          S2 : {[s21,p21],[s22,p22],
-//          S3 : {[s31,p31],[s32,p32],[s33,p33],[s34,p34]}
-//
-//        即：{
-//            S(0)[0][j(0)] ,
-//            S(1)[1][j(1)],
-//            ...
-//            S(i)[i][j(i)],
-//            S(i+1)[i+1][j(i+1)],
-//            ...
-//            S(N)[N-1][j(N-1)]
-//            }
-//        初始的选择组合为每一行从左往右第一个为 j = 0 的值
-//
-//
-//        假设List的长度不超过100
-//     */
-//    private HashMap<String,List<String[]>> map;//奶茶可选属性
-
-
     public Tea(String name) {
         this.name = name;
     }
 
-    public Tea(String name, String remark, int type, double price) {
+    public Tea(String name, String remark, String type, double price) {
         this.name = name;
         this.remark = remark;
         this.type = type;
         this.price = price;
     }
 
-    public Tea(int teaId, String name, String remark, int type, double price, int remain, int sales, int daySales, int monthSales, int yearSales) {
+    public Tea(int teaId, String name, String remark, String type, double price, int remain, int sales, int daySales, int monthSales, int yearSales) {
         this.teaId = teaId;
         this.name = name;
         this.remark = remark;
@@ -104,11 +64,11 @@ public class Tea {
         this.remark = remark;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -175,4 +135,38 @@ public class Tea {
                 ", yearSales=" + yearSales +
                 '}';
     }
+
+
+
+//    /*
+//        假设商品价格 price = ，对应[半塘、小杯、正常]
+//        {糖量：{[多糖,1]、[少糖,-1]、[半塘,0]}
+//         份量：{[大杯,4]、[中杯,2]、[小杯,0]}
+//         冰量：{[多冰,2],[少冰,-1],[正常,0]} }。
+//         例：
+//         [多糖，大杯，多冰] = 10+1+4+2 = 17
+//         [半塘、小杯、正常] = 10+0+0+0 = 10
+//         [多糖，中杯，少冰] = 10+1+2-1 = 12
+//
+//         //---------------------------------------------
+//
+//         {S1 : {[s11,p11],[s12,p12],[s13,p13],
+//          S2 : {[s21,p21],[s22,p22],
+//          S3 : {[s31,p31],[s32,p32],[s33,p33],[s34,p34]}
+//
+//        即：{
+//            S(0)[0][j(0)] ,
+//            S(1)[1][j(1)],
+//            ...
+//            S(i)[i][j(i)],
+//            S(i+1)[i+1][j(i+1)],
+//            ...
+//            S(N)[N-1][j(N-1)]
+//            }
+//        初始的选择组合为每一行从左往右第一个为 j = 0 的值
+//
+//
+//        假设List的长度不超过100
+//     */
+//    private HashMap<String,List<String[]>> map;//奶茶可选属性
 }

@@ -41,7 +41,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String remark = rs.getString("remark");
-                int type = rs.getInt("type");
+                String type = rs.getString("type");
                 double price = rs.getDouble("price");
                 int remain = rs.getInt("remain");
 
