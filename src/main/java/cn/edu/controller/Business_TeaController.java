@@ -4,6 +4,7 @@
 
 package cn.edu.controller;
 
+import java.awt.event.*;
 import cn.edu.domain.Tea;
 import cn.edu.service.Business_TeaService;
 import cn.edu.service.impl.Business_TeaServiceImpl;
@@ -26,11 +27,27 @@ public class Business_TeaController extends JFrame {
         initComponents();
     }
 
+    private void button2KeyPressed(KeyEvent e) {
+        // TODO add your code here
+    }
+
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         scrollPane1 = new JScrollPane();
         table1 = new JTable();
         button1 = new JButton();
+        button2 = new JButton();
+        button3 = new JButton();
+        textField1 = new JTextField();
+        label1 = new JLabel();
+        textField2 = new JTextField();
+        label2 = new JLabel();
+        label3 = new JLabel();
+        button4 = new JButton();
+        textField3 = new JTextField();
+        button5 = new JButton();
 
         //======== this ========
         setTitle("\u5546\u5bb6\u7ba1\u7406");
@@ -42,12 +59,59 @@ public class Business_TeaController extends JFrame {
             scrollPane1.setViewportView(table1);
         }
         contentPane.add(scrollPane1);
-        scrollPane1.setBounds(10, 40, 560, 405);
+        scrollPane1.setBounds(10, 80, 560, 365);
 
         //---- button1 ----
         button1.setText("\u52a0\u8f7d\u6240\u6709\u5976\u8336\u4fe1\u606f");
         contentPane.add(button1);
         button1.setBounds(new Rectangle(new Point(15, 5), button1.getPreferredSize()));
+
+        //---- button2 ----
+        button2.setText("\u6839\u636e\u5976\u8336\u7f16\u53f7\u641c\u7d22");
+        button2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                button2KeyPressed(e);
+            }
+        });
+        contentPane.add(button2);
+        button2.setBounds(240, 10, 115, 20);
+
+        //---- button3 ----
+        button3.setText("\u6839\u636e\u5976\u8336\u540d\u5b57\u641c\u7d22");
+        contentPane.add(button3);
+        button3.setBounds(460, 10, 112, 20);
+        contentPane.add(textField1);
+        textField1.setBounds(190, 10, 45, 20);
+
+        //---- label1 ----
+        label1.setText("ID:");
+        contentPane.add(label1);
+        label1.setBounds(new Rectangle(new Point(165, 10), label1.getPreferredSize()));
+        contentPane.add(textField2);
+        textField2.setBounds(405, 10, 50, 20);
+
+        //---- label2 ----
+        label2.setText("Name:");
+        contentPane.add(label2);
+        label2.setBounds(new Rectangle(new Point(360, 10), label2.getPreferredSize()));
+
+        //---- label3 ----
+        label3.setText("type:");
+        contentPane.add(label3);
+        label3.setBounds(new Rectangle(new Point(10, 45), label3.getPreferredSize()));
+
+        //---- button4 ----
+        button4.setText("\u6839\u636e\u5976\u8336\u7c7b\u578b\u641c\u7d22");
+        contentPane.add(button4);
+        button4.setBounds(110, 45, 125, 20);
+        contentPane.add(textField3);
+        textField3.setBounds(45, 45, 60, 20);
+
+        //---- button5 ----
+        button5.setText("\u67e5\u770b\u6240\u6709\u5976\u8336\u7684\u5728\u552e\u72b6\u6001");
+        contentPane.add(button5);
+        button5.setBounds(260, 45, 140, 20);
 
         {
             // compute preferred size
@@ -76,12 +140,126 @@ public class Business_TeaController extends JFrame {
                 getAllTea();
             }
         });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                System.out.println(textField1.getText());
+                if(textField1.getText() != "")
+                    getTeaById(Integer.parseInt(textField1.getText()));
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(textField2.getText() != "")
+                    getTeaByName(textField2.getText());
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(textField3.getText() != "")
+                    getAllTeaByType(textField3.getText());
+            }
+        });
+        button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getAllTeaOnSale();
+            }
+        });
     }
-
-    void getAllTea(){
+    //根据ID搜索：
+    void getTeaById(int id){
         dtm = new DefaultTableModel(null,SwingUtils.columns);
         dtm.setRowCount(0);
+        Tea t = bts.getTeaById(id);
+        Object[][] res = new Object[1][11];
+        res[0][0] = t.getTeaId();
+        res[0][1] = t.getName();
+        res[0][2] = t.getPrice();
+        res[0][3] = t.getType();
+        res[0][4] = t.getRemark();
+        res[0][5] = t.getRemain();
+        res[0][6] = t.getSales();
+        res[0][7] = t.getDaySales();
+        res[0][8] = t.getMonthSales();
+        res[0][9] = t.getYearSales();
+        dtm.addRow(res[0]);
+        table1.setModel(dtm);
+        table1.invalidate();
+    }
+    //根据名字搜索：
+    void getTeaByName(String name){
+        System.out.println(222);
+        dtm.setRowCount(0);
+        Tea t = bts.getTeaByName(name);
+        Object[][] res = new Object[1][11];
+        res[0][0] = t.getTeaId();
+        res[0][1] = t.getName();
+        res[0][2] = t.getPrice();
+        res[0][3] = t.getType();
+        res[0][4] = t.getRemark();
+        res[0][5] = t.getRemain();
+        res[0][6] = t.getSales();
+        res[0][7] = t.getDaySales();
+        res[0][8] = t.getMonthSales();
+        res[0][9] = t.getYearSales();
+        dtm.addRow(res[0]);
+        table1.setModel(dtm);
+        table1.invalidate();
+    }
+    List<Tea> getAllTeaByType(String ByType){
+//        System.out.println(ByType);
+        dtm.setRowCount(0);
+        List<Tea> list = bts.getAllTeaByType(ByType);
+//        System.out.println(list.size());
+        int len = list.size();
+        Object[][] res = new Object[len][11];
+        int idx = 0;
+        for(Tea t :list){
+            res[idx][0] = t.getTeaId();
+            res[idx][1] = t.getName();
+            res[idx][2] = t.getPrice();
+            res[idx][3] = t.getType();
+            res[idx][4] = t.getRemark();
+            res[idx][5] = t.getRemain();
+            res[idx][6] = t.getSales();
+            res[idx][7] = t.getDaySales();
+            res[idx][8] = t.getMonthSales();
+            res[idx][9] = t.getYearSales();
+            dtm.addRow(res[idx]);
+        }
+        table1.setModel(dtm);
+        table1.invalidate();
+        return list;
+    };
+    List<Tea> getAllTeaOnSale(){
+        dtm.setRowCount(0);
+        List<Tea> list = bts.getAllTeaOnSale();
+        int len = list.size();
+        Object[][] res = new Object[len][11];
+        int idx = 0;
+        for(Tea t :list){
+            res[idx][0] = t.getTeaId();
+            res[idx][1] = t.getName();
+            res[idx][2] = t.getPrice();
+            res[idx][3] = t.getType();
+            res[idx][4] = t.getRemark();
+            res[idx][5] = t.getRemain();
+            res[idx][6] = t.getSales();
+            res[idx][7] = t.getDaySales();
+            res[idx][8] = t.getMonthSales();
+            res[idx][9] = t.getYearSales();
+            dtm.addRow(res[idx]);
+        }
+        table1.setModel(dtm);
+        table1.invalidate();
+        return list;
+    };
 
+    void getAllTea(){
+        dtm.setRowCount(0);
         List<Tea> list = bts.getAllTea();
         int len = list.size();
         Object[][] res = new Object[len][11];
@@ -110,9 +288,20 @@ public class Business_TeaController extends JFrame {
     private JScrollPane scrollPane1;
     private JTable table1;
     private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JTextField textField1;
+    private JLabel label1;
+    private JTextField textField2;
+    private JLabel label2;
+    private JLabel label3;
+    private JButton button4;
+    private JTextField textField3;
+    private JButton button5;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    private DefaultTableModel dtm;
+    private static DefaultTableModel dtm;
     public static void main(String[] args) {
+        dtm = new DefaultTableModel(null,SwingUtils.columns);
         new Business_TeaController();
     }
 }

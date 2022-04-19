@@ -25,4 +25,30 @@ public class Business_TeaServiceImpl implements Business_TeaService {
 
         return tea;
     }
+
+    @Override
+    public Tea getTeaById(int id) {
+        Tea teaById = businessTeaDao.getTeaById(id);
+        return teaById;
+    }
+
+    @Override
+    public Tea getTeaByName(String name) {
+        Tea teaByName = businessTeaDao.getTeaByName(name);
+        return teaByName;
+    }
+
+    @Override
+    public List<Tea> getAllTeaByType(String type) {
+        List<Tea> allTeaByType = businessTeaDao.getAllTeaByType(type);
+        return allTeaByType;
+    }
+
+    @Override
+    public List<Tea> getAllTeaOnSale() {
+        List<Tea> allTeaOnSale = businessTeaDao.getAllTeaOnSale();
+        return allTeaOnSale;
+    }
+
+
 }
