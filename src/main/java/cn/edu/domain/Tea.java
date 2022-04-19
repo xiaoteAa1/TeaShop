@@ -17,6 +17,11 @@ public class Tea {
     private int monthSales;//月销量
     private int yearSales;//年销量
 
+
+    public Tea(){
+    }
+
+
     public Tea(String name) {
         this.name = name;
     }
@@ -147,8 +152,6 @@ public class Tea {
                 ", yearSales=" + yearSales +
                 '}';
     }
-
-
 
 //    /*
 //        假设商品价格 price = ，对应[半塘、小杯、正常]
