@@ -93,7 +93,7 @@ public class Business_TeaController extends JFrame {
             res[idx][2] = t.getPrice();
             res[idx][3] = t.getType();
             res[idx][4] = t.getRemark();
-            res[idx][5] = t.getIsSale();
+            res[idx][5] = t.getIsSale();//销售状态
             res[idx][6] = t.getRemain();
             res[idx][7] = t.getSales();
             res[idx][8] = t.getDaySales();
