@@ -36,7 +36,7 @@ public interface Business_TeaDao {
     /*
         获取type类型对应的奶茶
      */
-    List<Tea> getAllTeaByType(int type);
+    List<Tea> getAllTeaByType(String type);
     /*
         通过奶茶名称获得单个奶茶对象
      */

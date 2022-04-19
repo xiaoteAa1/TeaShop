@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface Business_TeaService {
     List<Tea> getAllTea();
+    Tea getTeaById(int id);
+    Tea getTeaByName(String name);
+    List<Tea> getAllTeaByType(String type);
+    List<Tea> getAllTeaOnSale();
 }
