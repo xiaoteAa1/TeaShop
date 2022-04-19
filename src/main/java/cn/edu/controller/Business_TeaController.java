@@ -84,7 +84,7 @@ public class Business_TeaController extends JFrame {
 
         List<Tea> list = bts.getAllTea();
         int len = list.size();
-        Object[][] res = new Object[len][10];
+        Object[][] res = new Object[len][11];
 
         int idx = 0;
         for(Tea t :list){
@@ -93,11 +93,12 @@ public class Business_TeaController extends JFrame {
             res[idx][2] = t.getPrice();
             res[idx][3] = t.getType();
             res[idx][4] = t.getRemark();
-            res[idx][5] = t.getRemain();
-            res[idx][6] = t.getSales();
-            res[idx][7] = t.getDaySales();
-            res[idx][8] = t.getMonthSales();
-            res[idx][9] = t.getYearSales();
+            res[idx][5] = t.getIsSale();
+            res[idx][6] = t.getRemain();
+            res[idx][7] = t.getSales();
+            res[idx][8] = t.getDaySales();
+            res[idx][9] = t.getMonthSales();
+            res[idx][10] = t.getYearSales();
             dtm.addRow(res[idx]);
         }
         table1.setModel(dtm);

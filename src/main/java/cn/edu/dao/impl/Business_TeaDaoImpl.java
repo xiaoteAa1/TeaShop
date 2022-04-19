@@ -43,6 +43,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
                 String remark = rs.getString("remark");
                 String type = rs.getString("type");
                 double price = rs.getDouble("price");
+                int isSale = rs.getInt("isSale");
                 int remain = rs.getInt("remain");
 
                 int sales = rs.getInt("sales");
@@ -50,7 +51,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
                 int monthSales = rs.getInt("monthSales");
                 int yearSales = rs.getInt("yearSales");
 
-                Tea tea = new Tea(id,name,remark,type,price,remain,sales,daySales,monthSales,yearSales);
+                Tea tea = new Tea(id,name,remark,type,price,isSale,remain,sales,daySales,monthSales,yearSales);
                 list.add(tea);
             }
 

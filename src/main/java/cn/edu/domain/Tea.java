@@ -8,6 +8,7 @@ public class Tea {
     private double price;//奶茶价格
 
     //==标识属性==
+    private int isSale;//1表示可销售，0表示不销售，默认为1
     private int remain;//奶茶剩余数量
 
     //==统计属性==
@@ -27,17 +28,27 @@ public class Tea {
         this.price = price;
     }
 
-    public Tea(int teaId, String name, String remark, String type, double price, int remain, int sales, int daySales, int monthSales, int yearSales) {
+
+    public Tea(int teaId, String name, String remark, String type, double price, int isSale, int remain, int sales, int daySales, int monthSales, int yearSales) {
         this.teaId = teaId;
         this.name = name;
         this.remark = remark;
         this.type = type;
         this.price = price;
+        this.isSale = isSale;
         this.remain = remain;
         this.sales = sales;
         this.daySales = daySales;
         this.monthSales = monthSales;
         this.yearSales = yearSales;
+    }
+
+    public int getIsSale() {
+        return isSale;
+    }
+
+    public void setIsSale(int isSale) {
+        this.isSale = isSale;
     }
 
     public int getTeaId() {
@@ -126,8 +137,9 @@ public class Tea {
                 "teaId=" + teaId +
                 ", name='" + name + '\'' +
                 ", remark='" + remark + '\'' +
-                ", type=" + type +
+                ", type='" + type + '\'' +
                 ", price=" + price +
+                ", isSale=" + isSale +
                 ", remain=" + remain +
                 ", sales=" + sales +
                 ", daySales=" + daySales +
@@ -135,8 +147,6 @@ public class Tea {
                 ", yearSales=" + yearSales +
                 '}';
     }
-
-
 
 //    /*
 //        假设商品价格 price = ，对应[半塘、小杯、正常]
