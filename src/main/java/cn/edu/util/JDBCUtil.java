@@ -15,7 +15,7 @@ JDBC工具类
                 passwrod=
  */
 public class JDBCUtil {
-    private static String url = "jdbc:mysql://120.79.223.83:3306/teaShop?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static String url = "jdbc:mysql://120.79.223.83:3306/teaShop2?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static String user = "root";
     private static String password = "lxj123456";
     private static String driver;
