@@ -17,6 +17,10 @@ public class Tea {
     private int monthSales;//月销量
     private int yearSales;//年销量
 
+    public Tea(){
+
+    }
+
     public Tea(String name) {
         this.name = name;
     }
