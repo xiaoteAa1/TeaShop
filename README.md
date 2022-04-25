@@ -7,7 +7,7 @@
 | 2    | name   | 奶茶名称                                           | varchar |      | NO   |                |         |
 | 3    | price  | 奶茶价格                                           | decimal |      | NO   |                |         |
 | 4    | type   | 奶茶类型                                           | varchar |      | YES  |                | '其它'  |
-| 5    | isSale | 是否可销售。<br />0表示可销售，<br />1表示不可销售 | int     |      | YES  |                | 0       |
+| 5    | isSale | 是否可销售。<br />1表示可销售，<br />0表示不可销售.<br />默认为1 | int     |      | YES  |                | 1       |
 | 6    | remark | 备注                                               | varchar |      | YES  |                | '暂无~' |
 
 
