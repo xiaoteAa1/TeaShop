@@ -31,8 +31,6 @@ public class Business_TeaController extends JFrame {
         // TODO add your code here
     }
 
-
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         scrollPane1 = new JScrollPane();
@@ -171,20 +169,18 @@ public class Business_TeaController extends JFrame {
     }
     //根据ID搜索：
     void getTeaById(int id){
-        dtm = new DefaultTableModel(null,SwingUtils.columns);
+        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
         dtm.setRowCount(0);
         Tea t = bts.getTeaById(id);
-        Object[][] res = new Object[1][11];
+        Object[][] res = new Object[1][8];
         res[0][0] = t.getTeaId();
         res[0][1] = t.getName();
         res[0][2] = t.getPrice();
         res[0][3] = t.getType();
-        res[0][4] = t.getRemark();
-        res[0][5] = t.getRemain();
-        res[0][6] = t.getSales();
-        res[0][7] = t.getDaySales();
-        res[0][8] = t.getMonthSales();
-        res[0][9] = t.getYearSales();
+        res[0][4] = t.getIsSale();
+        res[0][5] = t.getRemark();
+        res[0][6] = t.getCount();
+        res[0][7] = t.getSales();
         dtm.addRow(res[0]);
         table1.setModel(dtm);
         table1.invalidate();
@@ -194,17 +190,16 @@ public class Business_TeaController extends JFrame {
         System.out.println(222);
         dtm.setRowCount(0);
         Tea t = bts.getTeaByName(name);
-        Object[][] res = new Object[1][11];
+        Object[][] res = new Object[1][8];
         res[0][0] = t.getTeaId();
         res[0][1] = t.getName();
         res[0][2] = t.getPrice();
         res[0][3] = t.getType();
-        res[0][4] = t.getRemark();
-        res[0][5] = t.getRemain();
-        res[0][6] = t.getSales();
-        res[0][7] = t.getDaySales();
-        res[0][8] = t.getMonthSales();
-        res[0][9] = t.getYearSales();
+        res[0][4] = t.getIsSale();
+        res[0][5] = t.getRemark();
+        res[0][6] = t.getCount();
+        res[0][7] = t.getSales();
+
         dtm.addRow(res[0]);
         table1.setModel(dtm);
         table1.invalidate();
@@ -215,19 +210,18 @@ public class Business_TeaController extends JFrame {
         List<Tea> list = bts.getAllTeaByType(ByType);
 //        System.out.println(list.size());
         int len = list.size();
-        Object[][] res = new Object[len][11];
+        Object[][] res = new Object[1][8];
+
         int idx = 0;
         for(Tea t :list){
-            res[idx][0] = t.getTeaId();
-            res[idx][1] = t.getName();
-            res[idx][2] = t.getPrice();
-            res[idx][3] = t.getType();
-            res[idx][4] = t.getRemark();
-            res[idx][5] = t.getRemain();
-            res[idx][6] = t.getSales();
-            res[idx][7] = t.getDaySales();
-            res[idx][8] = t.getMonthSales();
-            res[idx][9] = t.getYearSales();
+            res[0][0] = t.getTeaId();
+            res[0][1] = t.getName();
+            res[0][2] = t.getPrice();
+            res[0][3] = t.getType();
+            res[0][4] = t.getIsSale();
+            res[0][5] = t.getRemark();
+            res[0][6] = t.getCount();
+            res[0][7] = t.getSales();
             dtm.addRow(res[idx]);
         }
         table1.setModel(dtm);
@@ -238,19 +232,17 @@ public class Business_TeaController extends JFrame {
         dtm.setRowCount(0);
         List<Tea> list = bts.getAllTeaOnSale();
         int len = list.size();
-        Object[][] res = new Object[len][11];
+        Object[][] res = new Object[len][8];
         int idx = 0;
         for(Tea t :list){
-            res[idx][0] = t.getTeaId();
-            res[idx][1] = t.getName();
-            res[idx][2] = t.getPrice();
-            res[idx][3] = t.getType();
-            res[idx][4] = t.getRemark();
-            res[idx][5] = t.getRemain();
-            res[idx][6] = t.getSales();
-            res[idx][7] = t.getDaySales();
-            res[idx][8] = t.getMonthSales();
-            res[idx][9] = t.getYearSales();
+            res[0][0] = t.getTeaId();
+            res[0][1] = t.getName();
+            res[0][2] = t.getPrice();
+            res[0][3] = t.getType();
+            res[0][4] = t.getIsSale();
+            res[0][5] = t.getRemark();
+            res[0][6] = t.getCount();
+            res[0][7] = t.getSales();
             dtm.addRow(res[idx]);
         }
         table1.setModel(dtm);
@@ -262,21 +254,18 @@ public class Business_TeaController extends JFrame {
         dtm.setRowCount(0);
         List<Tea> list = bts.getAllTea();
         int len = list.size();
-        Object[][] res = new Object[len][11];
+        Object[][] res = new Object[len][8];
 
         int idx = 0;
         for(Tea t :list){
-            res[idx][0] = t.getTeaId();
-            res[idx][1] = t.getName();
-            res[idx][2] = t.getPrice();
-            res[idx][3] = t.getType();
-            res[idx][4] = t.getRemark();
-            res[idx][5] = t.getIsSale();//销售状态
-            res[idx][6] = t.getRemain();
-            res[idx][7] = t.getSales();
-            res[idx][8] = t.getDaySales();
-            res[idx][9] = t.getMonthSales();
-            res[idx][10] = t.getYearSales();
+            res[0][0] = t.getTeaId();
+            res[0][1] = t.getName();
+            res[0][2] = t.getPrice();
+            res[0][3] = t.getType();
+            res[0][4] = t.getIsSale();
+            res[0][5] = t.getRemark();
+            res[0][6] = t.getCount();
+            res[0][7] = t.getSales();
             dtm.addRow(res[idx]);
         }
         table1.setModel(dtm);
@@ -301,7 +290,7 @@ public class Business_TeaController extends JFrame {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private static DefaultTableModel dtm;
     public static void main(String[] args) {
-        dtm = new DefaultTableModel(null,SwingUtils.columns);
+        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
         new Business_TeaController();
     }
 }

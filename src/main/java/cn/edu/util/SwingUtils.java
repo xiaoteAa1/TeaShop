@@ -2,7 +2,7 @@ package cn.edu.util;
 
 public class SwingUtils {
     //加了一个
-    public static Object[] columns =
-            {"序号","姓名","价格","类型","备注","销售状态","剩余数量","总销量","日销量","月销量","年销量"};
+    public static Object[] columnsForShopOwner_Tea =
+            {"序号","名称","价格","类型","销售状态","备注","剩余数量","总销量"};
 
 }

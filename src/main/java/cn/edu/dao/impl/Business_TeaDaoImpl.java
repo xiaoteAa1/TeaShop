@@ -2,7 +2,7 @@ package cn.edu.dao.impl;
 
 import cn.edu.dao.Business_TeaDao;
 import cn.edu.domain.Tea;
-import cn.edu.util.JDBCUtil;
+import cn.edu.util.JDBCUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +15,8 @@ import java.util.List;
 public class Business_TeaDaoImpl implements Business_TeaDao {
 
     Connection conn;
-    Statement state;
+    Statement sta;
+    PreparedStatement psta;
     ResultSet rs;
 
     public static void main(String[] args) {
@@ -27,207 +28,127 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
      */
     @Override
     public List<Tea> getAllTea() {
-        List<Tea> list = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM tea";
-            conn = JDBCUtil.getConnection();
-            state = conn.createStatement();
+            List<Tea> list = new ArrayList<>();
 
-            rs = state.executeQuery(sql);
-            while(rs.next()){
+            String sql ="select t.*,IFNULL(s.count,0) count,IFNULL(sta.sale,0) sale from tea t left join \n" +
+                    "store s on t.id=s.teaId left join statistic sta on t.id=sta.teaId";
+
+            conn = JDBCUtils.getConnection();
+            sta = conn.createStatement();
+            rs = sta.executeQuery(sql);
+
+            while (rs.next()){
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                String remark = rs.getString("remark");
-                String type = rs.getString("type");
                 double price = rs.getDouble("price");
+                String type = rs.getString("type");
                 int isSale = rs.getInt("isSale");
-                int remain = rs.getInt("remain");
+                String remark = rs.getString("remark");
+                int count = rs.getInt("count");
+                int sale = rs.getInt("sale");
 
-                int sales = rs.getInt("sales");
-                int daySales = rs.getInt("daySales");
-                int monthSales = rs.getInt("monthSales");
-                int yearSales = rs.getInt("yearSales");
-
-                Tea tea = new Tea(id,name,remark,type,price,isSale,remain,sales,daySales,monthSales,yearSales);
+                Tea tea = new Tea(id,name,price,type,isSale,remark,count,sale);
                 list.add(tea);
             }
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtil.close(rs,state,conn);
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }finally {
+            JDBCUtils.close(rs, sta,conn);
         }
-
-        return list;
     }
 
 
     @Override
     public List<Tea> getAllTeaOnSale() {
-
-        List<Tea> list = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM tea where isSale = 1";
-            conn = JDBCUtil.getConnection();
-            state = conn.createStatement();
-
-            rs = state.executeQuery(sql);
-            while(rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String remark = rs.getString("remark");
-                String type = rs.getString("type");
-                double price = rs.getDouble("price");
-                int remain = rs.getInt("remain");
-                int isSale = rs.getInt("isSale");
-                int sales = rs.getInt("sales");
-                int daySales = rs.getInt("daySales");
-                int monthSales = rs.getInt("monthSales");
-                int yearSales = rs.getInt("yearSales");
-
-                Tea tea = new Tea(id,name,remark,type,price,isSale,remain,sales,daySales,monthSales,yearSales);
-                list.add(tea);
+        List<Tea> res = new ArrayList<>();
+        List<Tea> list = getAllTea();
+        for(Tea t:list){
+            if(t.getIsSale() == 1){
+                res.add(t);
             }
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtil.close(rs,state,conn);
         }
-
-        return list;
+        return res;
     }
 
     @Override
     public List<Tea> getAllTeaByType(String ByType) {
-        List<Tea> li = new ArrayList<>();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Tea tea = null;
-        try {
-            conn = JDBCUtil.getConnection();
-            ps = conn.prepareStatement("select * from tea where type = ?");
-            ps.setString(1,ByType);
-            rs = ps.executeQuery();
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String remark = rs.getString("remark");
-                String type = rs.getString("type");
-                double price = rs.getDouble("price");
-                int remain = rs.getInt("remain");
-                int sales = rs.getInt("sales");
-                int isSale = rs.getInt("isSale");
-                int daySales = rs.getInt("daySales");
-                int monthSales = rs.getInt("monthSales");
-                int yearSales = rs.getInt("yearSales");
-                tea = new Tea(id,name,remark,type,price,isSale,remain,sales,daySales,monthSales,yearSales);
-                li.add(tea);
+        List<Tea> res = new ArrayList<>();
+        List<Tea> list = getAllTea();
+        for(Tea t:list){
+            if(t.getType().equals(ByType)){
+                res.add(t);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtil.close(rs,state,conn);
         }
-        return li;
+        return res;
     }
 
     @Override
     public Tea getTeaByName(String ByName) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Tea tea = null;
         try {
-            conn = JDBCUtil.getConnection();
-            ps = conn.prepareStatement("select * from tea where name = ?");
-            ps.setString(1,ByName);
-            rs = ps.executeQuery();
+            String sql = "SELECT t.*,s.count,st.sale FROM tea t,store s,statistic st WHERE t.name=? AND s.teaId=t.id AND st.teaId=t.id";
+            conn = JDBCUtils.getConnection();
+            psta = conn.prepareStatement(sql);
+            psta.setString(1,ByName);
+
+            rs = psta.executeQuery();
+
+            Tea tea = new Tea();
             while (rs.next()){
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String remark = rs.getString("remark");
-                String type = rs.getString("type");
                 double price = rs.getDouble("price");
-                int remain = rs.getInt("remain");
+                String type = rs.getString("type");
                 int isSale = rs.getInt("isSale");
-                int sales = rs.getInt("sales");
-                int daySales = rs.getInt("daySales");
-                int monthSales = rs.getInt("monthSales");
-                int yearSales = rs.getInt("yearSales");
-                tea = new Tea(id,name,remark,type,price,isSale,remain,sales,daySales,monthSales,yearSales);
+                String remark = rs.getString("remark");
+                int count = rs.getInt("count");
+                int sale = rs.getInt("sale");
+
+                tea = new Tea(id,ByName,price,type,isSale,remark,count,sale);
+                tea.setCount(count);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtil.close(rs,state,conn);
+            return tea;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }finally {
+            JDBCUtils.close(rs, psta,conn);
         }
-        return tea;
     }
 
     @Override
     public Tea getTeaById(int Byid) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Tea tea = null;
         try {
-            conn = JDBCUtil.getConnection();
-            ps = conn.prepareStatement("select * from tea where id = ?");
-            ps.setInt(1,Byid);
-            rs = ps.executeQuery();
+            String sql = "SELECT t.*,s.count,st.sale FROM tea t,store s,statistic st WHERE t.id=? AND s.teaId=? AND st.teaId=?";
+            conn = JDBCUtils.getConnection();
+            psta = conn.prepareStatement(sql);
+            psta.setInt(1,Byid);
+            psta.setInt(2,Byid);
+            psta.setInt(3,Byid);
+
+            rs = psta.executeQuery();
+
+            Tea tea = new Tea();
             while (rs.next()){
-                int id = rs.getInt("id");
                 String name = rs.getString("name");
-                String remark = rs.getString("remark");
-                String type = rs.getString("type");
                 double price = rs.getDouble("price");
-                int remain = rs.getInt("remain");
-                int sales = rs.getInt("sales");
+                String type = rs.getString("type");
                 int isSale = rs.getInt("isSale");
-                int daySales = rs.getInt("daySales");
-                int monthSales = rs.getInt("monthSales");
-                int yearSales = rs.getInt("yearSales");
-                tea = new Tea(id,name,remark,type,price,isSale,remain,sales,daySales,monthSales,yearSales);
+                String remark = rs.getString("remark");
+                int count = rs.getInt("count");
+                int sale = rs.getInt("sale");
+
+                tea = new Tea(Byid,name,price,type,isSale,remark,count,sale);
+                tea.setCount(count);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtil.close(rs,state,conn);
+            return tea;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }finally {
+            JDBCUtils.close(rs, psta,conn);
         }
-//        return new Tea(12,"酸菜炒大肠","不加糖谢谢","不知道",98.8,
-//                10,4,1,2,12);
-        return tea;
     }
 
-
-    @Override
-    public boolean addTea(Tea tea) {
-        return false;
-    }
-
-    @Override
-    public boolean updateTeaName(String name) {
-        return false;
-    }
-
-    @Override
-    public boolean updateRemark(String remark) {
-        return false;
-    }
-
-    @Override
-    public boolean updateTeaType(int type) {
-        return false;
-    }
-
-    @Override
-    public boolean updateTeaPrice(double price) {
-        return false;
-    }
-
-
-
-    @Override
-    public boolean deleteTea(int id) {
-        return false;
-    }
 }
