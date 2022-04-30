@@ -4,6 +4,7 @@
 
 package cn.edu.controller;
 
+import cn.edu.domain.SingleTea;
 import cn.edu.domain.Tea;
 import cn.edu.service.Business_AddTeaSevice;
 import cn.edu.service.Business_TeaService;
@@ -17,7 +18,8 @@ import javax.swing.*;
 
 /**
  *@author  ZHH
- *@date    2022/04/19 16:08
+ *@date    2022/04/30 14:08
+ * @version 2.0
  */
 public class Business_AddTeaController extends JFrame {
     Business_AddTeaSevice bts = new Business_AddTeaServiceImpl();
@@ -56,9 +58,9 @@ public class Business_AddTeaController extends JFrame {
         button1.setText("\u65b0\u589e");
         button1.addActionListener(e -> button1(e));
         contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(15, 215), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(25, 365), button1.getPreferredSize()));
         contentPane.add(textField1);
-        textField1.setBounds(25, 55, 75, textField1.getPreferredSize().height);
+        textField1.setBounds(25, 55, 115, textField1.getPreferredSize().height);
 
         //---- label1 ----
         label1.setText("\u5976\u8336\u540d");
@@ -68,35 +70,35 @@ public class Business_AddTeaController extends JFrame {
         //---- label2 ----
         label2.setText("\u4ef7\u683c");
         contentPane.add(label2);
-        label2.setBounds(140, 30, 45, 25);
+        label2.setBounds(30, 90, 45, 25);
         contentPane.add(textField2);
-        textField2.setBounds(125, 55, 75, textField2.getPreferredSize().height);
+        textField2.setBounds(25, 115, 115, textField2.getPreferredSize().height);
         contentPane.add(textField3);
-        textField3.setBounds(225, 55, 75, textField3.getPreferredSize().height);
+        textField3.setBounds(25, 180, 115, textField3.getPreferredSize().height);
         contentPane.add(textField4);
-        textField4.setBounds(325, 55, 75, textField4.getPreferredSize().height);
+        textField4.setBounds(200, 65, 140, 65);
 
         //---- label3 ----
         label3.setText("\u7c7b\u578b");
         contentPane.add(label3);
-        label3.setBounds(230, 30, 45, 25);
+        label3.setBounds(30, 155, 45, 25);
 
         //---- label4 ----
         label4.setText("\u5907\u6ce8");
         contentPane.add(label4);
-        label4.setBounds(335, 30, 45, 25);
+        label4.setBounds(205, 35, 45, 25);
 
         //---- label10 ----
         label10.setText("\u662f\u5426\u552e\u5356");
         contentPane.add(label10);
-        label10.setBounds(35, 105, 55, 45);
+        label10.setBounds(25, 215, 55, 45);
         contentPane.add(textField10);
-        textField10.setBounds(115, 110, 40, 30);
+        textField10.setBounds(25, 255, 50, 30);
 
         //---- button2 ----
         button2.setText("\u8fd4\u56de\u754c\u9762");
         contentPane.add(button2);
-        button2.setBounds(new Rectangle(new Point(125, 215), button2.getPreferredSize()));
+        button2.setBounds(new Rectangle(new Point(200, 365), button2.getPreferredSize()));
 
         {
             // compute preferred size
@@ -124,29 +126,110 @@ public class Business_AddTeaController extends JFrame {
                 addTea();
             }
         });
+
+        /**
+         * 返回到界面
+         */
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Business_TeaController bs=new Business_TeaController();
+                new Business_TeaController();
             }
         });
     }
 
     /**
-     * 添加奶茶操作
+     * 添加奶茶操作2.0
      */
-    void addTea(){
+    boolean addTea(){
 
-        Tea tea=new Tea();
+        SingleTea singleTea=new SingleTea();
+        /**
+         * 将所有数据获取进行判断
+         */
+        String name = textField1.getText();
+        String price=textField2.getText();
+        String type=textField3.getText();
+        String remark=textField4.getText();
+        String isSale=textField10.getText();
+        /**
+         * 判断是否填写奶茶名字
+         */
+        if(name.equals("")){
+            JOptionPane.showMessageDialog(null,"奶茶名称未填写！",
+                    "提示",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        /**
+         * 判断是否填写奶茶价格
+         */
+        if(price.equals("")){
+            JOptionPane.showMessageDialog(null,"奶茶价格未填写！",
+                    "提示",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        /**
+         * 判断是否填写奶茶品种
+         */
+        if(type.equals("")){
+            textField3.setText("其它奶茶");
+        }
+        /**
+         * 判断是否填写奶茶销售状态
+         */
+        if(isSale.equals("")){
+            JOptionPane.showMessageDialog(null,"请填写销售状态0或1(0表示不销售，1表示销售)！",
+                    "提示",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        /**
+         * 判断奶茶销售状态是否正确
+         */
+        if(!(isSale.equals("1") || isSale.equals("0"))){
+            JOptionPane.showMessageDialog(null,"销售状态只能填写0或1(0表示不销售，1表示销售)！",
+                    "提示",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
 
-        tea.setName(textField1.getText());
-        tea.setPrice(Double.parseDouble(textField2.getText()));
-        tea.setType(textField3.getText());
-        tea.setRemark(textField4.getText());
-        tea.setIsSale(Integer.parseInt(textField10.getText()));
-        bts.addTea(tea);
+        /**
+         * 判断是否添加该产品
+         */
+        int add = JOptionPane.showConfirmDialog(null, "是否确认添加？", "添加奶茶信息",
+                JOptionPane.YES_NO_OPTION);
+        /**
+         * 当add为0时添加奶茶，为1时不添加
+         */
+        if(add == 1){
+            //不更新
+            return false;
+        }
+
+
+        /**
+         * 将奶茶相关数据放入Single实体类中
+         */
+        singleTea.setName(textField1.getText());
+        singleTea.setPrice(Double.parseDouble(textField2.getText()));
+        singleTea.setType(textField3.getText());
+        singleTea.setRemark(textField4.getText());
+        singleTea.setIsSale(Integer.parseInt(textField10.getText()));
+
+        boolean addTea = bts.addTea(singleTea);
+        /**
+         * 对添加操作进行判断
+         */
+        if(addTea){
+            JOptionPane.showMessageDialog(null,"添加成功！",
+                    "提示",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null,"添加失败，请稍后重试！",
+                    "提示",JOptionPane.INFORMATION_MESSAGE);
+        }
+        return addTea;
     }
+
+
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
@@ -166,4 +249,6 @@ public class Business_AddTeaController extends JFrame {
     public static void main(String[] args) {
         new Business_AddTeaController();
     }
+
+
 }
