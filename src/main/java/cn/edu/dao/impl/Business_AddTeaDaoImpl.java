@@ -3,7 +3,7 @@ package cn.edu.dao.impl;
 import cn.edu.dao.Business_AddTeaDao;
 import cn.edu.domain.SingleTea;
 import cn.edu.domain.Tea;
-import cn.edu.util.JDBCUtil;
+import cn.edu.util.JDBCUtils;
 
 import java.sql.*;
 /**
@@ -28,17 +28,17 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
 
 
         try {
-            conn = JDBCUtil.getConnection();
-            String sql = "Insert Into tea (name,remark,type,price,isSale) " +
+            conn = JDBCUtils.getConnection();
+            String sql = "Insert Into tea (name,price,type,isSale,remark) " +
                     "Values (?,?,?,?,?)";
             preparedStatement = conn.prepareStatement(sql);
+
 
             preparedStatement.setString(1,singleTea.getName());
             preparedStatement.setString(2,singleTea.getRemark());
             preparedStatement.setString(3,singleTea.getType());
             preparedStatement.setDouble(4,singleTea.getPrice());
             preparedStatement.setInt(5,singleTea.getIsSale());
-
 
             int row= preparedStatement.executeUpdate();
 
@@ -54,7 +54,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtil.close(rs,state,conn);
+            JDBCUtils.close(rs,state,conn);
         }
 
         return false;

@@ -12,20 +12,6 @@ import java.util.List;
 public interface Business_TeaDao {
 
     /*
-        尝试将该奶茶添加进入数据库
-    */
-    boolean addTea(Tea tea);
-
-    /*
-        修改奶茶属性： 名称、备注信息、类型、价格
-     */
-    boolean updateTeaName(String name);
-    boolean updateRemark(String remark);
-    boolean updateTeaType(int type);
-    boolean updateTeaPrice(double price);
-
-
-    /*
         获得所有的奶茶
      */
     List<Tea> getAllTea();
@@ -46,9 +32,13 @@ public interface Business_TeaDao {
      */
     Tea getTeaById(int id);
 
+    /*
+        修改奶茶信息
+    */
+    int updateTea(Tea t);
 
     /*
-        尝试将指定id对应的奶茶删除
+        删除奶茶信息
     */
-    boolean deleteTea(int id);
+    int deleteById(int id);
 }

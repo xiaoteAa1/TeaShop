@@ -1,21 +1,22 @@
 package cn.edu.domain;
 
+/**
+ * tea store statistic表汇总的类
+ */
 public class Tea {
     private int teaId;//奶茶编号
     private String name;//奶茶名称
-    private String remark;//对奶茶的备注信息
-    private String type;//奶茶类型
     private double price;//奶茶价格
-
-    //==标识属性==
+    private String type;//奶茶类型
     private int isSale;//1表示可销售，0表示不销售，默认为1
-    private int remain;//奶茶剩余数量
+    private String remark;//对奶茶的备注信息
 
-    //==统计属性==
+    //==库存表属性==
+    private int count;//奶茶剩余数量
+
+    //==统计表属性==
     private int sales;//奶茶销量
-    private int daySales;//日销量
-    private int monthSales;//月销量
-    private int yearSales;//年销量
+
 
     public Tea(){
 
@@ -32,19 +33,24 @@ public class Tea {
         this.price = price;
     }
 
-
-    public Tea(int teaId, String name, String remark, String type, double price, int isSale, int remain, int sales, int daySales, int monthSales, int yearSales) {
+    public Tea(int teaId, String name, double price, String type, int isSale, String remark) {
         this.teaId = teaId;
         this.name = name;
-        this.remark = remark;
-        this.type = type;
         this.price = price;
+        this.type = type;
         this.isSale = isSale;
-        this.remain = remain;
+        this.remark = remark;
+    }
+
+    public Tea(int teaId, String name, double price, String type, int isSale, String remark, int count, int sales) {
+        this.teaId = teaId;
+        this.name = name;
+        this.price = price;
+        this.type = type;
+        this.isSale = isSale;
+        this.remark = remark;
+        this.count = count;
         this.sales = sales;
-        this.daySales = daySales;
-        this.monthSales = monthSales;
-        this.yearSales = yearSales;
     }
 
     public int getIsSale() {
@@ -95,12 +101,12 @@ public class Tea {
         this.price = price;
     }
 
-    public int getRemain() {
-        return remain;
+    public int getCount() {
+        return count;
     }
 
-    public void setRemain(int remain) {
-        this.remain = remain;
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public int getSales() {
@@ -111,78 +117,18 @@ public class Tea {
         this.sales = sales;
     }
 
-    public int getDaySales() {
-        return daySales;
-    }
-
-    public void setDaySales(int daySales) {
-        this.daySales = daySales;
-    }
-
-    public int getMonthSales() {
-        return monthSales;
-    }
-
-    public void setMonthSales(int monthSales) {
-        this.monthSales = monthSales;
-    }
-
-    public int getYearSales() {
-        return yearSales;
-    }
-
-    public void setYearSales(int yearSales) {
-        this.yearSales = yearSales;
-    }
 
     @Override
     public String toString() {
         return "Tea{" +
                 "teaId=" + teaId +
                 ", name='" + name + '\'' +
-                ", remark='" + remark + '\'' +
-                ", type='" + type + '\'' +
                 ", price=" + price +
+                ", type='" + type + '\'' +
                 ", isSale=" + isSale +
-                ", remain=" + remain +
+                ", remark='" + remark + '\'' +
+                ", count=" + count +
                 ", sales=" + sales +
-                ", daySales=" + daySales +
-                ", monthSales=" + monthSales +
-                ", yearSales=" + yearSales +
                 '}';
     }
-
-
-
-//    /*
-//        假设商品价格 price = ，对应[半塘、小杯、正常]
-//        {糖量：{[多糖,1]、[少糖,-1]、[半塘,0]}
-//         份量：{[大杯,4]、[中杯,2]、[小杯,0]}
-//         冰量：{[多冰,2],[少冰,-1],[正常,0]} }。
-//         例：
-//         [多糖，大杯，多冰] = 10+1+4+2 = 17
-//         [半塘、小杯、正常] = 10+0+0+0 = 10
-//         [多糖，中杯，少冰] = 10+1+2-1 = 12
-//
-//         //---------------------------------------------
-//
-//         {S1 : {[s11,p11],[s12,p12],[s13,p13],
-//          S2 : {[s21,p21],[s22,p22],
-//          S3 : {[s31,p31],[s32,p32],[s33,p33],[s34,p34]}
-//
-//        即：{
-//            S(0)[0][j(0)] ,
-//            S(1)[1][j(1)],
-//            ...
-//            S(i)[i][j(i)],
-//            S(i+1)[i+1][j(i+1)],
-//            ...
-//            S(N)[N-1][j(N-1)]
-//            }
-//        初始的选择组合为每一行从左往右第一个为 j = 0 的值
-//
-//
-//        假设List的长度不超过100
-//     */
-//    private HashMap<String,List<String[]>> map;//奶茶可选属性
 }
