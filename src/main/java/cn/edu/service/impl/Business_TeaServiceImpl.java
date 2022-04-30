@@ -13,16 +13,12 @@ import java.util.List;
  */
 public class Business_TeaServiceImpl implements Business_TeaService {
     Business_TeaDao businessTeaDao = new Business_TeaDaoImpl();
-
-
     /*
         获取所有奶茶信息
      */
     @Override
     public List<Tea> getAllTea() {
-
         List<Tea> tea = businessTeaDao.getAllTea();
-
         return tea;
     }
 
@@ -50,5 +46,15 @@ public class Business_TeaServiceImpl implements Business_TeaService {
         return allTeaOnSale;
     }
 
+    @Override
+    public int updateTea(Tea t) {
+        int i = businessTeaDao.updateTea(t);
+        return i;
+    }
 
+    @Override
+    public int deleteById(int id) {
+        int i = businessTeaDao.deleteById(id);
+        return i;
+    }
 }

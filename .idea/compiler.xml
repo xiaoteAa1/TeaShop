@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TeaShop" />
+        <module name="myTeaShop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="myTeaShop" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
