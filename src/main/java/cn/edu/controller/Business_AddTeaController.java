@@ -157,7 +157,7 @@ public class Business_AddTeaController extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-//                new Business_TeaController();
+                new Business_TeaController();
             }
         });
     }
