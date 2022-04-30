@@ -2,6 +2,9 @@ package cn.edu.service;
 
 import cn.edu.domain.SingleTea;
 import cn.edu.domain.Tea;
+
+import java.sql.SQLException;
+
 /**
  *@author  ZHH
  *@date    2022/04/30 14:08
@@ -10,8 +13,9 @@ import cn.edu.domain.Tea;
 public interface Business_AddTeaSevice {
     /**
      * 新增奶茶
-     * @param singleTea
+     * @param tea
      * @return
      */
-    boolean addTea(SingleTea singleTea);
+    boolean addTea(Tea tea) throws SQLException;
+
 }

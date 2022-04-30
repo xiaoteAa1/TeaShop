@@ -7,13 +7,14 @@ package cn.edu.controller;
 import cn.edu.domain.SingleTea;
 import cn.edu.domain.Tea;
 import cn.edu.service.Business_AddTeaSevice;
-import cn.edu.service.Business_TeaService;
+
 import cn.edu.service.impl.Business_AddTeaServiceImpl;
-import cn.edu.service.impl.Business_TeaServiceImpl;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 
 /**
@@ -48,6 +49,10 @@ public class Business_AddTeaController extends JFrame {
         label10 = new JLabel();
         textField10 = new JTextField();
         button2 = new JButton();
+        label5 = new JLabel();
+        label6 = new JLabel();
+        textField5 = new JTextField();
+        textField6 = new JTextField();
 
         //======== this ========
         setTitle("\u6dfb\u52a0\u5976\u8336");
@@ -58,7 +63,7 @@ public class Business_AddTeaController extends JFrame {
         button1.setText("\u65b0\u589e");
         button1.addActionListener(e -> button1(e));
         contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(25, 365), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(25, 435), button1.getPreferredSize()));
         contentPane.add(textField1);
         textField1.setBounds(25, 55, 115, textField1.getPreferredSize().height);
 
@@ -76,7 +81,7 @@ public class Business_AddTeaController extends JFrame {
         contentPane.add(textField3);
         textField3.setBounds(25, 180, 115, textField3.getPreferredSize().height);
         contentPane.add(textField4);
-        textField4.setBounds(200, 65, 140, 65);
+        textField4.setBounds(25, 295, 140, 65);
 
         //---- label3 ----
         label3.setText("\u7c7b\u578b");
@@ -86,19 +91,33 @@ public class Business_AddTeaController extends JFrame {
         //---- label4 ----
         label4.setText("\u5907\u6ce8");
         contentPane.add(label4);
-        label4.setBounds(205, 35, 45, 25);
+        label4.setBounds(30, 255, 45, 25);
 
         //---- label10 ----
         label10.setText("\u662f\u5426\u552e\u5356");
         contentPane.add(label10);
-        label10.setBounds(25, 215, 55, 45);
+        label10.setBounds(180, 145, 55, 45);
         contentPane.add(textField10);
-        textField10.setBounds(25, 255, 50, 30);
+        textField10.setBounds(180, 180, 50, 30);
 
         //---- button2 ----
         button2.setText("\u8fd4\u56de\u754c\u9762");
         contentPane.add(button2);
-        button2.setBounds(new Rectangle(new Point(200, 365), button2.getPreferredSize()));
+        button2.setBounds(new Rectangle(new Point(195, 435), button2.getPreferredSize()));
+
+        //---- label5 ----
+        label5.setText("\u5e93\u5b58\u6570\u91cf");
+        contentPane.add(label5);
+        label5.setBounds(185, 35, 70, label5.getPreferredSize().height);
+
+        //---- label6 ----
+        label6.setText("\u9500\u552e\u91cf");
+        contentPane.add(label6);
+        label6.setBounds(185, 95, 70, 17);
+        contentPane.add(textField5);
+        textField5.setBounds(180, 55, 115, textField5.getPreferredSize().height);
+        contentPane.add(textField6);
+        textField6.setBounds(180, 115, 115, textField6.getPreferredSize().height);
 
         {
             // compute preferred size
@@ -123,7 +142,11 @@ public class Business_AddTeaController extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addTea();
+                try {
+                    addTea();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
@@ -134,7 +157,7 @@ public class Business_AddTeaController extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new Business_TeaController();
+//                new Business_TeaController();
             }
         });
     }
@@ -142,9 +165,11 @@ public class Business_AddTeaController extends JFrame {
     /**
      * 添加奶茶操作2.0
      */
-    boolean addTea(){
+    boolean addTea() throws SQLException {
 
-        SingleTea singleTea=new SingleTea();
+        Tea tea=new Tea();
+
+
         /**
          * 将所有数据获取进行判断
          */
@@ -152,6 +177,8 @@ public class Business_AddTeaController extends JFrame {
         String price=textField2.getText();
         String type=textField3.getText();
         String remark=textField4.getText();
+        String count = textField5.getText();
+        String sale=textField6.getText();
         String isSale=textField10.getText();
         /**
          * 判断是否填写奶茶名字
@@ -174,6 +201,18 @@ public class Business_AddTeaController extends JFrame {
          */
         if(type.equals("")){
             textField3.setText("其它奶茶");
+        }
+        /**
+         * 判断是否填写库存量
+         */
+        if(count.equals("")){
+            textField5.setText("0");
+        }
+        /**
+         * 判断是否填写售卖量
+         */
+        if(count.equals("")){
+            textField6.setText("0");
         }
         /**
          * 判断是否填写奶茶销售状态
@@ -201,7 +240,7 @@ public class Business_AddTeaController extends JFrame {
          * 当add为0时添加奶茶，为1时不添加
          */
         if(add == 1){
-            //不更新
+
             return false;
         }
 
@@ -209,13 +248,18 @@ public class Business_AddTeaController extends JFrame {
         /**
          * 将奶茶相关数据放入Single实体类中
          */
-        singleTea.setName(textField1.getText());
-        singleTea.setPrice(Double.parseDouble(textField2.getText()));
-        singleTea.setType(textField3.getText());
-        singleTea.setRemark(textField4.getText());
-        singleTea.setIsSale(Integer.parseInt(textField10.getText()));
+        tea.setName(textField1.getText());
+        tea.setPrice(Double.parseDouble(textField2.getText()));
+        tea.setType(textField3.getText());
+        tea.setRemark(textField4.getText());
+        tea.setCount(Integer.parseInt(textField5.getText()));
+        tea.setSales(Integer.parseInt(textField6.getText()));
+        tea.setIsSale(Integer.parseInt(textField10.getText()));
 
-        boolean addTea = bts.addTea(singleTea);
+
+
+        boolean addTea = bts.addTea(tea);
+
         /**
          * 对添加操作进行判断
          */
@@ -228,6 +272,8 @@ public class Business_AddTeaController extends JFrame {
         }
         return addTea;
     }
+
+
 
 
 
@@ -245,6 +291,10 @@ public class Business_AddTeaController extends JFrame {
     private JLabel label10;
     private JTextField textField10;
     private JButton button2;
+    private JLabel label5;
+    private JLabel label6;
+    private JTextField textField5;
+    private JTextField textField6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     public static void main(String[] args) {
         new Business_AddTeaController();
