@@ -7,7 +7,7 @@ import cn.edu.dao.impl.Business_AddTeaDaoImpl;
 import cn.edu.domain.SingleTea;
 import cn.edu.domain.Tea;
 import cn.edu.service.Business_AddTeaSevice;
-import cn.edu.util.JDBCUtil;
+import cn.edu.util.JDBCUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,7 +28,7 @@ public class Business_AddTeaServiceImpl implements Business_AddTeaSevice {
     @Override
     public boolean addTea(Tea tea) throws SQLException {
 
-        conn=JDBCUtil.getConnection();
+        conn= JDBCUtils.getConnection();
         /**
          * 将奶茶信息放入singletea实体类中
          */

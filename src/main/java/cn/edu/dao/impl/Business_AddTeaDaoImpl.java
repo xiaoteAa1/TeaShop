@@ -68,7 +68,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
     public SingleTea getTeaByName(String name) {
 
         try {
-            conn = JDBCUtil.getConnection();
+            conn = JDBCUtils.getConnection();
             String sql = "SELECT * FROM tea WHERE name=?";
             preparedStatement = conn.prepareStatement(sql);
 
@@ -90,7 +90,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtil.close(rs,state,conn);
+            JDBCUtils.close(rs,state,conn);
         }
 
 
@@ -109,7 +109,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
     @Override
     public boolean addTeaStoreHouse(int teaId,int count) {
         try {
-            conn = JDBCUtil.getConnection();
+            conn = JDBCUtils.getConnection();
             String sql = "Insert Into store (teaId, count) " +
                     "Values (?,?)";
             preparedStatement = conn.prepareStatement(sql);
@@ -131,7 +131,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtil.close(rs,state,conn);
+            JDBCUtils.close(rs,state,conn);
         }
 
         return false;
@@ -146,7 +146,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
     @Override
     public boolean addTeaStatistics(int teaId, int sale) {
         try {
-            conn = JDBCUtil.getConnection();
+            conn = JDBCUtils.getConnection();
             String sql = "INSERT INTO statistic(teaId,sale) " +
                     "VALUES(?,?)";
             preparedStatement = conn.prepareStatement(sql);
@@ -168,7 +168,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtil.close(rs,state,conn);
+            JDBCUtils.close(rs,state,conn);
         }
 
         return false;
