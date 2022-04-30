@@ -32,4 +32,13 @@ public interface Business_TeaDao {
      */
     Tea getTeaById(int id);
 
+    /*
+        修改奶茶信息
+    */
+    int updateTea(Tea t);
+
+    /*
+        删除奶茶信息
+    */
+    int deleteById(int id);
 }
