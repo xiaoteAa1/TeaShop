@@ -2,6 +2,10 @@ package cn.edu.controller;
 
 import cn.edu.guet.weappdemo.pay.WXPay;
 
+/**
+ * @author TJH
+ * @date 2022/05/01 11:32
+ */
 public class MainPayCode {
     public static void main(String[] args) {
         String url = "http://4s770d5857.qicp.vip/result";
