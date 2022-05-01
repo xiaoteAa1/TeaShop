@@ -102,4 +102,29 @@ public class User_AddCarImpl implements User_AddCar {
             JDBCUtils.close(rs, sta, conn);
         }
     }
+
+    @Override
+    public double getSumPrice() {
+        double price = 0;
+        try {
+            String sql = "select SUM(price) from cartea";
+
+            conn = JDBCUtils.getConnection();
+            sta = conn.createStatement();
+            rs = sta.executeQuery(sql);
+            while (rs.next()) {
+                price = rs.getDouble("SUM(price)");
+            }
+
+            return price;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            JDBCUtils.close(rs, sta, conn);
+        }
+          return price;
+    }
 }
+

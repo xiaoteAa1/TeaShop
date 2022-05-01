@@ -28,7 +28,11 @@ public class User_SelectTea extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         scrollPane1 = new JScrollPane();
-        table1 = new JTable();
+        table1 = new JTable(){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         button1 = new JButton();
         label1 = new JLabel();
         textField1 = new JTextField();
@@ -89,6 +93,7 @@ public class User_SelectTea extends JFrame {
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        textField1.setEditable(false);
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -141,7 +146,10 @@ public class User_SelectTea extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 getCarTea();
+                getPrice();
                 new User_SeeCar();
+                User_SeeCar.textField1.setText(String.valueOf(carPrice));
+                System.out.println(carPrice);
                 User_SeeCar.table1.setModel(dtm1);
                 User_SeeCar.table1.invalidate();
             }
@@ -187,7 +195,9 @@ public class User_SelectTea extends JFrame {
             dtm1.addRow(res[idx]);
         }
 
-
+    }
+    void getPrice(){
+        carPrice = acs.getSumPrice();
     }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JScrollPane scrollPane1;
@@ -202,6 +212,7 @@ public class User_SelectTea extends JFrame {
     private static DefaultTableModel dtm1;
     String teaName =null;
     double price =0.0;
+    double carPrice =0.0;
     int teaId = 0;
 
 

@@ -31,5 +31,11 @@ public class User_AddCarServiceImpl implements User_AddCarService {
         return tea;
     }
 
+    @Override
+    public double getSumPrice() {
+        double price = user_addCar.getSumPrice();
+        return price;
+    }
+
 
 }

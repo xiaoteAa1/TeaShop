@@ -18,10 +18,16 @@ public class User_SeeCar extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         scrollPane1 = new JScrollPane();
-        table1 = new JTable();
+        table1 = new JTable(){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         label1 = new JLabel();
         button1 = new JButton();
         button2 = new JButton();
+        label2 = new JLabel();
+        textField1 = new JTextField();
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -49,6 +55,13 @@ public class User_SeeCar extends JFrame {
         contentPane.add(button2);
         button2.setBounds(new Rectangle(new Point(480, 330), button2.getPreferredSize()));
 
+        //---- label2 ----
+        label2.setText("\u603b\u4ef7\uff1a");
+        contentPane.add(label2);
+        label2.setBounds(new Rectangle(new Point(465, 45), label2.getPreferredSize()));
+        contentPane.add(textField1);
+        textField1.setBounds(500, 40, 70, textField1.getPreferredSize().height);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -69,6 +82,7 @@ public class User_SeeCar extends JFrame {
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        textField1.setEditable(false);
 
 
 
@@ -82,6 +96,8 @@ public class User_SeeCar extends JFrame {
     private JLabel label1;
     private JButton button1;
     private JButton button2;
+    private JLabel label2;
+    static JTextField textField1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 

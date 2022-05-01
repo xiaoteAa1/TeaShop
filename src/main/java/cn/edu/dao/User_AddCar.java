@@ -10,4 +10,6 @@ public interface User_AddCar {
     boolean addTea(CarTea carTea);
 
     List<CarTea> getCarTea();
+
+    double getSumPrice();
 }
