@@ -1,7 +1,5 @@
 package cn.edu.guet.weappdemo.dao.impl;
 
-
-
 import cn.edu.guet.weappdemo.dao.User_AddCar;
 import cn.edu.guet.weappdemo.domain.CarTea;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
@@ -10,10 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *@author  WGJ
- *@date    2022/05/01 23:08
- */
 public class User_AddCarImpl implements User_AddCar {
     Connection conn;
     Statement sta;
@@ -63,7 +57,7 @@ public class User_AddCarImpl implements User_AddCar {
             psta.setInt(1,carTea.getTeaId());
             psta.setString(2,carTea.getName());
             psta.setDouble(3,carTea.getPrice());
-            
+
             int row = psta.executeUpdate();
 
             if(row>0){

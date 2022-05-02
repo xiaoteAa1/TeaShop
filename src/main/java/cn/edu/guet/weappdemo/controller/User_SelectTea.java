@@ -1,14 +1,12 @@
-/*
+package cn.edu.guet.weappdemo.controller;/*
  * Created by JFormDesigner on Sat Apr 30 16:07:17 CST 2022
  */
-
-package cn.edu.guet.weappdemo.controller;
-
 
 import cn.edu.guet.weappdemo.domain.CarTea;
 import cn.edu.guet.weappdemo.service.User_AddCarService;
 import cn.edu.guet.weappdemo.service.impl.User_AddCarServiceImpl;
 import cn.edu.guet.weappdemo.util.SwingUtils;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

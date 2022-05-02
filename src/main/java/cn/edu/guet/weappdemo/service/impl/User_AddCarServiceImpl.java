@@ -1,7 +1,6 @@
 package cn.edu.guet.weappdemo.service.impl;
 
 
-
 import cn.edu.guet.weappdemo.dao.User_AddCar;
 import cn.edu.guet.weappdemo.dao.impl.User_AddCarImpl;
 import cn.edu.guet.weappdemo.domain.CarTea;
@@ -10,10 +9,6 @@ import cn.edu.guet.weappdemo.service.User_AddCarService;
 
 import java.util.List;
 
-/**
- * @author WGJ
- * @date 2022/05/01 22:00
- */
 public class User_AddCarServiceImpl implements User_AddCarService {
     User_AddCar user_addCar= new User_AddCarImpl();
 
@@ -40,7 +35,7 @@ public class User_AddCarServiceImpl implements User_AddCarService {
 
     @Override
     public double getSumPrice() {
-        double price = user_addCar.getSumPrice();
+        double price=user_addCar.getSumPrice();
         return price;
     }
 

@@ -4,14 +4,76 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="基本框架完成" />
+    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_13_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_13_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_13_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_13_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_13_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/weappdemo__3_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.annotation.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.transaction.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeaShop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TeaShop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/User_SelectTea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/User_SelectTea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/User_AddCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/User_AddCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/User_AddCarImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/User_AddCarImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/User_AddCarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/User_AddCarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/User_AddCarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/User_AddCarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_TeaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SeeCar$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SeeCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SelectTea$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SelectTea$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SelectTea$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SelectTea$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SelectTea$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/User_SelectTea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/Business_AddTeaDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/Business_TeaDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/User_AddCar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/Business_AddTeaDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/Business_TeaDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/User_AddCarImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/domain/CarTea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/domain/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/domain/SingleTea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/domain/Tea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/Business_AddTeaSevice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/Business_TeaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/User_AddCarService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/Business_AddTeaServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/Business_TeaServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/User_AddCarServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/util/JDBCUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/util/SwingUtils.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -31,6 +93,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -39,7 +102,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/util" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -47,45 +110,23 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\controller" />
       <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\util" />
       <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\service" />
       <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\service\impl" />
       <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\domain" />
+      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\dao" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.edu.controller" />
+      <recent name="cn.edu.guet.weappdemo.service.impl" />
+      <recent name="cn.edu.guet.weappdemo.controller" />
+      <recent name="cn.edu.guet.weappdemo.service" />
+      <recent name="cn.edu.guet.weappdemo.dao.impl" />
+      <recent name="cn.edu.guet.weappdemo.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.User_SelectTea">
-    <configuration name="Business_AddTeaController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_AddTeaController" />
-      <module name="TeaShop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.edu.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.User_SelectTea (1)">
     <configuration name="Business_TeaController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_TeaController" />
-      <module name="TeaShop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.edu.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Business_TeaStatisticController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_TeaStatisticController" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
@@ -110,6 +151,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="User_SelectTea (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.User_SelectTea" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="User_SelectTea" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.edu.controller.User_SelectTea" />
       <module name="TeaShop" />
@@ -125,11 +179,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.User_SelectTea (1)" />
         <item itemvalue="Application.User_SelectTea" />
-        <item itemvalue="Application.Business_AddTeaController" />
-        <item itemvalue="Application.Business_TeaStatisticController" />
-        <item itemvalue="Application.Business_TeaController" />
         <item itemvalue="Application.JDBCUtils" />
+        <item itemvalue="Application.Business_TeaController" />
       </list>
     </recent_temporary>
   </component>
@@ -143,7 +196,7 @@
       <updated>1651344442148</updated>
       <workItem from="1651344443289" duration="884000" />
       <workItem from="1651403936882" duration="4638000" />
-      <workItem from="1651497403986" duration="1285000" />
+      <workItem from="1651508530113" duration="361000" />
     </task>
     <task id="LOCAL-00001" summary="1、用户加购&#10;2、用户查看购物车">
       <created>1651345252979</created>
@@ -165,21 +218,8 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1、用户加购&#10;2、用户查看购物车" />
-    <MESSAGE value="基本框架完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本框架完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、用户加购&#10;2、用户查看购物车" />
   </component>
 </project>
