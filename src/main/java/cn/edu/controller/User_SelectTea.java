@@ -178,7 +178,6 @@ public class User_SelectTea extends JFrame {
         carTea.setTeaId(teaId);
         carTea.setName(teaName);
         carTea.setPrice(price);
-        acs.addTea(carTea);
         if(acs.addTea(carTea)){
             JOptionPane.showMessageDialog(null, "加入成功！");
         }else {

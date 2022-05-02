@@ -57,8 +57,9 @@ public class User_AddCarImpl implements User_AddCar {
             psta.setInt(1,carTea.getTeaId());
             psta.setString(2,carTea.getName());
             psta.setDouble(3,carTea.getPrice());
-
+            
             int row = psta.executeUpdate();
+
             if(row>0){
                 return  true;
             }else {
