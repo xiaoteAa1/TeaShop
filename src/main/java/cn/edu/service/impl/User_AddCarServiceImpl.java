@@ -7,6 +7,10 @@ import cn.edu.service.User_AddCarService;
 
 import java.util.List;
 
+/**
+ * @author WGJ
+ * @date 2022/05/01 22:00
+ */
 public class User_AddCarServiceImpl implements User_AddCarService {
     User_AddCar user_addCar= new User_AddCarImpl();
 

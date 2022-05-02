@@ -7,6 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ *@author  TJH
+ *@date    2022/05/01 16:08
+ */
 public class StockDaoImpl implements StockDao {
     @Override
     public void updateStock(int item_id, int stock) throws SQLException {

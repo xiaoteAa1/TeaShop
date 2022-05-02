@@ -8,6 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *@author  WGJ
+ *@date    2022/05/01 23:08
+ */
 public class User_AddCarImpl implements User_AddCar {
     Connection conn;
     Statement sta;

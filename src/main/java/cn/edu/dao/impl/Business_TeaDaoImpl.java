@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *@author  LXJ
+ *@author  CCS/YJ
  *@date    2022/04/18 16:08
  */
 public class Business_TeaDaoImpl implements Business_TeaDao {
@@ -38,7 +38,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
             sta = conn.createStatement();
             rs = sta.executeQuery(sql);
 
-            while (rs.next()){
+            while(rs.next()){
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 double price = rs.getDouble("price");
@@ -112,7 +112,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             JDBCUtils.close(rs, psta,conn);
         }
     }
@@ -149,6 +149,52 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
         }finally {
             JDBCUtils.close(rs, psta,conn);
         }
+    }
+
+    @Override
+    public int updateTea(Tea t) {
+        int i = 0;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        String sql = "update tea set name=?, price=?, type=?, isSale=?, remark=? where id=?";
+        try {
+            conn = JDBCUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+//            ps.setString(1,t.getName());
+            ps.setString(1,t.getName());
+            ps.setDouble(2,t.getPrice());
+            ps.setString(3,t.getType());
+            ps.setInt(4,t.getIsSale());
+            ps.setString(5,t.getRemark());
+            ps.setInt(6,t.getTeaId());
+            i = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(rs,ps,conn);
+        }
+        return i;
+    }
+
+    @Override
+    public int deleteById(int id) {
+        int i = 0;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        String sql = "delete from tea where id=?";
+        try {
+            conn = JDBCUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,id);
+            i = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close(rs,ps,conn);
+        }
+        return i;
     }
 
 }
