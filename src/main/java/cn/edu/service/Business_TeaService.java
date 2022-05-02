@@ -14,6 +14,4 @@ public interface Business_TeaService {
     Tea getTeaByName(String name);
     List<Tea> getAllTeaByType(String type);
     List<Tea> getAllTeaOnSale();
-    int updateTea(Tea t);
-    int deleteById(int id);
 }

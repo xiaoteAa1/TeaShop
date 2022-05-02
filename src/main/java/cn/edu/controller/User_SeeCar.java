@@ -1,5 +1,5 @@
 /*
- * Created by JFormDesigner on Sun Apr 17 20:17:28 CST 2022
+ * Created by JFormDesigner on Sun May 01 00:33:25 CST 2022
  */
 
 package cn.edu.controller;
@@ -10,47 +10,57 @@ import java.awt.*;
 /**
  * @author 1
  */
-public class Login extends JFrame {
-    public Login() {
+public class User_SeeCar extends JFrame {
+    public User_SeeCar() {
         initComponents();
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        scrollPane1 = new JScrollPane();
+        table1 = new JTable(){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         label1 = new JLabel();
-        label2 = new JLabel();
-        textField1 = new JTextField();
-        textField2 = new JTextField();
         button1 = new JButton();
         button2 = new JButton();
+        label2 = new JLabel();
+        textField1 = new JTextField();
 
         //======== this ========
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
-        //---- label1 ----
-        label1.setText("\u8d26\u53f7\uff1a");
-        contentPane.add(label1);
-        label1.setBounds(new Rectangle(new Point(100, 40), label1.getPreferredSize()));
+        //======== scrollPane1 ========
+        {
+            scrollPane1.setViewportView(table1);
+        }
+        contentPane.add(scrollPane1);
+        scrollPane1.setBounds(new Rectangle(new Point(0, 40), scrollPane1.getPreferredSize()));
 
-        //---- label2 ----
-        label2.setText("\u5bc6\u7801\uff1a");
-        contentPane.add(label2);
-        label2.setBounds(100, 75, 45, 17);
-        contentPane.add(textField1);
-        textField1.setBounds(140, 35, 130, 30);
-        contentPane.add(textField2);
-        textField2.setBounds(140, 70, 130, 30);
+        //---- label1 ----
+        label1.setText("\u5df2\u9009\u5976\u8336\uff1a");
+        contentPane.add(label1);
+        label1.setBounds(15, 10, 75, label1.getPreferredSize().height);
 
         //---- button1 ----
-        button1.setText("\u5546\u5bb6\u767b\u5f55");
+        button1.setText("\u63d0\u4ea4\u8ba2\u5355");
         contentPane.add(button1);
-        button1.setBounds(155, 110, 90, 45);
+        button1.setBounds(new Rectangle(new Point(480, 390), button1.getPreferredSize()));
 
         //---- button2 ----
-        button2.setText("\u5728\u7ebf\u70b9\u5355");
+        button2.setText("\u53d6\u6d88\u52a0\u8d2d");
         contentPane.add(button2);
-        button2.setBounds(155, 160, 90, 45);
+        button2.setBounds(new Rectangle(new Point(480, 330), button2.getPreferredSize()));
+
+        //---- label2 ----
+        label2.setText("\u603b\u4ef7\uff1a");
+        contentPane.add(label2);
+        label2.setBounds(new Rectangle(new Point(465, 45), label2.getPreferredSize()));
+        contentPane.add(textField1);
+        textField1.setBounds(500, 40, 70, textField1.getPreferredSize().height);
 
         {
             // compute preferred size
@@ -66,25 +76,29 @@ public class Login extends JFrame {
             contentPane.setMinimumSize(preferredSize);
             contentPane.setPreferredSize(preferredSize);
         }
-        setSize(405, 310);
+        pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
-
         this.setVisible(true);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        textField1.setEditable(false);
+
+
+
+
+
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    private JScrollPane scrollPane1;
+    static JTable table1;
     private JLabel label1;
-    private JLabel label2;
-    private JTextField textField1;
-    private JTextField textField2;
     private JButton button1;
     private JButton button2;
+    private JLabel label2;
+    static JTextField textField1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
-    public static void main(String[] args) {
-        new Login();
-    }
+
 }
