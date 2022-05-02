@@ -1,13 +1,14 @@
-package cn.edu.dao.impl;
+package cn.edu.guet.weappdemo.dao.impl;
 /*
  * @author  tlj
  * @date  2022/5/1 21:34
  */
 
-import cn.edu.dao.Business_UpdateDAO;
-import cn.edu.domain.Order;
-import cn.edu.domain.Statistic;
-import cn.edu.domain.Tea;
+
+import cn.edu.guet.weappdemo.dao.Business_UpdateDAO;
+import cn.edu.guet.weappdemo.domain.Order;
+import cn.edu.guet.weappdemo.domain.Statistic;
+import cn.edu.guet.weappdemo.domain.Tea;
 
 import java.sql.*;
 

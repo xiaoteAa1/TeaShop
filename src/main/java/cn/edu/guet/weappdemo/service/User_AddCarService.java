@@ -1,6 +1,8 @@
-package cn.edu.service;
+package cn.edu.guet.weappdemo.service;
 
-import cn.edu.domain.CarTea;
+
+
+import cn.edu.guet.weappdemo.domain.CarTea;
 
 import java.util.List;
 

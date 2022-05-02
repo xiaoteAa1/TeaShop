@@ -1,4 +1,4 @@
-package cn.edu.dao;
+package cn.edu.guet.weappdemo.dao;
 /*
  * @author  tlj
  * @date  2022/5/1 21:31

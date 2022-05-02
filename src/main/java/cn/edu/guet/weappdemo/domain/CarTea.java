@@ -1,4 +1,4 @@
-package cn.edu.domain;
+package cn.edu.guet.weappdemo.domain;
 
 public class CarTea {
 

@@ -1,8 +1,10 @@
-package cn.edu.dao.impl;
+package cn.edu.guet.weappdemo.dao.impl;
 
-import cn.edu.dao.User_AddCar;
-import cn.edu.domain.CarTea;
-import cn.edu.util.JDBCUtils;
+
+
+import cn.edu.guet.weappdemo.dao.User_AddCar;
+import cn.edu.guet.weappdemo.domain.CarTea;
+import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
 import java.util.ArrayList;

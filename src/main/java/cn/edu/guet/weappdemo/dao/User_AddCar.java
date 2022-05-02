@@ -1,6 +1,6 @@
-package cn.edu.dao;
+package cn.edu.guet.weappdemo.dao;
 
-import cn.edu.domain.CarTea;
+import cn.edu.guet.weappdemo.domain.CarTea;
 
 import java.util.List;
 

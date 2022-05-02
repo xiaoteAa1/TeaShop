@@ -2,12 +2,14 @@
  * Created by JFormDesigner on Mon Apr 18 19:01:00 CST 2022
  */
 
-package cn.edu.controller;
+package cn.edu.guet.weappdemo.controller;
 
-import cn.edu.domain.Tea;
-import cn.edu.service.Business_TeaService;
-import cn.edu.service.impl.Business_TeaServiceImpl;
-import cn.edu.util.SwingUtils;
+
+
+import cn.edu.guet.weappdemo.domain.Tea;
+import cn.edu.guet.weappdemo.service.Business_TeaService;
+import cn.edu.guet.weappdemo.service.impl.Business_TeaServiceImpl;
+import cn.edu.guet.weappdemo.util.SwingUtils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -170,7 +172,7 @@ public class Business_TeaController extends JFrame {
     }
     //根据ID搜索：
     void getTeaById(int id){
-        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
+        dtm = new DefaultTableModel(null, SwingUtils.columnsForShopOwner_Tea);
         dtm.setRowCount(0);
         Tea t = bts.getTeaById(id);
         Object[][] res = new Object[1][8];

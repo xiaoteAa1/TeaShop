@@ -1,4 +1,4 @@
-package cn.edu.domain;
+package cn.edu.guet.weappdemo.domain;
 /*
  * @author  tlj
  * @date  2022/5/1 22:24

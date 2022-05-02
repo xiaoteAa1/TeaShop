@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Sun May 01 00:33:25 CST 2022
  */
 
-package cn.edu.controller;
+package cn.edu.guet.weappdemo.controller;
 
 import javax.swing.*;
 import java.awt.*;
