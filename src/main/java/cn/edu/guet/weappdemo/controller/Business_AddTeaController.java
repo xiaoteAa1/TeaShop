@@ -2,19 +2,17 @@
  * Created by JFormDesigner on Tue Apr 19 11:46:54 CST 2022
  */
 
-package cn.edu.guet.weappdemo.controller;
+package cn.edu.controller;
 
-import cn.edu.guet.weappdemo.domain.Tea;
-import cn.edu.guet.weappdemo.service.Business_AddTeaSevice;
+import cn.edu.domain.Tea;
+import cn.edu.service.Business_AddTeaSevice;
+import cn.edu.service.impl.Business_AddTeaServiceImpl;
 
-import cn.edu.guet.weappdemo.service.impl.Business_AddTeaServiceImpl;
-
-
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import javax.swing.*;
 
 /**
  *@author  ZHH

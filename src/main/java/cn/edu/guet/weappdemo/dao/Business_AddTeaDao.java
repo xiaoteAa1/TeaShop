@@ -9,8 +9,8 @@ import cn.edu.guet.weappdemo.domain.SingleTea;
  */
 public interface Business_AddTeaDao {
     /**
-        将奶茶添加进入数据库
-    */
+     将奶茶添加进入数据库
+     */
     boolean addTea(SingleTea singleTea);
 
     /**

@@ -8,6 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ *@author  TJH
+ *@date    2022/05/01 16:08
+ */
 public class OrderDaoImpl implements OrderDao {
     @Override
     public void newOrder(Order order) throws SQLException {

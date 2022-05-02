@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="基本框架完成">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeaShop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TeaShop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/controller/Business_AddTeaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/controller/Business_AddTeaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/controller/Business_AddTeaController.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/controller/Business_AddTeaController.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/Business_AddTeaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/Business_AddTeaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/Business_TeaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/Business_TeaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/User_AddCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/User_AddCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/Business_AddTeaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/Business_AddTeaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/Business_TeaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/Business_TeaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/Business_TeaStatisticDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/Business_TeaStatisticDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/StockDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/StockDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/User_AddCarImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/dao/impl/User_AddCarImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/service/Business_AddTeaSevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/service/Business_AddTeaSevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/service/Business_TeaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/service/Business_TeaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/service/User_AddCarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/service/User_AddCarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/service/impl/Business_AddTeaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/service/impl/Business_AddTeaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/service/impl/Business_TeaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/service/impl/Business_TeaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/service/impl/User_AddCarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/service/impl/User_AddCarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/controller/Business_AddTeaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/Business_AddTeaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/dao/Business_AddTeaDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/Business_TeaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/dao/Business_TeaDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/Business_AddTeaDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/Business_AddTeaDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/Business_TeaDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/Business_TeaDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/User_AddCarImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/dao/impl/User_AddCarImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/Business_AddTeaSevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/service/Business_AddTeaSevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/Business_TeaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/service/Business_TeaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/Business_AddTeaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/Business_AddTeaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/Business_TeaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/Business_TeaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/User_AddCarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/service/impl/User_AddCarServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/edu/util/SwingUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/edu/util/SwingUtils.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="wgj" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="28Wu0mS0xPPNJRUj1Xa4J3Gx3jF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/controller" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\controller" />
+      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\util" />
+      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\service" />
+      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\service\impl" />
+      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\domain" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.edu.controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.User_SelectTea">
+    <configuration name="Business_AddTeaController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_AddTeaController" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_TeaController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_TeaController" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_TeaStatisticController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_TeaStatisticController" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.util.JDBCUtils" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="User_SelectTea" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.User_SelectTea" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.User_SelectTea" />
+        <item itemvalue="Application.Business_AddTeaController" />
+        <item itemvalue="Application.Business_TeaStatisticController" />
+        <item itemvalue="Application.Business_TeaController" />
+        <item itemvalue="Application.JDBCUtils" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="" />
+      <created>1651344442148</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651344442148</updated>
+      <workItem from="1651344443289" duration="884000" />
+      <workItem from="1651403936882" duration="4638000" />
+      <workItem from="1651497403986" duration="1285000" />
+    </task>
+    <task id="LOCAL-00001" summary="1、用户加购&#10;2、用户查看购物车">
+      <created>1651345252979</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1651345252979</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1、用户加购&#10;2、用户查看购物车">
+      <created>1651406390669</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651406390669</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1、用户加购&#10;2、用户查看购物车" />
+    <MESSAGE value="基本框架完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本框架完成" />
+  </component>
+</project>

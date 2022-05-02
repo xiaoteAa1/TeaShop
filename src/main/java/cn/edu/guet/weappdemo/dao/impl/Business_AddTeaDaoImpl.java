@@ -32,12 +32,12 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
                     "Values (?,?,?,?,?)";
             preparedStatement = conn.prepareStatement(sql);
 
-
             preparedStatement.setString(1,singleTea.getName());
-            preparedStatement.setString(2,singleTea.getRemark());
+            preparedStatement.setDouble(2,singleTea.getPrice());
             preparedStatement.setString(3,singleTea.getType());
-            preparedStatement.setDouble(4,singleTea.getPrice());
-            preparedStatement.setInt(5,singleTea.getIsSale());
+            preparedStatement.setInt(4,singleTea.getIsSale());
+            preparedStatement.setString(5,singleTea.getRemark());
+
 
             int row= preparedStatement.executeUpdate();
 
