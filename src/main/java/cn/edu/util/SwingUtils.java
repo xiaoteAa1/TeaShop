@@ -7,7 +7,7 @@ public class SwingUtils {
     public static Object[] columns_CarTea =
             {"序号","名称","价格","类型"};
     public static Object[] columns_CarTea1 =
-            {"名称","价格"};
+            {"序号","名称","数量","价格"};
 
 
     //hjk

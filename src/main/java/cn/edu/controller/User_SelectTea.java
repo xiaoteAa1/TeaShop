@@ -179,19 +179,25 @@ public class User_SelectTea extends JFrame {
         carTea.setName(teaName);
         carTea.setPrice(price);
         acs.addTea(carTea);
+        if(acs.addTea(carTea)){
+            JOptionPane.showMessageDialog(null, "加入成功！");
+        }else {
+            JOptionPane.showMessageDialog(null, "加入失败！", "错误点击",JOptionPane.WARNING_MESSAGE);
+        }
 
     }
     void getCarTea(){
         dtm1.setRowCount(0);
         List<CarTea> list = acs.getCarTea();
         int len = list.size();
-        Object[][] res = new Object[len][3];
+        Object[][] res = new Object[len][4];
 
         int idx = 0;
         for(CarTea t :list){
-            res[0][0] = t.getTeaId();
-            res[0][0] = t.getName();
-            res[0][1] = t.getPrice();
+            res[0][0] = t.getId();
+            res[0][1] = t.getName();
+            res[0][2] = t.getCount();
+            res[0][3] = t.getPrice();
             dtm1.addRow(res[idx]);
         }
 

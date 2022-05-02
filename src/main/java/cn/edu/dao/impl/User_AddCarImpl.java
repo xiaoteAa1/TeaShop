@@ -79,19 +79,22 @@ public class User_AddCarImpl implements User_AddCar {
         try {
             List<CarTea> list = new ArrayList<>();
 
-            String sql = "SELECT * FROM `cartea`";
+            String sql = "select name,count(*) count,price*count(*) price from cartea group by name,price";
 
             conn = JDBCUtils.getConnection();
             sta = conn.createStatement();
             rs = sta.executeQuery(sql);
+            int ordinal=1;
 
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int id =ordinal;
                 String name = rs.getString("name");
+                int count =rs.getInt("count");
                 double price = rs.getDouble("price");
+                ordinal++;
 
 
-                CarTea tea = new CarTea(id, name, price);
+                CarTea tea = new CarTea(id,name,count,price);
                 list.add(tea);
             }
             return list;
