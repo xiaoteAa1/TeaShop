@@ -1,7 +1,5 @@
 package cn.edu.guet.weappdemo.dao.impl;
 
-
-
 import cn.edu.guet.weappdemo.dao.User_AddCar;
 import cn.edu.guet.weappdemo.domain.CarTea;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
@@ -10,10 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *@author  WGJ
- *@date    2022/05/01 23:08
- */
 public class User_AddCarImpl implements User_AddCar {
     Connection conn;
     Statement sta;
@@ -65,6 +59,7 @@ public class User_AddCarImpl implements User_AddCar {
             psta.setDouble(3,carTea.getPrice());
 
             int row = psta.executeUpdate();
+
             if(row>0){
                 return  true;
             }else {
@@ -85,19 +80,22 @@ public class User_AddCarImpl implements User_AddCar {
         try {
             List<CarTea> list = new ArrayList<>();
 
-            String sql = "SELECT * FROM `cartea`";
+            String sql = "select name,count(*) count,price*count(*) price from cartea group by name,price";
 
             conn = JDBCUtils.getConnection();
             sta = conn.createStatement();
             rs = sta.executeQuery(sql);
+            int ordinal=1;
 
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int id =ordinal;
                 String name = rs.getString("name");
+                int count =rs.getInt("count");
                 double price = rs.getDouble("price");
+                ordinal++;
 
 
-                CarTea tea = new CarTea(id, name, price);
+                CarTea tea = new CarTea(id,name,count,price);
                 list.add(tea);
             }
             return list;
