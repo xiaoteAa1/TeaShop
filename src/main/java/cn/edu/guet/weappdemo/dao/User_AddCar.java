@@ -12,4 +12,6 @@ public interface User_AddCar {
     List<CarTea> getCarTea();
 
     double getSumPrice();
+
+    boolean deleteTea(CarTea carTea);
 }

@@ -39,5 +39,11 @@ public class User_AddCarServiceImpl implements User_AddCarService {
         return price;
     }
 
+    @Override
+    public boolean deleteTae(CarTea carTea) {
+        boolean deleteTea =user_addCar.deleteTea(carTea);
+        return deleteTea;
+    }
+
 
 }
