@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Mon Apr 18 19:01:00 CST 2022
  */
 
-package cn.edu.guet.weappdemo.controller;
+package cn.edu.guet.weappdemo.controller.business;
 
 
 
@@ -291,7 +291,7 @@ public class Business_TeaController extends JFrame {
     private JTextField textField3;
     private JButton button5;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    private static DefaultTableModel dtm;
+    private static DefaultTableModel dtm =new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);;
     public static void main(String[] args) {
         dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
         new Business_TeaController();

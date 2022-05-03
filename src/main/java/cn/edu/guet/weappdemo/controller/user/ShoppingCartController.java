@@ -1,4 +1,4 @@
-package cn.edu.guet.weappdemo.controller;
+package cn.edu.guet.weappdemo.controller.user;
 
 import cn.edu.guet.weappdemo.domain.Order;
 import cn.edu.guet.weappdemo.pay.WXPay;

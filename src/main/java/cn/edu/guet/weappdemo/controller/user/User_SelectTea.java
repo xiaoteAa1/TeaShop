@@ -1,13 +1,12 @@
-/*
- * Created by JFormDesigner on Sun May 01 00:33:25 CST 2022
+package cn.edu.guet.weappdemo.controller.user;/*
+ * Created by JFormDesigner on Sat Apr 30 16:07:17 CST 2022
  */
-
-package cn.edu.guet.weappdemo.controller;
 
 import cn.edu.guet.weappdemo.domain.CarTea;
 import cn.edu.guet.weappdemo.service.User_AddCarService;
 import cn.edu.guet.weappdemo.service.impl.User_AddCarServiceImpl;
 import cn.edu.guet.weappdemo.util.SwingUtils;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -18,14 +17,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
 
-import static org.apache.commons.lang.StringUtils.isNumeric;
-
 /**
- * @author 1
+ * @author WGJ
+ * @date 2022/05/03 12:32
  */
-public class User_SeeCar extends JFrame {
+public class User_SelectTea extends JFrame {
     User_AddCarService acs= new User_AddCarServiceImpl();
-    public User_SeeCar() {
+    public User_SelectTea() {
         initComponents();
     }
 
@@ -37,11 +35,11 @@ public class User_SeeCar extends JFrame {
                 return false;
             }
         };
-        label1 = new JLabel();
         button1 = new JButton();
-        button2 = new JButton();
-        label2 = new JLabel();
+        label1 = new JLabel();
         textField1 = new JTextField();
+        button2 = new JButton();
+        button3 = new JButton();
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -52,29 +50,29 @@ public class User_SeeCar extends JFrame {
             scrollPane1.setViewportView(table1);
         }
         contentPane.add(scrollPane1);
-        scrollPane1.setBounds(new Rectangle(new Point(0, 40), scrollPane1.getPreferredSize()));
-
-        //---- label1 ----
-        label1.setText("\u5df2\u9009\u5976\u8336\uff1a");
-        contentPane.add(label1);
-        label1.setBounds(15, 10, 75, label1.getPreferredSize().height);
+        scrollPane1.setBounds(new Rectangle(new Point(0, 55), scrollPane1.getPreferredSize()));
 
         //---- button1 ----
-        button1.setText("\u63d0\u4ea4\u8ba2\u5355");
+        button1.setText("\u67e5\u770b\u5976\u8336");
         contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(480, 390), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(5, 10), button1.getPreferredSize()));
+
+        //---- label1 ----
+        label1.setText("\u5df2\u9009\u62e9\uff1a");
+        contentPane.add(label1);
+        label1.setBounds(new Rectangle(new Point(470, 60), label1.getPreferredSize()));
+        contentPane.add(textField1);
+        textField1.setBounds(515, 55, 65, textField1.getPreferredSize().height);
 
         //---- button2 ----
-        button2.setText("\u53d6\u6d88\u52a0\u8d2d");
+        button2.setText("\u52a0\u5165\u8d2d\u7269\u8f66");
         contentPane.add(button2);
-        button2.setBounds(new Rectangle(new Point(480, 330), button2.getPreferredSize()));
+        button2.setBounds(new Rectangle(new Point(475, 360), button2.getPreferredSize()));
 
-        //---- label2 ----
-        label2.setText("\u603b\u4ef7\uff1a");
-        contentPane.add(label2);
-        label2.setBounds(new Rectangle(new Point(465, 45), label2.getPreferredSize()));
-        contentPane.add(textField1);
-        textField1.setBounds(500, 40, 70, textField1.getPreferredSize().height);
+        //---- button3 ----
+        button3.setText("\u67e5\u770b\u8d2d\u7269\u8f66");
+        contentPane.add(button3);
+        button3.setBounds(new Rectangle(new Point(475, 420), button3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -93,19 +91,28 @@ public class User_SeeCar extends JFrame {
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+
         this.setVisible(true);
         this.setResizable(false);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         textField1.setEditable(false);
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getTea();
+            }
+        });
 
         table1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 int index = table1.getSelectedRow();//获取选中的行
-                name =table1.getValueAt(index, 1).toString();
-                count = (int) table1.getValueAt(index,2);
-
+                teaId = (int) table1.getValueAt(index,0);
+                teaName =table1.getValueAt(index, 1).toString();
+                price = (double) table1.getValueAt(index,2);
+                textField1.setText(teaName);
 
             }
 
@@ -133,41 +140,52 @@ public class User_SeeCar extends JFrame {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String Input = JOptionPane.showInputDialog(null,
-                        "已选择要删除的奶茶：" + "\n" + name + "\n" + "请输入要删除的个数:", String.valueOf(JOptionPane.PLAIN_MESSAGE),1);
-
-
-                if (isNumeric(Input)) {
-                    deleteCount = Integer.parseInt(Input);
-                    System.out.println(deleteCount);
-                    if (deleteCount == 0 || deleteCount < 0) {
-                        JOptionPane.showMessageDialog(null, "取消数量不能为零", "错误输入", JOptionPane.WARNING_MESSAGE);
-                    } else if (deleteCount > count) {
-                        JOptionPane.showMessageDialog(null, "取消数量不能小于加购数量！", "错误输入", JOptionPane.WARNING_MESSAGE);
-                    } else {
-                        deleteTea();
-                    }
-                }else {
-                    JOptionPane.showMessageDialog(null, "输入类型只能为正整数！", "错误输入", JOptionPane.WARNING_MESSAGE);
-                }
+                addTea();
             }
         });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                getCarTea();
+                getPrice();
+                new User_SeeCar();
+                User_SeeCar.textField1.setText(String.valueOf(carPrice));
+                System.out.println(carPrice);
+                User_SeeCar.table1.setModel(dtm1);
+                User_SeeCar.table1.invalidate();
+            }
+        });
+    }
+    void getTea(){
+        dtm.setRowCount(0);
+        List<CarTea> list = acs.getTea();
+        int len = list.size();
+        Object[][] res = new Object[len][4];
 
-
-
+        int idx = 0;
+        for(CarTea t :list){
+            res[0][0] = t.getTeaId();
+            res[0][1] = t.getName();
+            res[0][2] = t.getPrice();
+            res[0][3] = t.getType();
+            dtm.addRow(res[idx]);
+        }
+        table1.setModel(dtm);
+        table1.invalidate();
 
     }
-    void deleteTea(){
-        CarTea carTea = new CarTea();
-        carTea.setName(name);
-        carTea.setCount(deleteCount);
-        if(acs.deleteTae(carTea)){
-            JOptionPane.showMessageDialog(null, "取消成功！");
-            getCarTea();
+    void addTea(){
+        CarTea carTea=new CarTea();
+        carTea.setTeaId(teaId);
+        carTea.setName(teaName);
+        carTea.setPrice(price);
+        if(acs.addTea(carTea)){
+            JOptionPane.showMessageDialog(null, "加入成功！");
         }else {
-            JOptionPane.showMessageDialog(null, "取消失败！", "错误点击",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "加入失败！", "错误点击",JOptionPane.WARNING_MESSAGE);
         }
+
     }
     void getCarTea(){
         dtm1.setRowCount(0);
@@ -183,23 +201,31 @@ public class User_SeeCar extends JFrame {
             res[0][3] = t.getPrice();
             dtm1.addRow(res[idx]);
         }
-        table1.setModel(dtm1);
-        table1.invalidate();
+
+    }
+    void getPrice(){
+        carPrice = acs.getSumPrice();
     }
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JScrollPane scrollPane1;
-    static JTable table1;
-    private JLabel label1;
+    private JTable table1;
     private JButton button1;
+    private JLabel label1;
+    private JTextField textField1;
     private JButton button2;
-    private JLabel label2;
-    static JTextField textField1;
+    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    private static DefaultTableModel dtm1=new DefaultTableModel(null, SwingUtils.columns_CarTea1);
-    String name =null;
-    int deleteCount=0;
-    int count=0;
+    private static DefaultTableModel dtm =  new DefaultTableModel(null, SwingUtils.columns_CarTea);;
+    private static DefaultTableModel dtm1 = new DefaultTableModel(null, SwingUtils.columns_CarTea1);;
+    String teaName =null;
+    double price =0.0;
+    double carPrice =0.0;
+    int teaId = 0;
 
 
-
+    public static void main(String[] args) {
+        dtm = new DefaultTableModel(null, SwingUtils.columns_CarTea);
+        dtm1 = new DefaultTableModel(null, SwingUtils.columns_CarTea1);
+        new User_SelectTea();
+    }
 }

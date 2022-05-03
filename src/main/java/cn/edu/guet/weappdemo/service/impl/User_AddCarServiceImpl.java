@@ -9,6 +9,10 @@ import cn.edu.guet.weappdemo.service.User_AddCarService;
 
 import java.util.List;
 
+/**
+ * @author WGJ
+ * @date 2022/05/03 12:32
+ */
 public class User_AddCarServiceImpl implements User_AddCarService {
     User_AddCar user_addCar= new User_AddCarImpl();
 

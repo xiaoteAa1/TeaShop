@@ -1,5 +1,7 @@
 package cn.edu.guet.weappdemo.controller;
 
+import cn.edu.guet.weappdemo.controller.user.ShoppingCartController;
+
 /**
  * @Author: tjh
  * @Date: 2022/05/02/0:27

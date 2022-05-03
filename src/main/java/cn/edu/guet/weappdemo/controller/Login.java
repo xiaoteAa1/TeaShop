@@ -4,8 +4,15 @@
 
 package cn.edu.guet.weappdemo.controller;
 
+
+
+import cn.edu.guet.weappdemo.controller.business.OwnerEnter;
+import cn.edu.guet.weappdemo.controller.user.ShopperEnter;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @author 1
@@ -23,8 +30,10 @@ public class Login extends JFrame {
         textField2 = new JTextField();
         button1 = new JButton();
         button2 = new JButton();
+        label3 = new JLabel();
 
         //======== this ========
+        setTitle("Welcome To TeaShop");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
@@ -52,6 +61,11 @@ public class Login extends JFrame {
         contentPane.add(button2);
         button2.setBounds(155, 160, 90, 45);
 
+        //---- label3 ----
+        label3.setText("\u76f4\u63a5\u70b9");
+        contentPane.add(label3);
+        label3.setBounds(260, 125, 100, label3.getPreferredSize().height);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -73,6 +87,25 @@ public class Login extends JFrame {
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //1、商家管理入口
+        button1.addActionListener((e) ->{
+            this.setVisible(false);
+
+            OwnerEnter oe = new OwnerEnter();
+            oe.setVisible(true);
+            oe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        });
+
+        //2、消费者入口
+        button2.addActionListener((e) ->{
+            this.setVisible(false);
+
+            ShopperEnter sp = new ShopperEnter();
+            sp.setVisible(true);
+            sp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        });
+
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
@@ -82,8 +115,8 @@ public class Login extends JFrame {
     private JTextField textField2;
     private JButton button1;
     private JButton button2;
+    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
     public static void main(String[] args) {
         new Login();
     }
