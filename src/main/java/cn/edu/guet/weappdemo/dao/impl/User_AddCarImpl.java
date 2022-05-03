@@ -130,5 +130,28 @@ public class User_AddCarImpl implements User_AddCar {
         }
           return price;
     }
+
+    @Override
+    public boolean deleteTea(CarTea carTea) {
+        try {
+            String sql ="delete \n" +
+                    "from cartea\n" +
+                    "where name=? limit ?";
+            conn=JDBCUtils.getConnection();
+            psta =conn.prepareStatement(sql);
+            psta.setString(1,carTea.getName());
+            psta.setInt(2,carTea.getCount());
+            int row=psta.executeUpdate();
+            if(row>0){
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }
 
