@@ -4,13 +4,13 @@
 
 package cn.edu.guet.weappdemo.controller.business;
 
-
 import cn.edu.guet.weappdemo.domain.Tea;
 import cn.edu.guet.weappdemo.service.Business_TeaService;
 import cn.edu.guet.weappdemo.service.impl.Business_TeaServiceImpl;
 import cn.edu.guet.weappdemo.util.SwingUtils;
 
 import javax.swing.*;
+
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -25,6 +25,7 @@ import java.util.Objects;
  */
 public class Business_TeaController extends JFrame {
     static Business_TeaService bts = new Business_TeaServiceImpl();
+
     public Business_TeaController() {
         initComponents();
     }
@@ -32,7 +33,6 @@ public class Business_TeaController extends JFrame {
     private void button2KeyPressed(KeyEvent e) {
         // TODO add your code here
     }
-
 
 
     private void initComponents() {
@@ -44,10 +44,12 @@ public class Business_TeaController extends JFrame {
         button3 = new JButton();
         textField1 = new JTextField();
         label1 = new JLabel();
+
         label2 = new JLabel();
         label3 = new JLabel();
         button4 = new JButton();
         textField3 = new JTextField();
+
         textField2 = new JTextField();
         button6 = new JButton();
         button5 = new JButton();
@@ -57,6 +59,7 @@ public class Business_TeaController extends JFrame {
 
         //======== this ========
         setTitle("Tea  management system");
+
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
@@ -65,6 +68,7 @@ public class Business_TeaController extends JFrame {
             scrollPane1.setViewportView(table1);
         }
         contentPane.add(scrollPane1);
+
         scrollPane1.setBounds(10, 110, 560, 335);
 
         //---- button1 ----
@@ -74,6 +78,7 @@ public class Business_TeaController extends JFrame {
 
         //---- button2 ----
         button2.setText("By Id");
+
         button2.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -81,6 +86,7 @@ public class Business_TeaController extends JFrame {
             }
         });
         contentPane.add(button2);
+
         button2.setBounds(210, 15, 90, 20);
 
         //---- button3 ----
@@ -90,19 +96,25 @@ public class Business_TeaController extends JFrame {
         contentPane.add(textField1);
         textField1.setBounds(135, 15, 60, 20);
 
+
         //---- label1 ----
         label1.setText("ID:");
         contentPane.add(label1);
+
         label1.setBounds(100, 15, 25, label1.getPreferredSize().height);
+
 
         //---- label2 ----
         label2.setText("Name:");
         contentPane.add(label2);
+
         label2.setBounds(310, 15, 45, label2.getPreferredSize().height);
+
 
         //---- label3 ----
         label3.setText("type:");
         contentPane.add(label3);
+
         label3.setBounds(new Rectangle(new Point(100, 45), label3.getPreferredSize()));
 
         //---- button4 ----
@@ -135,6 +147,7 @@ public class Business_TeaController extends JFrame {
         button7.setText("ADD");
         contentPane.add(button7);
         button7.setBounds(5, 75, 530, 25);
+
 
         {
             // compute preferred size
@@ -190,6 +203,7 @@ public class Business_TeaController extends JFrame {
         });
     }
     //
+
     //根据ID搜索：
     void getTeaById(int id){
         dtm = new DefaultTableModel(null, SwingUtils.columnsForShopOwner_Tea);
@@ -208,6 +222,7 @@ public class Business_TeaController extends JFrame {
         table1.setModel(dtm);
         table1.invalidate();
     }
+
     //根据ID删除:
     int deleteById(int deleteId){
         int i = bts.deleteById(deleteId);
@@ -215,6 +230,7 @@ public class Business_TeaController extends JFrame {
     }
     //根据名字搜索：
     void getTeaByName(String name){
+
         dtm.setRowCount(0);
         Tea t = bts.getTeaByName(name);
         Object[][] res = new Object[1][8];
@@ -232,8 +248,10 @@ public class Business_TeaController extends JFrame {
         table1.invalidate();
     }
     List<Tea> getAllTeaByType(String ByType){
+
         dtm.setRowCount(0);
         List<Tea> list = bts.getAllTeaByType(ByType);
+
         int len = list.size();
         Object[][] res = new Object[1][8];
 
@@ -306,10 +324,12 @@ public class Business_TeaController extends JFrame {
     private JButton button3;
     private JTextField textField1;
     private JLabel label1;
+
     private JLabel label2;
     private JLabel label3;
     private JButton button4;
     private JTextField textField3;
+
     private JTextField textField2;
     private JButton button6;
     private JButton button5;
@@ -344,6 +364,7 @@ public class Business_TeaController extends JFrame {
         });
         //最终页面对象的展示：
         new Business_TeaController();
+
 
 
     }

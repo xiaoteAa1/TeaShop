@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *@author  LXJ
+
+ *@author  CCS/YJ
  *@date    2022/04/18 16:08
  */
 public class Business_TeaDaoImpl implements Business_TeaDao {
@@ -29,7 +30,8 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
     @Override
     public List<Tea> getAllTea() {
         try {
-        List<Tea> list = new ArrayList<>();
+
+            List<Tea> list = new ArrayList<>();
 
             String sql ="select t.*,IFNULL(s.count,0) count,IFNULL(sta.sale,0) sale from tea t left join \n" +
                     "store s on t.id=s.teaId left join statistic sta on t.id=sta.teaId";
@@ -51,7 +53,8 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
                 Tea tea = new Tea(id,name,price,type,isSale,remark,count,sale);
                 list.add(tea);
             }
-        return list;
+
+            return list;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -116,7 +119,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
             JDBCUtils.close(rs, psta,conn);
         }
     }
-//
+
     @Override
     public Tea getTeaById(int Byid) {
         try {
@@ -142,7 +145,8 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
                 tea = new Tea(Byid,name,price,type,isSale,remark,count,sale);
                 tea.setCount(count);
             }
-        return tea;
+
+            return tea;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

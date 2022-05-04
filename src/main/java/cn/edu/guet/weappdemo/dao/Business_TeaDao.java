@@ -6,7 +6,8 @@ import java.util.List;
 
 
 /**
- *@author  LXJ
+
+ *@author  CCS/YJ
  *@date    2022/04/18 16:08
  */
 public interface Business_TeaDao {
@@ -22,7 +23,6 @@ public interface Business_TeaDao {
     /*
         获取type类型对应的奶茶
      */
-    //
     List<Tea> getAllTeaByType(String type);
     /*
         通过奶茶名称获得单个奶茶对象

@@ -5,7 +5,8 @@ import cn.edu.guet.weappdemo.domain.Tea;
 import java.util.List;
 
 /**
- *@author  LXJ
+
+ *@author  CCS/YJ
  *@date    2022/04/18 16:08
  */
 public interface Business_TeaService {
@@ -17,4 +18,3 @@ public interface Business_TeaService {
     int updateTea(Tea t);
     int deleteById(int id);
 }
-//
