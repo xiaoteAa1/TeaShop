@@ -119,7 +119,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
 
     @Override
     public Tea getTeaById(int Byid) {
-        try {
+        try {//
             String sql = "SELECT t.*,s.count,st.sale FROM tea t,store s,statistic st WHERE t.id=? AND s.teaId=? AND st.teaId=?";
             conn = JDBCUtils.getConnection();
             psta = conn.prepareStatement(sql);
