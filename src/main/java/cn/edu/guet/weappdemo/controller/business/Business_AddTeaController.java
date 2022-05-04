@@ -136,7 +136,7 @@ public class Business_AddTeaController extends JFrame {
         setLocationRelativeTo(getOwner());
         this.setVisible(true);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         button1.addActionListener(new ActionListener() {
             @Override
