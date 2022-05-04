@@ -29,6 +29,10 @@ public class Business_AddTeaServiceImpl implements Business_AddTeaSevice {
     public boolean addTea(Tea tea) throws SQLException {
 
         conn= JDBCUtils.getConnection();
+
+        //关闭mysql自动提交
+        conn.setAutoCommit(false);
+
         /**
          * 将奶茶信息放入singletea实体类中
          */
