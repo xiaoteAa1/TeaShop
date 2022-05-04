@@ -75,9 +75,9 @@ public class ShopperEnter extends JFrame {
         button3.addActionListener((e) -> {
             this.setVisible(false);
             //HHS
-//            ShopperOrder sb = new ShopperOrder();
-//            sb.setVisible(true);
-//            sb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            User_OrderController uoc = new User_OrderController();
+            uoc.setVisible(true);
+            uoc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         });
 
         //3、返回上一级

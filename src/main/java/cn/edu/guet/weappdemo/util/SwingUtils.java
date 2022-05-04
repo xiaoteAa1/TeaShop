@@ -13,5 +13,7 @@ public class SwingUtils {
     //hjk
     public static Object[] columnsForStatistic =
             {"序号","奶茶名称","奶茶类型","单价","库存量","销量","是否可销售"};
-
+    // hhs
+    public static Object[] columnsForUser_Order =
+            {"序号","发起时间","用户名","商品列表","总金额","订单状态"};
 }

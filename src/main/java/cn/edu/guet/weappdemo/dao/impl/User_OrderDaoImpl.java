@@ -20,7 +20,35 @@ public class User_OrderDaoImpl implements User_OrderDao {
 
     @Override
     public Order getOrderById(int id) {
-        return null;
+        Order order = new Order();
+        try {
+            String sql = "SELECT * FROM order_ WHERE id = ?";
+
+            conn = JDBCUtils.getConnection();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                order.setId(id);
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            JDBCUtils.close(rs, stm, conn);
+        }
+        return order;
     }
 
     @Override

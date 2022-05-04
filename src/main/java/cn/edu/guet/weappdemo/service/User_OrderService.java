@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface User_OrderService {
     // SELECT
+    Order getOrderById(int id);
     List<Order> getAll();
     List<Order> getOrdersByStatus(int status);
 

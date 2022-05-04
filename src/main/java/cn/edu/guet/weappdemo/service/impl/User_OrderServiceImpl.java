@@ -15,6 +15,11 @@ public class User_OrderServiceImpl implements User_OrderService {
     User_OrderDao uod = new User_OrderDaoImpl();
 
     @Override
+    public Order getOrderById(int id) {
+        return uod.getOrderById(id);
+    }
+
+    @Override
     public List<Order> getAll() {
         return uod.getAll();
     }
