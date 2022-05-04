@@ -27,7 +27,7 @@ public class Business_TeaServiceImpl implements Business_TeaService {
         Tea teaById = businessTeaDao.getTeaById(id);
         return teaById;
     }
-
+//
     @Override
     public Tea getTeaByName(String name) {
         Tea teaByName = businessTeaDao.getTeaByName(name);

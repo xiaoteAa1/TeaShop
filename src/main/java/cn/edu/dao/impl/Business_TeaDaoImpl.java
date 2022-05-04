@@ -116,7 +116,7 @@ public class Business_TeaDaoImpl implements Business_TeaDao {
             JDBCUtils.close(rs, psta,conn);
         }
     }
-
+//
     @Override
     public Tea getTeaById(int Byid) {
         try {
