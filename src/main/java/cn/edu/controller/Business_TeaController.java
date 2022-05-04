@@ -124,7 +124,7 @@ public class Business_TeaController extends JFrame {
         button5.setBounds(5, 40, 85, 25);
 
         //---- label4 ----
-        label4.setText("DelD");
+        label4.setText("del_ID");
         contentPane.add(label4);
         label4.setBounds(310, 45, 45, 17);
         contentPane.add(textField4);
