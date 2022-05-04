@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="基本框架完成">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/ShopperEnter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/ShopperEnter.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Business_AddTeaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_AddTeaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Business_AddTeaController.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_AddTeaController.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Business_TeaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Business_TeaController.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaController.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Business_TeaStatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaStatisticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Business_TeaStatisticController.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaStatisticController.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainPayCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainPayCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/ShoppingCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/User_SeeCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SeeCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/User_SeeCar.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SeeCar.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/User_SelectTea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SelectTea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/User_SelectTea.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SelectTea.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/User_AddCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/User_AddCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/User_AddCarImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/User_AddCarImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/User_AddCarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/User_AddCarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/User_AddCarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/User_AddCarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainQRCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainQRCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaStatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaStatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,13 +69,13 @@
       <recent name="cn.edu.guet.weappdemo.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Login">
+  <component name="RunManager" selected="Application.Business_TeaController">
     <configuration name="Business_TeaController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.Business_TeaController" />
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.Business_TeaController" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.controller.*" />
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.business.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,12 +83,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JDBCUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.util.JDBCUtils" />
+    <configuration name="Business_TeaStatisticController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.Business_TeaStatisticController" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.util.*" />
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.business.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,12 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="User_SelectTea" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.controller.User_SelectTea" />
+    <configuration name="User_SelectTea (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.user.User_SelectTea" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.controller.*" />
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Business_TeaController" />
+        <item itemvalue="Application.Business_TeaStatisticController" />
+        <item itemvalue="Application.User_SelectTea (2)" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.User_SelectTea (1)" />
-        <item itemvalue="Application.User_SelectTea" />
-        <item itemvalue="Application.JDBCUtils" />
-        <item itemvalue="Application.Business_TeaController" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +156,10 @@
       <workItem from="1651344443289" duration="884000" />
       <workItem from="1651403936882" duration="4638000" />
       <workItem from="1651508530113" duration="361000" />
-      <workItem from="1651583764577" duration="1199000" />
+      <workItem from="1651583764577" duration="1551000" />
+      <workItem from="1651644143395" duration="443000" />
+      <workItem from="1651644647003" duration="503000" />
+      <workItem from="1651672485082" duration="2066000" />
     </task>
     <task id="LOCAL-00001" summary="1、用户加购&#10;2、用户查看购物车">
       <created>1651345252979</created>
@@ -189,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651406390669</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="基本框架完成">
+      <created>1651585244850</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1651585244850</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +202,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1、用户加购&#10;2、用户查看购物车" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、用户加购&#10;2、用户查看购物车" />
+    <MESSAGE value="基本框架完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本框架完成" />
   </component>
 </project>

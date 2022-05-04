@@ -89,6 +89,15 @@ public class OwnerEnter extends JFrame {
 //            oc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         });
 
+        //3、去往统计面板
+        button3.addActionListener((e) -> {
+            this.setVisible(false);
+
+            Business_TeaStatisticController btc = new Business_TeaStatisticController();
+            btc.setVisible(true);
+            btc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        });
+
 
         //3、返回上一级
         button4.addActionListener((e) -> {
