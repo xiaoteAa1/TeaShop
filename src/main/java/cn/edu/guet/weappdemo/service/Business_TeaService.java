@@ -1,6 +1,6 @@
-package cn.edu.service;
+package cn.edu.guet.weappdemo.service;
 
-import cn.edu.domain.Tea;
+import cn.edu.guet.weappdemo.domain.Tea;
 
 import java.util.List;
 

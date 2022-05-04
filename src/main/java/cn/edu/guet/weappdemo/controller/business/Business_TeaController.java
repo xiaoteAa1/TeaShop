@@ -2,22 +2,22 @@
  * Created by JFormDesigner on Mon Apr 18 19:01:00 CST 2022
  */
 
-package cn.edu.controller;
+package cn.edu.guet.weappdemo.controller.business;
 
-import java.awt.event.*;
-import cn.edu.domain.Tea;
-import cn.edu.service.Business_TeaService;
-import cn.edu.service.impl.Business_TeaServiceImpl;
-import cn.edu.util.SwingUtils;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
+import cn.edu.guet.weappdemo.domain.Tea;
+import cn.edu.guet.weappdemo.service.Business_TeaService;
+import cn.edu.guet.weappdemo.service.impl.Business_TeaServiceImpl;
+import cn.edu.guet.weappdemo.util.SwingUtils;
+
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *@author  LXJ
@@ -53,6 +53,7 @@ public class Business_TeaController extends JFrame {
         button5 = new JButton();
         label4 = new JLabel();
         textField4 = new JTextField();
+        button7 = new JButton();
 
         //======== this ========
         setTitle("Tea  management system");
@@ -64,7 +65,7 @@ public class Business_TeaController extends JFrame {
             scrollPane1.setViewportView(table1);
         }
         contentPane.add(scrollPane1);
-        scrollPane1.setBounds(10, 80, 560, 365);
+        scrollPane1.setBounds(10, 110, 560, 335);
 
         //---- button1 ----
         button1.setText("ALL TEA");
@@ -130,6 +131,11 @@ public class Business_TeaController extends JFrame {
         contentPane.add(textField4);
         textField4.setBounds(360, 45, 60, 20);
 
+        //---- button7 ----
+        button7.setText("ADD");
+        contentPane.add(button7);
+        button7.setBounds(5, 75, 530, 25);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -153,36 +159,40 @@ public class Business_TeaController extends JFrame {
 
         button1.addActionListener(e -> getAllTea());
         button2.addActionListener(e -> {
-            if(textField1.getText() != ""){
+            if(Objects.isNull(textField4.getText())){
                 getTeaById(Integer.parseInt(textField1.getText()));
                 textField1.setText("");
             }
 
         });
         button3.addActionListener(e -> {
-            if(textField2.getText() != ""){
+            if("".equals(textField2.getText())){
                 getTeaByName(textField2.getText());
                 textField2.setText("");
             }
         });
         button4.addActionListener(e -> {
-            if(textField3.getText() != ""){
+            if("".equals(textField3.getText())){
                 getAllTeaByType(textField3.getText());
                 textField3.setText("");
             }
         });
         button5.addActionListener(e -> getAllTeaOnSale());
         button6.addActionListener(e -> {
-            if(textField4.getText() != ""){
+            if(Objects.isNull(textField4.getText())){
                 deleteById(Integer.parseInt(textField4.getText()));
                 textField4.setText("");
             }
+        });
+        button7.addActionListener(e -> {
+            //TODO 跳转页面
+            new Business_AddTeaController();
         });
     }
     //
     //根据ID搜索：
     void getTeaById(int id){
-        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
+        dtm = new DefaultTableModel(null, SwingUtils.columnsForShopOwner_Tea);
         dtm.setRowCount(0);
         Tea t = bts.getTeaById(id);
         Object[][] res = new Object[1][8];
@@ -305,6 +315,7 @@ public class Business_TeaController extends JFrame {
     private JButton button5;
     private JLabel label4;
     private JTextField textField4;
+    private JButton button7;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private static DefaultTableModel dtm;
     public static void main(String[] args) {

@@ -1,9 +1,9 @@
-package cn.edu.service.impl;
+package cn.edu.guet.weappdemo.service.impl;
 
-import cn.edu.dao.Business_TeaDao;
-import cn.edu.dao.impl.Business_TeaDaoImpl;
-import cn.edu.domain.Tea;
-import cn.edu.service.Business_TeaService;
+import cn.edu.guet.weappdemo.dao.Business_TeaDao;
+import cn.edu.guet.weappdemo.dao.impl.Business_TeaDaoImpl;
+import cn.edu.guet.weappdemo.domain.Tea;
+import cn.edu.guet.weappdemo.service.Business_TeaService;
 
 import java.util.List;
 

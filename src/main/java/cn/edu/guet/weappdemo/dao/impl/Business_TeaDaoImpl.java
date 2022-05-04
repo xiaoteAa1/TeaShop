@@ -1,8 +1,8 @@
-package cn.edu.dao.impl;
+package cn.edu.guet.weappdemo.dao.impl;
 
-import cn.edu.dao.Business_TeaDao;
-import cn.edu.domain.Tea;
-import cn.edu.util.JDBCUtils;
+import cn.edu.guet.weappdemo.dao.Business_TeaDao;
+import cn.edu.guet.weappdemo.domain.Tea;
+import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
 import java.util.ArrayList;

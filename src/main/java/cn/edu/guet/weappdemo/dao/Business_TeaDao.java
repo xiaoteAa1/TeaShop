@@ -1,6 +1,6 @@
-package cn.edu.dao;
+package cn.edu.guet.weappdemo.dao;
 
-import cn.edu.domain.Tea;
+import cn.edu.guet.weappdemo.domain.Tea;
 
 import java.util.List;
 
