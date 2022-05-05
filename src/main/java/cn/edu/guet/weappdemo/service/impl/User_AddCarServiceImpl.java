@@ -36,6 +36,11 @@ public class User_AddCarServiceImpl implements User_AddCarService {
 
         return tea;
     }
+    @Override
+    public List<CarTea> getCarTea1() {
+        List<CarTea> tea = user_addCar.getCarTea();
+        return tea;
+    }
 
     @Override
     public double getSumPrice() {

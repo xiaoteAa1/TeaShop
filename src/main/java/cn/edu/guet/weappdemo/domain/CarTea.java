@@ -27,6 +27,15 @@ public class CarTea {
         this.price=price;
     }
 
+    // 新增购物车奶茶构造方法，多加了teaId
+    public CarTea(int teaId,int id, String name, int count, double price) {
+        this.teaId = teaId;
+        this.id =id;
+        this.name=name;
+        this.count=count;
+        this.price=price;
+    }
+
     public int getCount() {
         return count;
     }

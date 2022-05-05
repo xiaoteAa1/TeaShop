@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="基本框架完成">
+    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="小改">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PatternOfPayment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PatternOfPayment.jfd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PayCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PayCode.jfd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainPayCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainPayCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainQRCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/MainQRCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaStatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_TeaStatisticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SeeCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SeeCar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +46,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\桌面\tea\TeaShop\src\main\java\cn\edu\guet\weappdemo\controller" />
+      <recent name="E:\桌面\tea\TeaShop\src\main\java\cn\edu\guet\weappdemo" />
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller\user" />
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller" />
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller\business" />
-      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\util" />
-      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller\user" />
@@ -69,7 +72,7 @@
       <recent name="cn.edu.guet.weappdemo.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Business_TeaController">
+  <component name="RunManager" selected="Application.MainCallBack">
     <configuration name="Business_TeaController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.Business_TeaController" />
       <module name="TeaShop" />
@@ -101,7 +104,7 @@
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.*" />
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,12 +112,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="User_SelectTea (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.User_SelectTea" />
+    <configuration name="MainCallBack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.MainCallBack" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.*" />
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Business_TeaController" />
-        <item itemvalue="Application.Business_TeaStatisticController" />
+        <item itemvalue="Application.MainCallBack" />
         <item itemvalue="Application.User_SelectTea (2)" />
         <item itemvalue="Application.Login" />
-        <item itemvalue="Application.User_SelectTea (1)" />
+        <item itemvalue="Application.Business_TeaStatisticController" />
+        <item itemvalue="Application.Business_TeaController" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +206,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1、用户加购&#10;2、用户查看购物车" />
     <MESSAGE value="基本框架完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本框架完成" />
+    <MESSAGE value="小改" />
+    <option name="LAST_COMMIT_MESSAGE" value="小改" />
   </component>
 </project>
