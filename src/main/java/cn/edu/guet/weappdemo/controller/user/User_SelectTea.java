@@ -7,7 +7,6 @@ import cn.edu.guet.weappdemo.service.User_AddCarService;
 import cn.edu.guet.weappdemo.service.impl.User_AddCarServiceImpl;
 import cn.edu.guet.weappdemo.util.SwingUtils;
 
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
