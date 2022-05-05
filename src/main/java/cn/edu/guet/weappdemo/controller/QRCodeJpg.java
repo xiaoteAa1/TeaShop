@@ -5,13 +5,16 @@
 package cn.edu.guet.weappdemo.controller;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
  * @author 1
  */
 public class QRCodeJpg extends JFrame {
-    public QRCodeJpg() {
+    public QRCodeJpg(PatternOfPayment patternOfPayment) {
+        this.patternOfPayment = patternOfPayment;
         initComponents();
     }
 
@@ -20,6 +23,7 @@ public class QRCodeJpg extends JFrame {
         panel1 = new JPanel();
         label1 = new JLabel();
         label2 = new JLabel();
+        button1 = new JButton();
 
         //======== this ========
         setBackground(new Color(0, 60, 0));
@@ -38,6 +42,11 @@ public class QRCodeJpg extends JFrame {
             panel1.add(label2);
             label2.setBounds(125, 5, 160, 55);
 
+            //---- button1 ----
+            button1.setText("\u8fd4\u56de");
+            panel1.add(button1);
+            button1.setBounds(new Rectangle(new Point(20, 20), button1.getPreferredSize()));
+
             {
                 // compute preferred size
                 Dimension preferredSize = new Dimension();
@@ -54,12 +63,19 @@ public class QRCodeJpg extends JFrame {
             }
         }
         contentPane.add(panel1);
-        panel1.setBounds(50, 15, 400, 400);
+        panel1.setBounds(50, 10, 400, 400);
 
-        contentPane.setPreferredSize(new Dimension(485, 460));
-        setSize(485, 460);
+        contentPane.setPreferredSize(new Dimension(500, 450));
+        setSize(500, 450);
         setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                patternOfPayment.setVisible(true);
+            }
+        });
         contentPane.setBackground(new Color(0, 204, 0));
         ImageIcon img = new ImageIcon("new.jpg");
         label1.setIcon(img);
@@ -72,9 +88,7 @@ public class QRCodeJpg extends JFrame {
     private JPanel panel1;
     private JLabel label1;
     private JLabel label2;
+    private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
-    public static void main(String[] args) {
-        new QRCodeJpg();
-    }
+    private PatternOfPayment patternOfPayment;
 }
