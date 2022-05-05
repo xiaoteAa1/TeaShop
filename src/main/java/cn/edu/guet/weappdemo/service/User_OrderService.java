@@ -10,7 +10,13 @@ import java.util.List;
 public interface User_OrderService {
     // SELECT
     Order getOrderById(int id);
-    List<Order> getAll();
+    Order getOrderByMchId(int mch_id);
+    Order getOrderByOutTradeId(String out_trade_no);
+    Order getOrderByTransactionId(String transaction_id);
+    Order getOrderByUsername(String username);
     List<Order> getOrdersByStatus(int status);
+
+    // SELECT ALL
+    List<Order> getAll();
 
 }

@@ -53,22 +53,134 @@ public class User_OrderDaoImpl implements User_OrderDao {
 
     @Override
     public Order getOrderByMchId(int mch_id) {
-        return null;
+        Order order = new Order();
+        try {
+            String sql = "SELECT * FROM order_ WHERE mch_id = ?";
+
+            conn = JDBCUtils.getConnection();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, mch_id);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                order.setId(rs.getInt("id"));
+                order.setMch_id(mch_id);
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            JDBCUtils.close(rs, stm, conn);
+        }
+        return order;
     }
 
     @Override
-    public Order getOrderByOutTradeId(String out_trade_id) {
-        return null;
+    public Order getOrderByOutTradeId(String out_trade_no) {
+        Order order = new Order();
+        try {
+            String sql = "SELECT * FROM order_ WHERE out_trade_no = ?";
+
+            conn = JDBCUtils.getConnection();
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, out_trade_no);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                order.setId(rs.getInt("id"));
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(out_trade_no);
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            JDBCUtils.close(rs, stm, conn);
+        }
+        return order;
     }
 
     @Override
     public Order getOrderByTransactionId(String transaction_id) {
-        return null;
+        Order order = new Order();
+        try {
+            String sql = "SELECT * FROM order_ WHERE transaction_id = ?";
+
+            conn = JDBCUtils.getConnection();
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, transaction_id);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                order.setId(rs.getInt("id"));
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(transaction_id);
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            JDBCUtils.close(rs, stm, conn);
+        }
+        return order;
     }
 
     @Override
     public Order getOrderByUsername(String username) {
-        return null;
+        Order order = new Order();
+        try {
+            String sql = "SELECT * FROM order_ WHERE username = ?";
+
+            conn = JDBCUtils.getConnection();
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, username);
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                order.setId(rs.getInt("id"));
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(username);
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            JDBCUtils.close(rs, stm, conn);
+        }
+        return order;
     }
 
     @Override
