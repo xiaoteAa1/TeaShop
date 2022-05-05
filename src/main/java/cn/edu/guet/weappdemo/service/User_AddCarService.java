@@ -13,6 +13,7 @@ public interface User_AddCarService {
     List<CarTea> getTea();
     boolean addTea(CarTea carTea);
     List<CarTea> getCarTea();
+    List<CarTea> getCarTea1();
     double getSumPrice();
     boolean deleteTae(CarTea carTea);
 }

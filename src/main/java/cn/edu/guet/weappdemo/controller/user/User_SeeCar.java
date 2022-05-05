@@ -4,11 +4,11 @@
 
 package cn.edu.guet.weappdemo.controller.user;
 
+import cn.edu.guet.weappdemo.controller.PatternOfPayment;
 import cn.edu.guet.weappdemo.domain.CarTea;
 import cn.edu.guet.weappdemo.service.User_AddCarService;
 import cn.edu.guet.weappdemo.service.impl.User_AddCarServiceImpl;
 import cn.edu.guet.weappdemo.util.SwingUtils;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -102,7 +102,6 @@ public class User_SeeCar extends JFrame {
                 name =table1.getValueAt(index, 1).toString();
                 count = (int) table1.getValueAt(index,2);
 
-
             }
 
             @Override
@@ -126,12 +125,23 @@ public class User_SeeCar extends JFrame {
             }
         });
 
+        // 选择支付方式
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                // 获取订单部分信息
+                getCarTea1();
+                // 传订单金额和部分订单信息
+                new PatternOfPayment(user_seeCar,message,total_fee);
+            }
+        });
+
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String Input = JOptionPane.showInputDialog(null,
                         "已选择要删除的奶茶：" + "\n" + name + "\n" + "请输入要删除的个数:", String.valueOf(JOptionPane.PLAIN_MESSAGE),1);
-
 
                 if (isNumeric(Input)) {
                     deleteCount = Integer.parseInt(Input);
@@ -148,11 +158,6 @@ public class User_SeeCar extends JFrame {
                 }
             }
         });
-
-
-
-
-
     }
     void deleteTea(){
         CarTea carTea = new CarTea();
@@ -179,9 +184,59 @@ public class User_SeeCar extends JFrame {
             res[0][3] = t.getPrice();
             dtm1.addRow(res[idx]);
         }
+
+    /*    // 用户信息
+        String username = "username,无极;";
+        // 用户订单备注
+        String remark = "remark,无:";
+        // 订单信息
+        String itemInfo1 = "id,26;name,芝芝乳品;price,18.00;amount,2#";
+        String itemInfo2 = "id,25;name,安慕希可可;price,20.00;amount,3;";
+        String itemInfos = itemInfo1 + itemInfo2;
+        // 订单部分信息（对应attach附加信息）
+        message = username + remark + itemInfos;
+        total_fee = "1";*/
+//        String str = "id," + ";name," + ";price," + ";amount," + "#";
+
         table1.setModel(dtm1);
         table1.invalidate();
     }
+
+
+    /**
+     * 获取message信息
+     */
+    void getCarTea1(){
+        // 获取购物车奶茶列表
+        List<CarTea> list = acs.getCarTea();
+        // 获取购物车奶茶类别数
+        int len = list.size();
+        // 订单部分信息
+        StringBuffer itemInfos = new StringBuffer();
+        double cost = 0;
+        for(CarTea t :list){
+            // 奶茶id
+            String teaId = String.valueOf(t.getTeaId());
+            // 奶茶名字
+            String name = t.getName();
+            // 奶茶数量
+            int count = t.getCount();
+            // 奶茶价格
+            double price = t.getPrice();
+            // 将订单信息格式化
+            String itemInfo = "id," + teaId + ";name," + name + ";price," + price + ";amount," + count + "#";
+            System.out.println(itemInfo + "--------------1");
+//            String itemInfo = "1," + teaId + ";1," + name + ";1," + price + ";1," + count + "#";
+            itemInfos.append(itemInfo);
+            cost += price;
+        }
+        // 总的部分订单信息
+//        total_fee = String.valueOf((int)cost * 100);
+        total_fee = String.valueOf(1);
+        String s = itemInfos.substring(0,itemInfos.length()-1);
+        message = new String (s + ";");
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JScrollPane scrollPane1;
     static JTable table1;
@@ -192,6 +247,12 @@ public class User_SeeCar extends JFrame {
     static JTextField textField1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private static DefaultTableModel dtm1=new DefaultTableModel(null, SwingUtils.columns_CarTea1);
+    // 存储本页面
+    private User_SeeCar user_seeCar = this;
+    // 订单部分信息
+    private String message;
+    // 订单金额
+    private String total_fee;
     String name =null;
     int deleteCount=0;
     int count=0;

@@ -111,6 +111,41 @@ public class User_AddCarImpl implements User_AddCar {
         }
     }
 
+    // 多加一个获取购物车商品方法，为了获取teaid
+    @Override
+    public List<CarTea> getCarTea1() {
+        try {
+            List<CarTea> list = new ArrayList<>();
+
+//            String sql = "select name,count(*) count,price*count(*) price from cartea group by name,price";
+            String sql = "select id,name,count(*) count,price*count(*) price from cartea group by name,price,id";
+
+            conn = JDBCUtils.getConnection();
+            sta = conn.createStatement();
+            rs = sta.executeQuery(sql);
+            int ordinal=1;
+
+            while (rs.next()) {
+                int id =ordinal;
+                String teaId = rs.getString("id");
+                String name = rs.getString("name");
+                int count =rs.getInt("count");
+                double price = rs.getDouble("price");
+                ordinal++;
+
+                CarTea tea = new CarTea(Integer.parseInt(teaId),id,name,count,price);
+//                CarTea tea = new CarTea(id,name,count,price);
+                list.add(tea);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            JDBCUtils.close(rs, sta, conn);
+        }
+    }
+
     @Override
     public double getSumPrice() {
         double price = 0;

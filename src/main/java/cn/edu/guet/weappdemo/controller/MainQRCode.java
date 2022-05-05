@@ -1,5 +1,6 @@
 package cn.edu.guet.weappdemo.controller;
 
+import cn.edu.guet.weappdemo.controller.user.ShoppingCartController;
 import cn.edu.guet.weappdemo.pay.WXPay;
 
 /**
@@ -21,5 +22,25 @@ public class MainQRCode {
         // 生成二维码并传入参数信息进行支付
         WXPay.unifiedOrder(message,"1",url);
 
+    }
+
+    /**
+     * 测试用的方法
+     * @param message 订单部分信息
+     * @param total_fee 订单金额
+     * @param url 回调域名
+     */
+    public static void testCreateQRCode (String message,String total_fee,String url){
+        WXPay.unifiedOrder(message,total_fee,url);
+    }
+
+    /**
+     * 将回调url域名写死，就调用此方法，
+     * @param message 订单部分信息
+     * @param total_fee 订单金额
+     */
+    public static void createQRCode (String message,String total_fee){
+        System.out.println(message + "----------------2");
+        WXPay.unifiedOrder(message,total_fee,"http://4s770d5857.qicp.vip:12275");
     }
 }
