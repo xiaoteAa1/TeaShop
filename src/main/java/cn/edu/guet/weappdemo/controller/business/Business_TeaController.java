@@ -4,13 +4,13 @@
 
 package cn.edu.guet.weappdemo.controller.business;
 
-
 import cn.edu.guet.weappdemo.domain.Tea;
 import cn.edu.guet.weappdemo.service.Business_TeaService;
 import cn.edu.guet.weappdemo.service.impl.Business_TeaServiceImpl;
 import cn.edu.guet.weappdemo.util.SwingUtils;
 
 import javax.swing.*;
+
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -24,7 +24,9 @@ import java.util.List;
  */
 public class Business_TeaController extends JFrame {
     static Business_TeaService bts = new Business_TeaServiceImpl();
+
     public Business_TeaController() {
+        ini();
         initComponents();
     }
 
@@ -32,6 +34,31 @@ public class Business_TeaController extends JFrame {
         // TODO add your code here
     }
 
+    void ini(){
+        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
+        dtm.addTableModelListener(e -> {
+            int type = e.getType();// 获得事件的类型
+            int row = e.getFirstRow() + 1;// 获得触发此次事件的表格行索引
+            int column = e.getColumn() + 1;// 获得触发此次事件的表格列索引
+            if (type == TableModelEvent.UPDATE) {
+                Integer id = (Integer)dtm.getValueAt(row - 1, 0);
+                String name = (String)dtm.getValueAt(row - 1, 1);
+                Object price = dtm.getValueAt(row - 1, 2);
+                String type2 = (String)dtm.getValueAt(row - 1, 3);
+                Object issale = dtm.getValueAt(row - 1, 4);
+                String remark = (String)dtm.getValueAt(row - 1, 5);
+                double realPrice = 0;
+                int realIsSale = 0;
+                if(price instanceof Double) realPrice = (Double)price;
+                else realPrice = Double.valueOf((String)price);
+                if(issale instanceof Integer) realIsSale = (Integer)issale;
+                else realIsSale = Integer.valueOf((String)issale);
+                Tea teaByName = new Tea(id,name,realPrice,type2,realIsSale,remark);
+                bts.updateTea(teaByName);
+                bts.getAllTea();
+            }
+        });
+    }
 
 
     private void initComponents() {
@@ -43,10 +70,12 @@ public class Business_TeaController extends JFrame {
         button3 = new JButton();
         textField1 = new JTextField();
         label1 = new JLabel();
+
         label2 = new JLabel();
         label3 = new JLabel();
         button4 = new JButton();
         textField3 = new JTextField();
+
         textField2 = new JTextField();
         button6 = new JButton();
         button5 = new JButton();
@@ -56,6 +85,7 @@ public class Business_TeaController extends JFrame {
 
         //======== this ========
         setTitle("Tea  management system");
+
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
@@ -64,6 +94,7 @@ public class Business_TeaController extends JFrame {
             scrollPane1.setViewportView(table1);
         }
         contentPane.add(scrollPane1);
+
         scrollPane1.setBounds(10, 110, 560, 335);
 
         //---- button1 ----
@@ -73,6 +104,7 @@ public class Business_TeaController extends JFrame {
 
         //---- button2 ----
         button2.setText("By Id");
+
         button2.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -80,6 +112,7 @@ public class Business_TeaController extends JFrame {
             }
         });
         contentPane.add(button2);
+
         button2.setBounds(210, 15, 90, 20);
 
         //---- button3 ----
@@ -89,19 +122,25 @@ public class Business_TeaController extends JFrame {
         contentPane.add(textField1);
         textField1.setBounds(135, 15, 60, 20);
 
+
         //---- label1 ----
         label1.setText("ID:");
         contentPane.add(label1);
+
         label1.setBounds(100, 15, 25, label1.getPreferredSize().height);
+
 
         //---- label2 ----
         label2.setText("Name:");
         contentPane.add(label2);
+
         label2.setBounds(310, 15, 45, label2.getPreferredSize().height);
+
 
         //---- label3 ----
         label3.setText("type:");
         contentPane.add(label3);
+
         label3.setBounds(new Rectangle(new Point(100, 45), label3.getPreferredSize()));
 
         //---- button4 ----
@@ -135,6 +174,7 @@ public class Business_TeaController extends JFrame {
         contentPane.add(button7);
         button7.setBounds(5, 75, 530, 25);
 
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -158,7 +198,7 @@ public class Business_TeaController extends JFrame {
 
         button1.addActionListener(e -> getAllTea());
         button2.addActionListener(e -> {
-            if(!textField1.getText().equals("")){
+            if(!"".equals(textField1.getText())){
                 getTeaById(Integer.parseInt(textField1.getText()));
                 textField1.setText("");
             }
@@ -184,11 +224,11 @@ public class Business_TeaController extends JFrame {
             }
         });
         button7.addActionListener(e -> {
-            //TODO 跳转页面
             new Business_AddTeaController();
         });
     }
     //
+
     //根据ID搜索：
     void getTeaById(int id){
         dtm = new DefaultTableModel(null, SwingUtils.columnsForShopOwner_Tea);
@@ -207,6 +247,7 @@ public class Business_TeaController extends JFrame {
         table1.setModel(dtm);
         table1.invalidate();
     }
+
     //根据ID删除:
     int deleteById(int deleteId){
         int i = bts.deleteById(deleteId);
@@ -214,6 +255,7 @@ public class Business_TeaController extends JFrame {
     }
     //根据名字搜索：
     void getTeaByName(String name){
+
         dtm.setRowCount(0);
         Tea t = bts.getTeaByName(name);
         Object[][] res = new Object[1][8];
@@ -231,8 +273,10 @@ public class Business_TeaController extends JFrame {
         table1.invalidate();
     }
     List<Tea> getAllTeaByType(String ByType){
+
         dtm.setRowCount(0);
         List<Tea> list = bts.getAllTeaByType(ByType);
+
         int len = list.size();
         Object[][] res = new Object[1][8];
 
@@ -305,10 +349,12 @@ public class Business_TeaController extends JFrame {
     private JButton button3;
     private JTextField textField1;
     private JLabel label1;
+
     private JLabel label2;
     private JLabel label3;
     private JButton button4;
     private JTextField textField3;
+
     private JTextField textField2;
     private JButton button6;
     private JButton button5;
@@ -316,33 +362,34 @@ public class Business_TeaController extends JFrame {
     private JTextField textField4;
     private JButton button7;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-    private static DefaultTableModel dtm;
+    private DefaultTableModel dtm;
     public static void main(String[] args) {
-        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
-        dtm.addTableModelListener(e -> {
-            int type = e.getType();// 获得事件的类型
-            int row = e.getFirstRow() + 1;// 获得触发此次事件的表格行索引
-            int column = e.getColumn() + 1;// 获得触发此次事件的表格列索引
-            if (type == TableModelEvent.UPDATE) {
-                Integer id = (Integer)dtm.getValueAt(row - 1, 0);
-                String name = (String)dtm.getValueAt(row - 1, 1);
-                Object price = dtm.getValueAt(row - 1, 2);
-                String type2 = (String)dtm.getValueAt(row - 1, 3);
-                Object issale = dtm.getValueAt(row - 1, 4);
-                String remark = (String)dtm.getValueAt(row - 1, 5);
-                double realPrice = 0;
-                int realIsSale = 0;
-                if(price instanceof Double) realPrice = (Double)price;
-                else realPrice = Double.valueOf((String)price);
-                if(issale instanceof Integer) realIsSale = (Integer)issale;
-                else realIsSale = Integer.valueOf((String)issale);
-                Tea teaByName = new Tea(id,name,realPrice,type2,realIsSale,remark);
-                bts.updateTea(teaByName);
-                bts.getAllTea();
-            }
-        });
+//        dtm = new DefaultTableModel(null,SwingUtils.columnsForShopOwner_Tea);
+//        dtm.addTableModelListener(e -> {
+//            int type = e.getType();// 获得事件的类型
+//            int row = e.getFirstRow() + 1;// 获得触发此次事件的表格行索引
+//            int column = e.getColumn() + 1;// 获得触发此次事件的表格列索引
+//            if (type == TableModelEvent.UPDATE) {
+//                Integer id = (Integer)dtm.getValueAt(row - 1, 0);
+//                String name = (String)dtm.getValueAt(row - 1, 1);
+//                Object price = dtm.getValueAt(row - 1, 2);
+//                String type2 = (String)dtm.getValueAt(row - 1, 3);
+//                Object issale = dtm.getValueAt(row - 1, 4);
+//                String remark = (String)dtm.getValueAt(row - 1, 5);
+//                double realPrice = 0;
+//                int realIsSale = 0;
+//                if(price instanceof Double) realPrice = (Double)price;
+//                else realPrice = Double.valueOf((String)price);
+//                if(issale instanceof Integer) realIsSale = (Integer)issale;
+//                else realIsSale = Integer.valueOf((String)issale);
+//                Tea teaByName = new Tea(id,name,realPrice,type2,realIsSale,remark);
+//                bts.updateTea(teaByName);
+//                bts.getAllTea();
+//            }
+//        });
         //最终页面对象的展示：
         new Business_TeaController();
+
 
 
     }
