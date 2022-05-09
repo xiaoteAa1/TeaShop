@@ -95,6 +95,7 @@ public class OwnerEnter extends JFrame {
 
             Business_TeaStatisticController btc = new Business_TeaStatisticController();
             btc.setVisible(true);
+            btc.getTeaStatistic();
             btc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         });
 
@@ -115,5 +116,4 @@ public class OwnerEnter extends JFrame {
     private JButton button4;
     private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
 }

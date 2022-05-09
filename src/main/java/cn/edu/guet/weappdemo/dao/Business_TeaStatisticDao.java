@@ -2,6 +2,7 @@ package cn.edu.guet.weappdemo.dao;
 
 import cn.edu.guet.weappdemo.domain.Tea;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -10,9 +11,7 @@ import java.util.List;
  */
 public interface Business_TeaStatisticDao {
 
-
     List<Tea> getAllTea();
-
-
+    void updateStatistic (int teaId,int sale) throws SQLException;
 
 }
