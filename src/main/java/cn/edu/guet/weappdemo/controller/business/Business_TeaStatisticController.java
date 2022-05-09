@@ -107,9 +107,9 @@ public class Business_TeaStatisticController extends JFrame {
         //1、返回上一级(这里先设置回到到登陆界面，后续再修改)
         button1.addActionListener((e) -> {
             this.setVisible(false);
-            Login login = new Login();
-            login.setVisible(true);
-            login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            OwnerEnter on = new OwnerEnter();
+            on.setVisible(true);
+            on.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         });
 
 

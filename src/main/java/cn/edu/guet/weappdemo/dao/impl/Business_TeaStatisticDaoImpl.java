@@ -56,4 +56,25 @@ public class Business_TeaStatisticDaoImpl implements Business_TeaStatisticDao {
             JDBCUtils.close(rs, sta,conn);
         }
     }
+
+    /**
+     * 更新统计表
+     * @param teaId 商品id
+     * @param sale 商品销售量
+     * @throws SQLException
+     */
+    @Override
+    public void updateStatistic(int teaId,int sale) throws SQLException{
+        String sql = "UPDATE statistic SET sale = sale + ? WHERE teaid = ?";
+        try {
+            conn = JDBCUtils.getConnection();
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1,sale);
+            pstm.setInt(2,teaId);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("更新统计表失败");
+        }
+    }
 }

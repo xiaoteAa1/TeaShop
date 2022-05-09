@@ -2,6 +2,7 @@ package cn.edu.guet.weappdemo.service;
 
 import cn.edu.guet.weappdemo.domain.Tea;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -11,6 +12,6 @@ import java.util.List;
 public interface Business_TeaStatisticService {
 
     List<Tea> getAllTea();
-
+    void updateStatistic (int teaId,int sale) throws SQLException;
 
 }

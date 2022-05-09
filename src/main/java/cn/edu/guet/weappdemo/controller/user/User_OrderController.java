@@ -4,7 +4,6 @@
 
 package cn.edu.guet.weappdemo.controller.user;
 
-import cn.edu.guet.weappdemo.controller.Login;
 import cn.edu.guet.weappdemo.domain.Order;
 import cn.edu.guet.weappdemo.service.User_OrderService;
 import cn.edu.guet.weappdemo.service.impl.User_OrderServiceImpl;

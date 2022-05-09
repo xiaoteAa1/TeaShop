@@ -1,7 +1,9 @@
 package cn.edu.guet.weappdemo.service.impl;
 
+import cn.edu.guet.weappdemo.dao.Business_TeaStatisticDao;
 import cn.edu.guet.weappdemo.dao.OrderDao;
 import cn.edu.guet.weappdemo.dao.StockDao;
+import cn.edu.guet.weappdemo.dao.impl.Business_TeaStatisticDaoImpl;
 import cn.edu.guet.weappdemo.dao.impl.OrderDaoImpl;
 import cn.edu.guet.weappdemo.dao.impl.StockDaoImpl;
 import cn.edu.guet.weappdemo.domain.Order;
@@ -26,6 +28,7 @@ public class OrderServiceImpl implements OrderService {
         try {
             OrderDao orderDao = new OrderDaoImpl();
             StockDao stockDao = new StockDaoImpl();
+            Business_TeaStatisticDao bts = new Business_TeaStatisticDaoImpl();
 
             conn = JDBCUtils.getConnection();
             System.out.println("OrderService：" + conn.hashCode());
@@ -40,6 +43,7 @@ public class OrderServiceImpl implements OrderService {
                 String item_id = iter.next();
                 String amount = item_id_list.get(item_id);
                 stockDao.updateStock(Integer.parseInt(item_id), Integer.parseInt(amount));
+                bts.updateStatistic(Integer.parseInt(item_id),Integer.parseInt(amount));
             }
 
             conn.commit();

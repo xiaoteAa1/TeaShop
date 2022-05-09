@@ -5,6 +5,7 @@ import cn.edu.guet.weappdemo.dao.impl.Business_TeaStatisticDaoImpl;
 import cn.edu.guet.weappdemo.domain.Tea;
 import cn.edu.guet.weappdemo.service.Business_TeaStatisticService;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -21,6 +22,10 @@ public class Business_TeaStatisticServiceImpl implements Business_TeaStatisticSe
         return teaList;
     }
 
+    @Override
+    public void updateStatistic(int teaId, int sale) throws SQLException {
+        business_teaStatisticDao.updateStatistic(teaId,sale);
+    }
 
 
     public static void main(String[] args) {
