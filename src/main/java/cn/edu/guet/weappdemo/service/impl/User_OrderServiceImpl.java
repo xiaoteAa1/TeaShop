@@ -20,6 +20,26 @@ public class User_OrderServiceImpl implements User_OrderService {
     }
 
     @Override
+    public Order getOrderByMchId(int mch_id) {
+        return uod.getOrderByMchId(mch_id);
+    }
+
+    @Override
+    public Order getOrderByOutTradeId(String out_trade_no) {
+        return uod.getOrderByOutTradeId(out_trade_no);
+    }
+
+    @Override
+    public Order getOrderByTransactionId(String transaction_id) {
+        return uod.getOrderByTransactionId(transaction_id);
+    }
+
+    @Override
+    public Order getOrderByUsername(String username) {
+        return uod.getOrderByUsername(username);
+    }
+
+    @Override
     public List<Order> getAll() {
         return uod.getAll();
     }

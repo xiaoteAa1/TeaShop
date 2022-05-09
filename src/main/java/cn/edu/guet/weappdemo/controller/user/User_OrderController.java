@@ -131,7 +131,7 @@ public class User_OrderController extends JFrame {
             list = uos.getOrdersByStatus(status);
 
         int len = list.size();
-        if(list == null || len == 0){
+        if(list == null || len == 0) {
             return;
         }
         Object[][] res = new Object[len][6];
@@ -165,7 +165,7 @@ public class User_OrderController extends JFrame {
     private User_OrderService uos = new User_OrderServiceImpl();
 
     // 调试用
-    public static void main(String[] args) {
-        new User_OrderController();
-    }
+//    public static void main(String[] args) {
+//        new User_OrderController();
+//    }
 }
