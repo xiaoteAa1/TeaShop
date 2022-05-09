@@ -199,27 +199,27 @@ public class Business_TeaController extends JFrame {
 
         button1.addActionListener(e -> getAllTea());
         button2.addActionListener(e -> {
-            if(!Objects.isNull(textField4.getText())){
+            if(!"".equals(textField1.getText())){
                 getTeaById(Integer.parseInt(textField1.getText()));
                 textField1.setText("");
             }
 
         });
         button3.addActionListener(e -> {
-            if("".equals(textField2.getText())){
+            if(!"".equals(textField2.getText())){
                 getTeaByName(textField2.getText());
                 textField2.setText("");
             }
         });
         button4.addActionListener(e -> {
-            if("".equals(textField3.getText())){
+            if(!"".equals(textField3.getText())){
                 getAllTeaByType(textField3.getText());
                 textField3.setText("");
             }
         });
         button5.addActionListener(e -> getAllTeaOnSale());
         button6.addActionListener(e -> {
-            if(!Objects.isNull(textField4.getText())){
+            if(!"".equals(textField4.getText())){
                 deleteById(Integer.parseInt(textField4.getText()));
                 textField4.setText("");
             }
