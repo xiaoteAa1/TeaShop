@@ -31,7 +31,7 @@ public class Business_OrderDaoImpl implements Business_OrderDao {
         try {
             //调用JDBCUtils类中的getConnection()方法进行数据库连接
             conn = JDBCUtils.getConnection();
-            String sql = "SELECT*FROM `order` WHERE status=0";
+            String sql = "SELECT*FROM `order_` WHERE status=0";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -65,7 +65,7 @@ public class Business_OrderDaoImpl implements Business_OrderDao {
         try {
             //调用JDBCUtils类中的getConnection()方法进行数据库连接
             conn = JDBCUtils.getConnection();
-            String sql = "SELECT*FROM `order` WHERE status=-1";
+            String sql = "SELECT*FROM `order_` WHERE status=-1";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -98,7 +98,7 @@ public class Business_OrderDaoImpl implements Business_OrderDao {
         try {
             //调用JDBCUtils类中的getConnection()方法进行数据库连接
             conn = JDBCUtils.getConnection();
-            String sql = "SELECT*FROM `order` WHERE status=1";
+            String sql = "SELECT*FROM `order_` WHERE status=1";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while (rs.next()) {

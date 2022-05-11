@@ -82,11 +82,11 @@ public class OwnerEnter extends JFrame {
         //2、去往订单管理
         button2.addActionListener((e) ->{
             //TLJ
-//            this.setVisible(false);
-//
-//            OrderController oc = new OrderController();
-//            oc.setVisible(true);
-//            oc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setVisible(false);
+
+            Business_OrderManageController oc = new Business_OrderManageController();
+            oc.setVisible(true);
+            oc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         });
 
         //3、去往统计面板
