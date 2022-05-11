@@ -5,54 +5,124 @@ package cn.edu.guet.weappdemo.dao.impl;
  */
 
 import cn.edu.guet.weappdemo.dao.Business_OrderDao;
+import cn.edu.guet.weappdemo.domain.Order;
+import cn.edu.guet.weappdemo.util.JDBCUtils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.LinkedList;
 
 //将订单信息存入数据库
 public class Business_OrderDaoImpl implements Business_OrderDao {
-    @Override
-    public void newOrder(int id,int mch_id,String out_trade_no,String transaction_id,
-                         String start_time,String username,String list,double amount,
-                         int status,String remark) {
-        Connection conn=null;
-        PreparedStatement pstmt=null;
-        try{
-            String sql="INSERT INTO order VALUES(?,?,?,?,?,?,?,?,?,?)";
-            String user="root";
-            String dbPassword="lxj123456";
-            String url="jdbc:mysql://120.79.223.83/teashop2?characterEncoding=utf-8&rewriteBatchedStatement=true";
+    Connection conn;
+    ResultSet rs;
+    PreparedStatement pstmt;
 
-            conn= DriverManager.getConnection(url,user,dbPassword);
-            pstmt=conn.prepareStatement(sql);
-            pstmt.setInt(1,id);
-            pstmt.setInt(2,mch_id);
-            pstmt.setString(3,out_trade_no);
-            pstmt.setString(4,transaction_id);
-            pstmt.setString(5,start_time);
-            pstmt.setString(6,username);
-            pstmt.setString(7,list);
-            pstmt.setDouble(8,amount);
-            pstmt.setInt(9,status);
-            pstmt.setString(10,remark);
-
-            pstmt.executeUpdate();
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
+    public static void main(String[] args) {
+        LinkedList<Order> currentOrder = new Business_OrderDaoImpl().getCurrentOrder();
+        System.out.println(currentOrder);
     }
 
+    //订单管理模块中查询当前正在制作的订单信息,order表中属性status=0
+    @Override
+    public LinkedList<Order> getCurrentOrder() {
+        //使用list存储数据
+        LinkedList<Order> list = new LinkedList<>();
+        try {
+            //调用JDBCUtils类中的getConnection()方法进行数据库连接
+            conn = JDBCUtils.getConnection();
+            String sql = "SELECT*FROM `order` WHERE status=0";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Order order=new Order();
+                order.setId(rs.getInt("id"));
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+                list.add(order);
+            }
+            rs.close();
+            pstmt.close();
+            conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
+
+    //查询异常订单的信息，属性status=-1
+    @Override
+    public LinkedList<Order> getWrongOrder() {
+        LinkedList<Order> list = new LinkedList<>();
+        try {
+            //调用JDBCUtils类中的getConnection()方法进行数据库连接
+            conn = JDBCUtils.getConnection();
+            String sql = "SELECT*FROM `order` WHERE status=-1";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Order order=new Order();
+                order.setId(rs.getInt("id"));
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+                list.add(order);
+            }
+            rs.close();
+            pstmt.close();
+            conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
+    //查询历史订单信息，即已制作完成且结束的订单，属性status=1
+    @Override
+    public LinkedList<Order> getFinishOrder() {
+        LinkedList<Order> list = new LinkedList<>();
+        try {
+            //调用JDBCUtils类中的getConnection()方法进行数据库连接
+            conn = JDBCUtils.getConnection();
+            String sql = "SELECT*FROM `order` WHERE status=1";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Order order=new Order();
+                order.setId(rs.getInt("id"));
+                order.setMch_id(rs.getInt("mch_id"));
+                order.setOut_trade_no(rs.getString("out_trade_no"));
+                order.setTransaction_id(rs.getString("transaction_id"));
+                order.setStart_time(rs.getTimestamp("start_time"));
+                order.setUsername(rs.getString("username"));
+                order.setList(rs.getString("list"));
+                order.setAmount(rs.getDouble("amount"));
+                order.setStatus(rs.getInt("status"));
+                order.setRemark(rs.getString("remark"));
+                list.add(order);
+            }
+            rs.close();
+            pstmt.close();
+            conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
 
 
 }
