@@ -29,18 +29,16 @@ public class User_SelectTea extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         scrollPane1 = new JScrollPane();
-        table1 = new JTable(){
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
+        table1 = new JTable();
         button1 = new JButton();
         label1 = new JLabel();
         textField1 = new JTextField();
         button2 = new JButton();
         button3 = new JButton();
+        button4 = new JButton();
 
         //======== this ========
+        setTitle("Shopping!");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
@@ -54,7 +52,7 @@ public class User_SelectTea extends JFrame {
         //---- button1 ----
         button1.setText("\u67e5\u770b\u5976\u8336");
         contentPane.add(button1);
-        button1.setBounds(new Rectangle(new Point(5, 10), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(100, 10), button1.getPreferredSize()));
 
         //---- label1 ----
         label1.setText("\u5df2\u9009\u62e9\uff1a");
@@ -72,6 +70,11 @@ public class User_SelectTea extends JFrame {
         button3.setText("\u67e5\u770b\u8d2d\u7269\u8f66");
         contentPane.add(button3);
         button3.setBounds(new Rectangle(new Point(475, 420), button3.getPreferredSize()));
+
+        //---- button4 ----
+        button4.setText("\u8fd4\u56de");
+        contentPane.add(button4);
+        button4.setBounds(10, 10, 82, 30);
 
         {
             // compute preferred size
@@ -155,6 +158,14 @@ public class User_SelectTea extends JFrame {
                 User_SeeCar.table1.invalidate();
             }
         });
+
+        //返回上一级
+        button4.addActionListener((e)->{
+            this.setVisible(false);
+            ShopperEnter se = new ShopperEnter();
+            se.setVisible(true);
+            se.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        });
     }
     void getTea(){
         dtm.setRowCount(0);
@@ -175,6 +186,7 @@ public class User_SelectTea extends JFrame {
 
     }
     void addTea(){
+        if(table1.getSelectedRow() == -1)return ;//没有选择行
         CarTea carTea=new CarTea();
         carTea.setTeaId(teaId);
         carTea.setName(teaName);
@@ -213,6 +225,7 @@ public class User_SelectTea extends JFrame {
     private JTextField textField1;
     private JButton button2;
     private JButton button3;
+    private JButton button4;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private static DefaultTableModel dtm =  new DefaultTableModel(null, SwingUtils.columns_CarTea);;
     private static DefaultTableModel dtm1 = new DefaultTableModel(null, SwingUtils.columns_CarTea1);;
