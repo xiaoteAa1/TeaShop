@@ -222,8 +222,8 @@ public class User_SeeCar extends JFrame {
         }
         System.out.println(itemInfos + "----------itemInfos");
         // 总的部分订单信息
-//        total_fee = String.valueOf((int)cost * 100);
-        total_fee = String.valueOf(1);
+        total_fee = String.valueOf((int)(cost * 100));
+//        total_fee = String.valueOf(1);
         String s = itemInfos.substring(0,itemInfos.length()-1);
         message = s + ";";
     }
