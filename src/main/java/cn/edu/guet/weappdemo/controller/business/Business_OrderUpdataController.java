@@ -214,4 +214,7 @@ public class Business_OrderUpdataController extends JFrame {
     private JTextField textField10;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    public static void main(String[] args) {
+        new Business_OrderManageController();
+    }
 }

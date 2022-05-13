@@ -27,7 +27,6 @@ public class Business_OrderManageController extends JFrame {
         button3 = new JButton();
         button4 = new JButton();
         label1 =new JLabel();
-        textField1=new JTextField();
 
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
@@ -111,7 +110,15 @@ public class Business_OrderManageController extends JFrame {
                 String username= (String) table1.getValueAt(rowNo,5);
                 String list= (String) table1.getValueAt(rowNo,6);
                 double amount= (double) table1.getValueAt(rowNo,7);
-                int status= (int) table1.getValueAt(rowNo,8);
+                String statu= (String) table1.getValueAt(rowNo,8);
+                int status;
+                if(statu.equals("进行中")){
+                    status=0;
+                }else if(statu.equals("订单异常")){
+                    status=-1;
+                }else {
+                    status=1;
+                }
                 String remark= (String) table1.getValueAt(rowNo,9);
                 Order order=new Order(id,mch_id,out_trade_no,transaction_id,start_time,username,list,amount,status,remark);
                 Business_OrderUpdataController updateController=new Business_OrderUpdataController(order);
@@ -135,7 +142,7 @@ public class Business_OrderManageController extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         //禁止改变窗口大小
-
+        super.setTitle("订单管理");
         this.setResizable(false);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -148,7 +155,6 @@ public class Business_OrderManageController extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
-    private JTextField textField1;
     private JLabel label1;
 
     public static void main(String[] args) {
