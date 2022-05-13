@@ -114,7 +114,7 @@ public class TestController {
                 QROrder.setUsername(username);
                 QROrder.setList(teaList);
                 QROrder.setAmount(Double.parseDouble(totalPrice));
-                QROrder.setStatus(1);
+                QROrder.setStatus(0);
                 QROrder.setRemark(remark);
 
                 // 进行订单处理

@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="更新统计表">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ReceiptDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ReceiptDetails.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/print_receipt/Goods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/print_receipt/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/print_receipt/SalesTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/print_receipt/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="添加打印小票">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PatternOfPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PatternOfPayment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/QRCodeJpg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/QRCodeJpg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/QRCodeJpg.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/QRCodeJpg.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_OrderManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/Business_OrderManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SeeCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_SeeCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/Business_UpdateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/Business_UpdateDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_UpdateDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_UpdateDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/ShoppingCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/ShoppingCartController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +79,7 @@
       <recent name="cn.edu.guet.weappdemo.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Business_OrderManageController">
+  <component name="RunManager" selected="Application.Login">
     <configuration name="Business_OrderManageController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.Business_OrderManageController" />
       <module name="TeaShop" />
@@ -167,10 +154,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Business_OrderManageController" />
-        <item itemvalue="Application.ReceiptDetails" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.MainCallBack" />
+        <item itemvalue="Application.Business_OrderManageController" />
+        <item itemvalue="Application.ReceiptDetails" />
         <item itemvalue="Application.User_OrderController" />
       </list>
     </recent_temporary>
@@ -194,7 +181,7 @@
       <workItem from="1652322082276" duration="7251000" />
       <workItem from="1652361636301" duration="3783000" />
       <workItem from="1652368727985" duration="6111000" />
-      <workItem from="1652408215800" duration="16484000" />
+      <workItem from="1652408215800" duration="17090000" />
     </task>
     <task id="LOCAL-00001" summary="1、用户加购&#10;2、用户查看购物车">
       <created>1651345252979</created>
@@ -217,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651585244850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加打印小票">
+      <created>1652424771682</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652424771682</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +232,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1、用户加购&#10;2、用户查看购物车" />
     <MESSAGE value="基本框架完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本框架完成" />
+    <MESSAGE value="添加打印小票" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加打印小票" />
   </component>
 </project>

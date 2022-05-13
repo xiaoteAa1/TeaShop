@@ -15,8 +15,8 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label1"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"width": 415
-					"height": 375
+					"width": 300
+					"height": 300
 					"x": 35
 					"y": 55
 				} )
@@ -27,25 +27,25 @@ new FormModel {
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"width": 160
 					"height": 55
-					"x": 170
+					"x": 120
 					"y": -5
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "返回"
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 35
-					"y": 15
+					"x": 25
+					"y": 10
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"height": 450
-				"width": 470
-				"x": 45
-				"y": 15
+				"height": 375
+				"width": 375
+				"x": 30
+				"y": 20
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 5, 10 )
-			"size": new java.awt.Dimension( 595, 520 )
+			"size": new java.awt.Dimension( 440, 450 )
 		} )
 	}
 }

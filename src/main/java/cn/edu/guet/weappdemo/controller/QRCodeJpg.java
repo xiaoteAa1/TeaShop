@@ -37,18 +37,18 @@ public class QRCodeJpg extends JFrame {
         {
             panel1.setLayout(null);
             panel1.add(label1);
-            label1.setBounds(35, 55, 415, 375);
+            label1.setBounds(35, 55, 300, 300);
 
             //---- label2 ----
             label2.setText("\u5fae\u4fe1\u4e8c\u7ef4\u7801\u652f\u4ed8");
             label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 8f));
             panel1.add(label2);
-            label2.setBounds(170, -5, 160, 55);
+            label2.setBounds(120, -5, 160, 55);
 
             //---- button1 ----
             button1.setText("\u8fd4\u56de");
             panel1.add(button1);
-            button1.setBounds(new Rectangle(new Point(35, 15), button1.getPreferredSize()));
+            button1.setBounds(new Rectangle(new Point(25, 10), button1.getPreferredSize()));
 
             {
                 // compute preferred size
@@ -66,10 +66,10 @@ public class QRCodeJpg extends JFrame {
             }
         }
         contentPane.add(panel1);
-        panel1.setBounds(45, 15, 470, 450);
+        panel1.setBounds(30, 20, 375, 375);
 
-        contentPane.setPreferredSize(new Dimension(595, 520));
-        setSize(595, 520);
+        contentPane.setPreferredSize(new Dimension(440, 450));
+        setSize(440, 450);
         setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         button1.addActionListener(new ActionListener() {
