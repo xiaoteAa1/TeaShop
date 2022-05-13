@@ -2,6 +2,7 @@ package cn.edu.guet.weappdemo.dao.impl;
 
 import cn.edu.guet.weappdemo.dao.Business_AddTeaDao;
 import cn.edu.guet.weappdemo.domain.SingleTea;
+import cn.edu.guet.weappdemo.util.ConnectionHandler;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
@@ -27,7 +28,8 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
 
 
         try {
-            conn = JDBCUtils.getConnection();
+//            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
             String sql = "Insert Into tea (name,price,type,isSale,remark) " +
                     "Values (?,?,?,?,?)";
             preparedStatement = conn.prepareStatement(sql);
@@ -53,7 +55,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtils.close(rs,state,conn);
+            JDBCUtils.close(rs,state,null);
         }
 
         return false;
@@ -67,7 +69,8 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
     public SingleTea getTeaByName(String name) {
 
         try {
-            conn = JDBCUtils.getConnection();
+//            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
             String sql = "SELECT * FROM tea WHERE name=?";
             preparedStatement = conn.prepareStatement(sql);
 
@@ -89,7 +92,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtils.close(rs,state,conn);
+            JDBCUtils.close(rs,state,null);
         }
 
 
@@ -108,7 +111,8 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
     @Override
     public boolean addTeaStoreHouse(int teaId,int count) {
         try {
-            conn = JDBCUtils.getConnection();
+//            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
             String sql = "Insert Into store (teaId, count) " +
                     "Values (?,?)";
             preparedStatement = conn.prepareStatement(sql);
@@ -130,7 +134,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtils.close(rs,state,conn);
+            JDBCUtils.close(rs,state,null);
         }
 
         return false;
@@ -145,7 +149,8 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
     @Override
     public boolean addTeaStatistics(int teaId, int sale) {
         try {
-            conn = JDBCUtils.getConnection();
+//            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
             String sql = "INSERT INTO statistic(teaId,sale) " +
                     "VALUES(?,?)";
             preparedStatement = conn.prepareStatement(sql);
@@ -167,7 +172,7 @@ public class Business_AddTeaDaoImpl implements Business_AddTeaDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCUtils.close(rs,state,conn);
+            JDBCUtils.close(rs,state,null);
         }
 
         return false;

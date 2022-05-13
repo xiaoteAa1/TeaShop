@@ -73,6 +73,8 @@ public class Business_AddTeaServiceImpl implements Business_AddTeaSevice {
             }
         }
 
+        ConnectionHandler.closeConnection();
+
         return addTea && addTeaStoreHouse &&addTeaStatistics;
 
     }
