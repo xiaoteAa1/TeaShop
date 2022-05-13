@@ -26,22 +26,27 @@ public class Business_OrderUpdataController extends JFrame {
         label1 = new JLabel();
         textField1 = new JTextField();
         textField1.setText(String.valueOf(order.getId()));
+        textField1.setEditable(false);
 
         label2 = new JLabel();
         textField2 = new JTextField();
         textField2.setText(String.valueOf(order.getMch_id()));
+        textField2.setEditable(false);
 
         label3 = new JLabel();
         textField3 = new JTextField();
         textField3.setText(order.getTransaction_id());
+        textField3.setEditable(false);
 
         label4 = new JLabel();
         textField4 = new JTextField();
         textField4.setText(order.getTransaction_id());
+        textField4.setEditable(false);
 
         label5 = new JLabel();
         textField5 = new JTextField();
         textField5.setText(String.valueOf(order.getStart_time()));
+        textField5.setEditable(false);
 
 
         label6 = new JLabel();

@@ -26,6 +26,7 @@ public class Business_OrderManageController extends JFrame {
         button2 = new JButton();
         button3 = new JButton();
         button4 = new JButton();
+        button5 = new JButton();
         label1 =new JLabel();
 
         Container contentPane = getContentPane();
@@ -50,6 +51,10 @@ public class Business_OrderManageController extends JFrame {
         button4.setText("修改");
         contentPane.add(button4);
         button4.setBounds(440,470,100,30);
+
+        button5.setText("返回");
+        contentPane.add(button5);
+        button5.setBounds(10,10,70,30);
 
         //button1查询当前订单，也就是order表中status=0的订单信息
         button1.addActionListener(new AbstractAction() {
@@ -128,6 +133,13 @@ public class Business_OrderManageController extends JFrame {
             }
         });
 
+        button5.addActionListener((e) -> {
+            this.setVisible(false);
+            OwnerEnter on = new OwnerEnter();
+            on.setVisible(true);
+            on.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        });
+
         table1.setBorder(BorderFactory.createLineBorder(Color.black));
         table1.setPreferredScrollableViewportSize(new Dimension(100,80));
         table1.setFillsViewportHeight(true);
@@ -157,6 +169,7 @@ public class Business_OrderManageController extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
+    private JButton button5;//返回上一级
     private JLabel label1;
 
     public static void main(String[] args) {

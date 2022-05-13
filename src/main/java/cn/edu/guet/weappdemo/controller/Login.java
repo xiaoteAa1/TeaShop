@@ -8,6 +8,8 @@ package cn.edu.guet.weappdemo.controller;
 
 import cn.edu.guet.weappdemo.controller.business.OwnerEnter;
 import cn.edu.guet.weappdemo.controller.user.ShopperEnter;
+import cn.edu.guet.weappdemo.service.Business_LoginService;
+import cn.edu.guet.weappdemo.service.impl.Business_LoginServiceImpl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,11 +92,26 @@ public class Login extends JFrame {
 
         //1、商家管理入口
         button1.addActionListener((e) ->{
-            this.setVisible(false);
+            String username = textField1.getText();
+            String password = textField2.getText();
+            if(username.equals("") || password.equals("")){
+                JOptionPane.showMessageDialog(null, "请填写用户名和密码！");
+                return;
+            }
 
-            OwnerEnter oe = new OwnerEnter();
-            oe.setVisible(true);
-            oe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            boolean b = bls.login(username, password);
+            if(!b){
+                JOptionPane.showMessageDialog(null, "用户名或密码错误！");
+                return;
+            }else{
+                JOptionPane.showMessageDialog(null, "登录成功！");
+
+                this.setVisible(false);
+                OwnerEnter oe = new OwnerEnter();
+                oe.setVisible(true);
+                oe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+
         });
 
         //2、消费者入口
@@ -117,6 +134,7 @@ public class Login extends JFrame {
     private JButton button2;
     private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private Business_LoginService bls = new Business_LoginServiceImpl();
     public static void main(String[] args) {
         new Login();
     }

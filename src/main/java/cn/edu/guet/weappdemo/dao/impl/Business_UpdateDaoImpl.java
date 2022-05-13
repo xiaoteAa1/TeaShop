@@ -22,7 +22,7 @@ public class Business_UpdateDaoImpl implements Business_UpdateDAO {
     public void setUpdateInformation(Order order) {
         try {
             conn = JDBCUtils.getConnection();
-            String sql = "UPDATE `order` set mch_id=?,out_trade_no=?,transaction_id=?,start_time=?,username=?,list=?,amount=?,status=?,remark=?"
+            String sql = "UPDATE `order_` set mch_id=?,out_trade_no=?,transaction_id=?,start_time=?,username=?,list=?,amount=?,status=?,remark=?"
                     +"WHERE id="+order.getId();
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1,order.getMch_id());
