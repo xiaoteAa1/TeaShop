@@ -7,6 +7,9 @@ package cn.edu.guet.weappdemo.controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -34,18 +37,18 @@ public class QRCodeJpg extends JFrame {
         {
             panel1.setLayout(null);
             panel1.add(label1);
-            label1.setBounds(50, 50, 300, 300);
+            label1.setBounds(35, 55, 300, 300);
 
             //---- label2 ----
             label2.setText("\u5fae\u4fe1\u4e8c\u7ef4\u7801\u652f\u4ed8");
             label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 8f));
             panel1.add(label2);
-            label2.setBounds(125, 5, 160, 55);
+            label2.setBounds(120, -5, 160, 55);
 
             //---- button1 ----
             button1.setText("\u8fd4\u56de");
             panel1.add(button1);
-            button1.setBounds(new Rectangle(new Point(20, 20), button1.getPreferredSize()));
+            button1.setBounds(new Rectangle(new Point(25, 10), button1.getPreferredSize()));
 
             {
                 // compute preferred size
@@ -63,25 +66,34 @@ public class QRCodeJpg extends JFrame {
             }
         }
         contentPane.add(panel1);
-        panel1.setBounds(50, 10, 400, 400);
+        panel1.setBounds(30, 20, 375, 375);
 
-        contentPane.setPreferredSize(new Dimension(500, 450));
-        setSize(500, 450);
+        contentPane.setPreferredSize(new Dimension(440, 450));
+        setSize(440, 450);
         setLocationRelativeTo(null);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
+                dispose();
                 patternOfPayment.setVisible(true);
+                File f = new File("new.jpg");
+                f.delete();
+
             }
         });
         contentPane.setBackground(new Color(0, 204, 0));
-        ImageIcon img = new ImageIcon("new.jpg");
+        ImageIcon img = null;
+        try {
+            img = new ImageIcon(ImageIO.read(new File("new.jpg")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         label1.setIcon(img);
+        this.setTitle("微信二维码支付");
         this.setVisible(true);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables

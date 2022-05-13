@@ -24,6 +24,7 @@ public class Business_TeaStatisticServiceImpl implements Business_TeaStatisticSe
 
     @Override
     public void updateStatistic(int teaId, int sale) throws SQLException {
+        System.out.println("statistic");
         business_teaStatisticDao.updateStatistic(teaId,sale);
     }
 

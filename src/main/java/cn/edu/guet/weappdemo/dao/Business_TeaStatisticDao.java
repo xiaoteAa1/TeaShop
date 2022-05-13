@@ -12,6 +12,6 @@ import java.util.List;
 public interface Business_TeaStatisticDao {
 
     List<Tea> getAllTea();
-    void updateStatistic (int teaId,int sale) throws SQLException;
+    void updateStatistic (int teaId,int sale);
 
 }

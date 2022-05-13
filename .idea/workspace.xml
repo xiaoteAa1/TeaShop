@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="~">
+    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="修改订单表为双击出现打印小票信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/business/OwnerEnter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user/User_OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/Business_TeaStatisticDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/Business_TeaStatisticDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/Business_TeaStatisticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/Business_TeaStatisticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/Business_TeaStatisticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/Business_TeaStatisticServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ReceiptDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ReceiptDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/print_receipt/SalesTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/print_receipt/SalesTicket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +26,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -55,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -64,11 +67,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\桌面\tea\TeaShop\src\main\java\cn\edu\guet\weappdemo\controller" />
+      <recent name="E:\桌面\tea\TeaShop\src\main\java\cn\edu\guet\weappdemo" />
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller\user" />
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller" />
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller\business" />
-      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\util" />
-      <recent name="C:\291167124\1111\TeaShop\src\main\java\cn\edu\service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WorkSpace\TeaShop6\src\main\java\cn\edu\guet\weappdemo\controller\user" />
@@ -83,12 +86,25 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Login">
-    <configuration name="Business_TeaStatisticController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.Business_TeaStatisticController" />
+    <configuration name="Business_OrderManageController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.Business_OrderManageController" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.business.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_TeaStatisticDaoImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.dao.impl.Business_TeaStatisticDaoImpl" />
+      <module name="TeaShop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.dao.impl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,25 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OwnerEnter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.business.OwnerEnter" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.print_receipt.Test" />
       <module name="TeaShop" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.business.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="User_OrderController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.edu.guet.weappdemo.controller.user.User_OrderController" />
-      <module name="TeaShop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.edu.guet.weappdemo.controller.user.*" />
+          <option name="PATTERN" value="cn.edu.guet.weappdemo.print_receipt.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,10 +161,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Login" />
-        <item itemvalue="Application.OwnerEnter" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.MainCallBack" />
-        <item itemvalue="Application.Business_TeaStatisticController" />
-        <item itemvalue="Application.User_OrderController" />
+        <item itemvalue="Application.Business_TeaStatisticDaoImpl" />
+        <item itemvalue="Application.Business_OrderManageController" />
       </list>
     </recent_temporary>
   </component>
@@ -181,6 +184,13 @@
       <workItem from="1651644647003" duration="503000" />
       <workItem from="1651672485082" duration="2066000" />
       <workItem from="1652105253330" duration="2976000" />
+      <workItem from="1652322082276" duration="7251000" />
+      <workItem from="1652361636301" duration="3783000" />
+      <workItem from="1652368727985" duration="6111000" />
+      <workItem from="1652408215800" duration="23547000" />
+      <workItem from="1652433311158" duration="116000" />
+      <workItem from="1652437066900" duration="178000" />
+      <workItem from="1652446528588" duration="6685000" />
     </task>
     <task id="LOCAL-00001" summary="1、用户加购&#10;2、用户查看购物车">
       <created>1651345252979</created>
@@ -203,7 +213,42 @@
       <option name="project" value="LOCAL" />
       <updated>1651585244850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加打印小票">
+      <created>1652424771682</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652424771682</updated>
+    </task>
+    <task id="LOCAL-00005" summary="修改支付后订单状态为0，需后台打印小票更改为1">
+      <created>1652425410063</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652425410063</updated>
+    </task>
+    <task id="LOCAL-00006" summary="微调">
+      <created>1652430761737</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652430761737</updated>
+    </task>
+    <task id="LOCAL-00007" summary="添加标题">
+      <created>1652433388332</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652433388332</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修改订单表为双击出现打印小票信息">
+      <created>1652449811453</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652449811453</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +269,25 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1、用户加购&#10;2、用户查看购物车" />
     <MESSAGE value="基本框架完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本框架完成" />
+    <MESSAGE value="添加打印小票" />
+    <MESSAGE value="修改支付后订单状态为0，需后台打印小票更改为1" />
+    <MESSAGE value="微调" />
+    <MESSAGE value="添加标题" />
+    <MESSAGE value="修改订单表为双击出现打印小票信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改订单表为双击出现打印小票信息" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java</url>
+          <line>67</line>
+          <properties class="cn.edu.guet.weappdemo.dao.impl.Business_TeaStatisticDaoImpl" method="updateStatistic">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

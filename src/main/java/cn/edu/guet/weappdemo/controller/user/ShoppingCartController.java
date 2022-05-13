@@ -72,7 +72,7 @@ public class ShoppingCartController {
             PMOrder.setUsername(username);
             PMOrder.setList(teaList);
             PMOrder.setAmount(Double.parseDouble(totalPrice));
-            PMOrder.setStatus(1);
+            PMOrder.setStatus(0);
             PMOrder.setRemark(remark);
 
             // 进行订单事务
