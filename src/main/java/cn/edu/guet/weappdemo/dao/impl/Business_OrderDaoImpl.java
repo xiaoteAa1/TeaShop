@@ -9,7 +9,6 @@ import cn.edu.guet.weappdemo.domain.Order;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 //将订单信息存入数据库
@@ -23,7 +22,7 @@ public class Business_OrderDaoImpl implements Business_OrderDao {
         System.out.println(currentOrder);
     }
 
-    //订单管理模块中查询当前正在制作的订单信息,order表中属性status=0
+    //订单管理模块中查询当前正在制作的订单信息，order表中status=0
     @Override
     public LinkedList<Order> getCurrentOrder() {
         //使用list存储数据
@@ -58,7 +57,7 @@ public class Business_OrderDaoImpl implements Business_OrderDao {
     }
 
 
-    //查询异常订单的信息，属性status=-1
+    //查询异常订单的信息，order表中属性status=-1
     @Override
     public LinkedList<Order> getWrongOrder() {
         LinkedList<Order> list = new LinkedList<>();
@@ -91,7 +90,7 @@ public class Business_OrderDaoImpl implements Business_OrderDao {
         return list;
     }
 
-    //查询历史订单信息，即已制作完成且结束的订单，属性status=1
+    //查询历史订单信息，order表中属性status=1
     @Override
     public LinkedList<Order> getFinishOrder() {
         LinkedList<Order> list = new LinkedList<>();

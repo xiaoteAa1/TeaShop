@@ -32,7 +32,11 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
             data[i][5]=order.getUsername();
             data[i][6]=order.getList();
             data[i][7]=order.getAmount();
-            data[i][8]=order.getStatus();
+            int temp=order.getStatus();
+            //将status=0的对应位置转换为”进行中“在swing窗口中显示
+            if(temp==0){
+                data[i][8]="进行中";
+            }
             data[i][9]=order.getRemark();
         }
         return data;
@@ -57,7 +61,11 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
             data[i][5]=order.getUsername();
             data[i][6]=order.getList();
             data[i][7]=order.getAmount();
-            data[i][8]=order.getStatus();
+            int temp=order.getStatus();
+            //将status=0的对应位置转换为”订单异常“在swing窗口中显示
+            if(temp==-1){
+                data[i][8]="订单异常";
+            }
             data[i][9]=order.getRemark();
         }
         return data;
@@ -82,7 +90,12 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
             data[i][5]=order.getUsername();
             data[i][6]=order.getList();
             data[i][7]=order.getAmount();
-            data[i][8]=order.getStatus();
+            int temp=order.getStatus();
+            //将status=0的对应位置转换为”已完成“在swing窗口中显示
+            if(temp==1){
+                data[i][8]="已完成";
+            }
+
             data[i][9]=order.getRemark();
         }
         return data;
@@ -91,7 +104,7 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
     //获得列名
     @Override
     public String[] getOrderColumnNames() {
-        String[] index={"订单编号","商户id","未知","事务id","开始时间","用户名",
+        String[] index={"订单id","商户id","订单号","事务id","开始时间","用户名",
                 "订单列表","总金额","完成状态","备注"};
         return index;
     }
