@@ -36,7 +36,7 @@ public class Business_TeaStatisticController extends JFrame {
         label6 = new JLabel();
 
         //======== this ========
-        setTitle("TeaStatistic");
+        setTitle("统计功能");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 

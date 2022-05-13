@@ -27,7 +27,7 @@ public class OwnerEnter extends JFrame {
         button3 = new JButton();
 
         //======== this ========
-        setTitle("owner-Enter");
+        setTitle("商家入口");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 

@@ -25,7 +25,7 @@ public class ShopperEnter extends JFrame {
         button2 = new JButton();
 
         //======== this ========
-        setTitle("shopper-Enter");
+        setTitle("购物入口");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 

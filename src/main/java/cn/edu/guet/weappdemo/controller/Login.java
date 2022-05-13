@@ -34,7 +34,7 @@ public class Login extends JFrame {
         button2 = new JButton();
 
         //======== this ========
-        setTitle("Welcome To TeaShop");
+        setTitle("欢迎光临好运来奶茶店！");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 

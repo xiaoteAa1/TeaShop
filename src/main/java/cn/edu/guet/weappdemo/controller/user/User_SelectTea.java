@@ -38,7 +38,7 @@ public class User_SelectTea extends JFrame {
         button4 = new JButton();
 
         //======== this ========
-        setTitle("Shopping!");
+        setTitle("购物!");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 

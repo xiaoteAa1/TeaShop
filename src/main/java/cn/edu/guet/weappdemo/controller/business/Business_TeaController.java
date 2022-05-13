@@ -86,7 +86,7 @@ public class Business_TeaController extends JFrame {
         button8 = new JButton();
 
         //======== this ========
-        setTitle("Tea  management system");
+        setTitle("奶茶管理");
 
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
