@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="修改支付后订单状态为0，需后台打印小票更改为1">
+    <list default="true" id="08ebce69-20ec-46eb-84a5-2dd572737d90" name="Changes" comment="微调">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/Business_TeaStatisticDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/Business_TeaStatisticDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/Business_TeaStatisticDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/StockDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/dao/impl/StockDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/Business_TeaStatisticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/Business_TeaStatisticServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/util/ConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/util/ConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PatternOfPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PatternOfPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PayCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/PayCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/QRCodeJpg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/QRCodeJpg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ReceiptDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/weappdemo/controller/ReceiptDetails.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +189,7 @@
       <workItem from="1652322082276" duration="7251000" />
       <workItem from="1652361636301" duration="3783000" />
       <workItem from="1652368727985" duration="6111000" />
-      <workItem from="1652408215800" duration="22179000" />
+      <workItem from="1652408215800" duration="23547000" />
     </task>
     <task id="LOCAL-00001" summary="1、用户加购&#10;2、用户查看购物车">
       <created>1651345252979</created>
@@ -229,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652425410063</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="微调">
+      <created>1652430761737</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652430761737</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +256,8 @@
     <MESSAGE value="基本框架完成" />
     <MESSAGE value="添加打印小票" />
     <MESSAGE value="修改支付后订单状态为0，需后台打印小票更改为1" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改支付后订单状态为0，需后台打印小票更改为1" />
+    <MESSAGE value="微调" />
+    <option name="LAST_COMMIT_MESSAGE" value="微调" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

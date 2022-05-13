@@ -90,6 +90,7 @@ public class QRCodeJpg extends JFrame {
             e.printStackTrace();
         }
         label1.setIcon(img);
+        this.setTitle("微信二维码支付");
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

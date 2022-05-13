@@ -230,6 +230,7 @@ public class ReceiptDetails extends JFrame {
             }
         });
 
+        this.setTitle("小票信息");
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

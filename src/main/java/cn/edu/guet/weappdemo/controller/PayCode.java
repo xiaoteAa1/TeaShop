@@ -85,6 +85,7 @@ public class PayCode extends JFrame {
             }
         });
 
+        this.setTitle("微信付款码支付");
         this.setVisible(true);
         this.setResizable(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

@@ -144,6 +144,7 @@ public class PatternOfPayment extends JFrame {
                 user_seeCar.setVisible(true);
             }
         });
+        this.setTitle("微信支付方式");
         this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
