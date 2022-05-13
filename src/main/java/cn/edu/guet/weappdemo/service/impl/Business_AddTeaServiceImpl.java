@@ -7,6 +7,7 @@ import cn.edu.guet.weappdemo.dao.impl.Business_AddTeaDaoImpl;
 import cn.edu.guet.weappdemo.domain.SingleTea;
 import cn.edu.guet.weappdemo.domain.Tea;
 import cn.edu.guet.weappdemo.service.Business_AddTeaSevice;
+import cn.edu.guet.weappdemo.util.ConnectionHandler;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.Connection;
@@ -28,7 +29,8 @@ public class Business_AddTeaServiceImpl implements Business_AddTeaSevice {
     @Override
     public boolean addTea(Tea tea) throws SQLException {
 
-        conn= JDBCUtils.getConnection();
+//        conn= JDBCUtils.getConnection();
+        conn = ConnectionHandler.getConn();
 
         //关闭mysql自动提交
         conn.setAutoCommit(false);
