@@ -2,6 +2,7 @@ package cn.edu.guet.weappdemo.dao.impl;
 
 import cn.edu.guet.weappdemo.dao.OrderDao;
 import cn.edu.guet.weappdemo.domain.Order;
+import cn.edu.guet.weappdemo.util.ConnectionHandler;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.Connection;
@@ -17,7 +18,7 @@ public class OrderDaoImpl implements OrderDao {
     public void newOrder(Order order) throws SQLException {
         Connection conn=null;
         try {
-            conn= JDBCUtils.getConnection();
+            conn= ConnectionHandler.getConn();
             System.out.println("OrderDaoImpl："+conn.hashCode());
             String sql="INSERT INTO order_ (mch_id,out_trade_no,transaction_id,start_time,username,list,amount,status,remark) " +
                     "VALUES(?,?,?,?,?,?,?,?,?)";

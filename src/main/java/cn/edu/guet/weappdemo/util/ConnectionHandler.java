@@ -18,8 +18,8 @@ public class ConnectionHandler {
          */
         if(conn==null){
             String user = "root";
-            String dbPassword = "Li123456";
-            String url = "jdbc:mysql://localhost:3306/teashop?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+            String dbPassword = "lxj123456";
+            String url = "jdbc:mysql://120.79.223.83:3306/teaShop2?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true";
             conn = DriverManager.getConnection(url, user, dbPassword);
             threadLocal.set(conn);
         }

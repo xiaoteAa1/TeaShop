@@ -1,6 +1,7 @@
 package cn.edu.guet.weappdemo.dao.impl;
 
 import cn.edu.guet.weappdemo.dao.StockDao;
+import cn.edu.guet.weappdemo.util.ConnectionHandler;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.Connection;
@@ -16,7 +17,7 @@ public class StockDaoImpl implements StockDao {
     public void updateStock(int item_id, int stock) throws SQLException {
         Connection conn = null;
         try {
-            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
             System.out.println("StockDaoImpl："+conn.hashCode());
 //            String sql = "UPDATE store SET count=count-? WHERE teaId=?";
             String sql = "update store set count=count-?  WHERE teaId = ?";

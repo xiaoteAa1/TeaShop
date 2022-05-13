@@ -2,6 +2,7 @@ package cn.edu.guet.weappdemo.dao.impl;
 
 import cn.edu.guet.weappdemo.dao.Business_TeaStatisticDao;
 import cn.edu.guet.weappdemo.domain.Tea;
+import cn.edu.guet.weappdemo.util.ConnectionHandler;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
@@ -64,18 +65,29 @@ public class Business_TeaStatisticDaoImpl implements Business_TeaStatisticDao {
      * @throws SQLException
      */
     @Override
-    public void updateStatistic(int teaId,int sale) throws SQLException{
-        String sql = "UPDATE statistic SET sale = sale + ? WHERE teaid = ?";
+    public void updateStatistic(int teaId,int sale){
+        Connection conn = null;
+        System.out.println(sale + "-------");
+        System.out.println(teaId + "---------");
         try {
-            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
+            String sql = "UPDATE statistic SET sale = sale + ? WHERE teaid = ?";
+            System.out.println("Business" + conn.hashCode());
             pstm = conn.prepareStatement(sql);
+            System.out.println(sale);
+            System.out.println(teaId);
             pstm.setInt(1,sale);
             pstm.setInt(2,teaId);
             System.out.println("-------========统计表");
+            System.out.println("0000000000000");
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new SQLException("更新统计表失败");
+//            throw new SQLException("更新统计表失败");
         }
+    }
+
+    public static void main(String[] args) throws SQLException {
+        new Business_TeaStatisticDaoImpl().updateStatistic(7,2);
     }
 }

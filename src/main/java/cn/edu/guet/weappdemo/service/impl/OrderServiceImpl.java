@@ -7,7 +7,9 @@ import cn.edu.guet.weappdemo.dao.impl.Business_TeaStatisticDaoImpl;
 import cn.edu.guet.weappdemo.dao.impl.OrderDaoImpl;
 import cn.edu.guet.weappdemo.dao.impl.StockDaoImpl;
 import cn.edu.guet.weappdemo.domain.Order;
+import cn.edu.guet.weappdemo.service.Business_TeaStatisticService;
 import cn.edu.guet.weappdemo.service.OrderService;
+import cn.edu.guet.weappdemo.util.ConnectionHandler;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,9 +30,9 @@ public class OrderServiceImpl implements OrderService {
         try {
             OrderDao orderDao = new OrderDaoImpl();
             StockDao stockDao = new StockDaoImpl();
-            Business_TeaStatisticDao bts = new Business_TeaStatisticDaoImpl();
+            Business_TeaStatisticService bts = new Business_TeaStatisticServiceImpl();
 
-            conn = JDBCUtils.getConnection();
+            conn = ConnectionHandler.getConn();
             System.out.println("OrderService：" + conn.hashCode());
             //开启事务（必须先有Connection）
             conn.setAutoCommit(false);
@@ -42,7 +44,9 @@ public class OrderServiceImpl implements OrderService {
             while(iter.hasNext()){
                 String item_id = iter.next();
                 String amount = item_id_list.get(item_id);
+                System.out.println("不会吧");
                 stockDao.updateStock(Integer.parseInt(item_id), Integer.parseInt(amount));
+                System.out.println("比好");
                 bts.updateStatistic(Integer.parseInt(item_id),Integer.parseInt(amount));
             }
 
@@ -56,11 +60,11 @@ public class OrderServiceImpl implements OrderService {
                 ex.printStackTrace();
             }
         } finally {
-//            try {
-////                JDBCUtils.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                ConnectionHandler.closeConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
     }
