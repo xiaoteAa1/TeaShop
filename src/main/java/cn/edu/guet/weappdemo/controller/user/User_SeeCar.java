@@ -40,6 +40,7 @@ public class User_SeeCar extends JFrame {
         textField1 = new JTextField();
 
         //======== this ========
+        setTitle("购物车查看");
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
@@ -152,6 +153,7 @@ public class User_SeeCar extends JFrame {
                         JOptionPane.showMessageDialog(null, "取消数量不能小于加购数量！", "错误输入", JOptionPane.WARNING_MESSAGE);
                     } else {
                         deleteTea();
+
                     }
                 }else {
                     JOptionPane.showMessageDialog(null, "输入类型只能为正整数！", "错误输入", JOptionPane.WARNING_MESSAGE);
@@ -166,6 +168,7 @@ public class User_SeeCar extends JFrame {
         if(acs.deleteTae(carTea)){
             JOptionPane.showMessageDialog(null, "取消成功！");
             getCarTea();
+            getPrice();
         }else {
             JOptionPane.showMessageDialog(null, "取消失败！", "错误点击",JOptionPane.WARNING_MESSAGE);
         }
@@ -235,6 +238,17 @@ public class User_SeeCar extends JFrame {
         total_fee = String.valueOf(1);
         String s = itemInfos.substring(0,itemInfos.length()-1);
         message = new String (s + ";");
+    }
+
+    double getPrice(){
+        int n = table1.getRowCount();
+        double sum = 0;
+        for(int i = 0;i < n;i++){
+            Double b = Double.valueOf(table1.getValueAt(i, 3).toString());
+            sum += b;
+        }
+        textField1.setText(sum+"");
+        return sum;
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables

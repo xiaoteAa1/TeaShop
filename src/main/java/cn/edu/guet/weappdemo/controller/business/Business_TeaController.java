@@ -83,6 +83,7 @@ public class Business_TeaController extends JFrame {
         label4 = new JLabel();
         textField4 = new JTextField();
         button7 = new JButton();
+        button8 = new JButton();
 
         //======== this ========
         setTitle("Tea  management system");
@@ -99,12 +100,12 @@ public class Business_TeaController extends JFrame {
         scrollPane1.setBounds(10, 110, 560, 335);
 
         //---- button1 ----
-        button1.setText("ALL TEA");
+        button1.setText("所有奶茶");
         contentPane.add(button1);
-        button1.setBounds(5, 10, 85, 25);
+        button1.setBounds(5, 10, 90, 25);
 
         //---- button2 ----
-        button2.setText("By Id");
+        button2.setText("查询");
 
         button2.addKeyListener(new KeyAdapter() {
             @Override
@@ -117,7 +118,7 @@ public class Business_TeaController extends JFrame {
         button2.setBounds(210, 15, 90, 20);
 
         //---- button3 ----
-        button3.setText("By Name");
+        button3.setText("查询");
         contentPane.add(button3);
         button3.setBounds(435, 15, 100, 20);
         contentPane.add(textField1);
@@ -125,27 +126,27 @@ public class Business_TeaController extends JFrame {
 
 
         //---- label1 ----
-        label1.setText("ID:");
+        label1.setText("id:");
         contentPane.add(label1);
 
         label1.setBounds(100, 15, 25, label1.getPreferredSize().height);
 
 
         //---- label2 ----
-        label2.setText("Name:");
+        label2.setText("名称:");
         contentPane.add(label2);
 
         label2.setBounds(310, 15, 45, label2.getPreferredSize().height);
 
 
         //---- label3 ----
-        label3.setText("type:");
+        label3.setText("类型:");
         contentPane.add(label3);
 
         label3.setBounds(new Rectangle(new Point(100, 45), label3.getPreferredSize()));
 
         //---- button4 ----
-        button4.setText("By Type");
+        button4.setText("查询");
         contentPane.add(button4);
         button4.setBounds(210, 45, 90, 20);
         contentPane.add(textField3);
@@ -154,27 +155,31 @@ public class Business_TeaController extends JFrame {
         textField2.setBounds(360, 15, 60, 20);
 
         //---- button6 ----
-        button6.setText("DELETE");
+        button6.setText("删除");
         contentPane.add(button6);
         button6.setBounds(435, 45, 100, 20);
 
         //---- button5 ----
-        button5.setText("On Sale");
+        button5.setText("在售奶茶");
         contentPane.add(button5);
-        button5.setBounds(5, 40, 85, 25);
+        button5.setBounds(5, 40, 90, 25);
 
         //---- label4 ----
-        label4.setText("del_ID");
+        label4.setText("id");
         contentPane.add(label4);
         label4.setBounds(310, 45, 45, 17);
         contentPane.add(textField4);
         textField4.setBounds(360, 45, 60, 20);
 
         //---- button7 ----
-        button7.setText("ADD");
+        button7.setText("添加奶茶");
         contentPane.add(button7);
         button7.setBounds(5, 75, 530, 25);
 
+        //---- button8 ----
+        button8.setText("返回");
+        contentPane.add(button8);
+        button8.setBounds(5, 445, 85, 25);
 
         {
             // compute preferred size
@@ -194,7 +199,7 @@ public class Business_TeaController extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         this.setVisible(true);
-        this.setResizable(false);
+//        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         button1.addActionListener(e -> getAllTea());
@@ -227,6 +232,14 @@ public class Business_TeaController extends JFrame {
         button7.addActionListener(e -> {
             //TODO 跳转页面
             new Business_AddTeaController();
+        });
+
+        button8.addActionListener(e -> {
+            //TODO 跳转页面
+            this.setVisible(false);
+            OwnerEnter on = new OwnerEnter();
+            on.setVisible(true);
+            on.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         });
     }
     //
@@ -363,6 +376,7 @@ public class Business_TeaController extends JFrame {
     private JLabel label4;
     private JTextField textField4;
     private JButton button7;
+    private JButton button8;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private DefaultTableModel dtm;
     public static void main(String[] args) {
