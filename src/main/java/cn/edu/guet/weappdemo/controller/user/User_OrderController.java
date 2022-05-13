@@ -67,12 +67,15 @@ public class User_OrderController extends JFrame {
         comboBox1.addItem("所有订单");
         comboBox1.addItem("当前订单");
         comboBox1.addItem("历史订单");
+        comboBox1.addItem("异常订单");
 
         this.setVisible(true);
         this.setResizable(false);// 设置不能调整界面大小
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        selectOrder(-2);// 打开界面默认显示"所有订单"
+        allList = uos.getAll();// 获取数据库中所有的订单
+        selectAllOrder();// 打开界面默认显示"所有订单"
+        getAllOrderId();// 获取所有订单的实际id
 
         // 返回上一级菜单
         rt.addActionListener(e -> {
@@ -91,13 +94,16 @@ public class User_OrderController extends JFrame {
                 String item = comboBox1.getSelectedItem().toString();
                 switch (item) {
                     case "所有订单" :
-                        selectOrder(-2);
+                        selectAllOrder();
                         break;
                     case "当前订单" :
-                        selectOrder(0);
+                        selectDqOrder();
                         break;
                     case "历史订单" :
-                        selectOrder(1);
+                        selectLsOrder();
+                        break;
+                    case "异常订单" :
+                        selectSbOrder();
                 }
             }
         });
@@ -111,8 +117,27 @@ public class User_OrderController extends JFrame {
                 int selectedRow = table1.getSelectedRow();
                 if(selectedRow == -1)return;
 
-                // 获取选中行的订单序号，再通过序号取idList中对应的实际序号（唯一的主键id），并显示详情在新打开的界面中
-                int id = (int)idList.get((int)table1.getValueAt(selectedRow, 0) - 1);
+                // 通过唯一的主键（实际id）来获取订单详情：
+                // 声明实际id，并获取当前id（dqId）
+                int id = 0, dqId = (int) table1.getValueAt(selectedRow, 0);
+                // 判断当前界面显示的订单类型，再通过对应的列表查找实际id：
+                String item = comboBox1.getSelectedItem().toString();
+                if (item.equals("所有订单"))
+                    id = (int) allIdList.get(dqId - 1);
+                else if (item.equals("当前订单")) {
+                    getDqOrderId();// 获取当前订单的实际id
+                    id = (int) dqIdList.get(dqId - 1);
+                }
+                else if (item.equals("历史订单")) {
+                    getLsOrderId();// 获取历史订单的实际id
+                    id = (int) lsIdList.get(dqId - 1);
+                }
+                else if (item.equals("异常订单")) {
+                    getSbOrderId();// 获取失败订单的实际id
+                    id = (int) sbIdList.get(dqId - 1);
+                }
+
+                // 通过获取到的实际id，显示详情在新打开的界面中
                 User_OrderDetails uodet = new User_OrderDetails(uos.getOrderById(id));
                 uodet.setVisible(true);
                 uodet.setResizable(false);
@@ -122,23 +147,50 @@ public class User_OrderController extends JFrame {
         });
     }
 
-    void selectOrder(int status){
+    // 获取所有订单的实际id
+    void getAllOrderId() {
+        for(Order t :allList){
+            allIdList.add(t.getId());
+        }
+    }
+
+    // 获取当前订单的实际id
+    void getDqOrderId() {
+        for(Order t :allList){
+            if (t.getStatus() == 0)
+                dqIdList.add(t.getId());
+        }
+    }
+
+    // 获取历史订单的实际id
+    void getLsOrderId() {
+        for(Order t :allList){
+            if (t.getStatus() == 1)
+                lsIdList.add(t.getId());
+        }
+    }
+
+    // 获取失败订单的实际id
+    void getSbOrderId() {
+        for(Order t :allList){
+            if (t.getStatus() == -1)
+                sbIdList.add(t.getId());
+        }
+    }
+
+    // 显示所有订单信息
+    void selectAllOrder() {
         dtm = new DefaultTableModel(null, SwingUtils.columnsForUser_Order);
         dtm.setRowCount(0);
 
-        List<Order> list = uos.getAll();
-        if (status != -2)
-            list = uos.getOrdersByStatus(status);
-
-        int len = list.size();
-        if(list == null || len == 0) {
+        int len = allList.size();
+        if(allList == null || len == 0) {
             return;
         }
 
         Object[][] res = new Object[len][6];
         int index = 1;
-        for(Order t :list){
-            idList.add(t.getId());
+        for(Order t :allList){
             res[0][0] = index++;
             res[0][1] = t.getStart_time();
             res[0][2] = t.getUsername();
@@ -157,6 +209,87 @@ public class User_OrderController extends JFrame {
         table1.invalidate();
     }
 
+    // 显示当前订单信息
+    void selectDqOrder() {
+        dtm = new DefaultTableModel(null, SwingUtils.columnsForUser_Order);
+        dtm.setRowCount(0);
+
+        int len = allList.size();
+        if(allList == null || len == 0) {
+            return;
+        }
+
+        Object[][] res = new Object[len][6];
+        int index = 1;
+        for(Order t :allList){
+            if (t.getStatus() != 0)
+                continue;
+            res[0][0] = index++;
+            res[0][1] = t.getStart_time();
+            res[0][2] = t.getUsername();
+            res[0][3] = t.getList();
+            res[0][4] = t.getAmount();
+            res[0][5] = "进行中";
+            dtm.addRow(res[0]);
+        }
+        table1.setModel(dtm);
+        table1.invalidate();
+    }
+
+    // 显示历史订单信息
+    void selectLsOrder() {
+        dtm = new DefaultTableModel(null, SwingUtils.columnsForUser_Order);
+        dtm.setRowCount(0);
+
+        int len = allList.size();
+        if(allList == null || len == 0) {
+            return;
+        }
+
+        Object[][] res = new Object[len][6];
+        int index = 1;
+        for(Order t :allList){
+            if (t.getStatus() != 1)
+                continue;
+            res[0][0] = index++;
+            res[0][1] = t.getStart_time();
+            res[0][2] = t.getUsername();
+            res[0][3] = t.getList();
+            res[0][4] = t.getAmount();
+            res[0][5] = "已完成";
+            dtm.addRow(res[0]);
+        }
+        table1.setModel(dtm);
+        table1.invalidate();
+    }
+
+    // 显示历史订单信息
+    void selectSbOrder() {
+        dtm = new DefaultTableModel(null, SwingUtils.columnsForUser_Order);
+        dtm.setRowCount(0);
+
+        int len = allList.size();
+        if(allList == null || len == 0) {
+            return;
+        }
+
+        Object[][] res = new Object[len][6];
+        int index = 1;
+        for(Order t :allList){
+            if (t.getStatus() != -1)
+                continue;
+            res[0][0] = index++;
+            res[0][1] = t.getStart_time();
+            res[0][2] = t.getUsername();
+            res[0][3] = t.getList();
+            res[0][4] = t.getAmount();
+            res[0][5] = "失败";
+            dtm.addRow(res[0]);
+        }
+        table1.setModel(dtm);
+        table1.invalidate();
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JScrollPane scrollPane1;
     private JTable table1;
@@ -166,7 +299,11 @@ public class User_OrderController extends JFrame {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private static DefaultTableModel dtm;
     private User_OrderService uos = new User_OrderServiceImpl();
-    private List idList = new ArrayList();// 用来储存订单的实际id
+    private List<Order> allList = new ArrayList<>();// 储存读取到的所有订单信息
+    private List allIdList = new ArrayList();// 储存所有订单的实际id
+    private List dqIdList = new ArrayList();// 储存当前订单的实际id
+    private List lsIdList = new ArrayList();// 储存历史订单的实际id
+    private List sbIdList = new ArrayList();// 储存失败订单的实际id
 
     // 调试用
 //    public static void main(String[] args) {
