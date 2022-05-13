@@ -67,19 +67,13 @@ public class Business_TeaStatisticDaoImpl implements Business_TeaStatisticDao {
     @Override
     public void updateStatistic(int teaId,int sale){
         Connection conn = null;
-        System.out.println(sale + "-------");
-        System.out.println(teaId + "---------");
         try {
             conn = ConnectionHandler.getConn();
             String sql = "UPDATE statistic SET sale = sale + ? WHERE teaid = ?";
             System.out.println("Business" + conn.hashCode());
             pstm = conn.prepareStatement(sql);
-            System.out.println(sale);
-            System.out.println(teaId);
             pstm.setInt(1,sale);
             pstm.setInt(2,teaId);
-            System.out.println("-------========统计表");
-            System.out.println("0000000000000");
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

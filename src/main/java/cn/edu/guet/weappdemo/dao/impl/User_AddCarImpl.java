@@ -134,9 +134,9 @@ public class User_AddCarImpl implements User_AddCar {
                 ordinal++;
 
                 CarTea tea = new CarTea(Integer.parseInt(teaId),id,name,count,price);
-//                CarTea tea = new CarTea(id,name,count,price);
                 list.add(tea);
             }
+            System.out.println(list + "--------getCarTea1");
             return list;
         } catch (SQLException e) {
             e.printStackTrace();

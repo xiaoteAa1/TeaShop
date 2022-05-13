@@ -17,6 +17,7 @@ public class FetchInFormationUtil {
      * @return 返回map形式的商品id和对应的购买量
      */
     public static Map<String,String> getIdAmount (String idList){
+        System.out.println(idList + "------getIdAmount");
         // 获取不同商品id和对应的购买量
         String[] idAmount = idList.split(";");
         Map<String,String> item_list = new HashMap<>();
@@ -24,6 +25,7 @@ public class FetchInFormationUtil {
             String[] idAndList = id_list.split(",");
             item_list.put(idAndList[0], idAndList[1]);
         }
+        System.out.println(item_list + "---------item_list");
         return item_list;
     }
 
@@ -70,6 +72,7 @@ public class FetchInFormationUtil {
         list.add(new String (id_amount));
         list.add(new String (teaList));
         list.add(String.valueOf(totalPrice));
+        System.out.println(list + "-----list");
         return list;
     }
 }

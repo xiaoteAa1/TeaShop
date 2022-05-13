@@ -195,7 +195,8 @@ public class User_SeeCar extends JFrame {
      */
     void getCarTea1(){
         // 获取购物车奶茶列表
-        List<CarTea> list = acs.getCarTea();
+        List<CarTea> list = acs.getCarTea1();
+        System.out.println(list + "-----------list");
         // 获取购物车奶茶类别数
         int len = list.size();
         // 订单部分信息
@@ -213,10 +214,10 @@ public class User_SeeCar extends JFrame {
             // 将订单信息格式化
 //            String itemInfo = "id," + teaId + ";name," + name + ";price," + price + ";amount," + count + "#";
             String itemInfo = "1," + teaId + ";1," + name + ";1," + price + ";1," + count + "#";
-            System.out.println(itemInfo + "--------------1");
             itemInfos.append(itemInfo);
             cost += price;
         }
+        System.out.println(itemInfos + "----------itemInfos");
         // 总的部分订单信息
 //        total_fee = String.valueOf((int)cost * 100);
         total_fee = String.valueOf(1);

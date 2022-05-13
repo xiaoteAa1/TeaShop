@@ -44,9 +44,7 @@ public class OrderServiceImpl implements OrderService {
             while(iter.hasNext()){
                 String item_id = iter.next();
                 String amount = item_id_list.get(item_id);
-                System.out.println("不会吧");
                 stockDao.updateStock(Integer.parseInt(item_id), Integer.parseInt(amount));
-                System.out.println("比好");
                 bts.updateStatistic(Integer.parseInt(item_id),Integer.parseInt(amount));
             }
 

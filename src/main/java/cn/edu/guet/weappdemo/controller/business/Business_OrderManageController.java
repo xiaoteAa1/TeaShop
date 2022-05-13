@@ -146,41 +146,43 @@ public class Business_OrderManageController extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                // 获取选中行
-                int row = table1.getSelectedRow();
-
-                // 获取选中行的列值
-                String orderId = table1.getValueAt(row,0).toString();
-                String orderTime = table1.getValueAt(row,4).toString();
-                String orderList = table1.getValueAt(row,6).toString();
-                String orderPrice = table1.getValueAt(row,7).toString();
-                String orderRemark = table1.getValueAt(row,9).toString();
-
-                // 将获得的orderList分割
-                String [] oList = orderList.split(" ");
-                // 订单商品信息
-                StringBuffer str = new StringBuffer();
-                // 获取订单中商品的单价
-                Business_TeaService bts = new Business_TeaServiceImpl();
-                // 遍历获取所有类别商品信息
-                for (int i = 1;i < oList.length;i = i + 2){
-                    String count = oList[i];
-                    String name = oList[i - 1];
-                    Tea tea = bts.getTeaByName(name);
-                    // 通过名字获取商品单价
-                    String price = String.valueOf(tea.getPrice());
-                    str.append("商品名称:" +  name + ";商品价格:" + price + ";商品数量:" + count + ",");
-                }
-                String s = str.substring(0,str.length() - 1);
-                String [] itemList = new String[]{s,orderId,orderTime,orderPrice,orderRemark};
-
-                // 传送信息到打印小票界面
-                new ReceiptDetails(itemList,boc);
+             
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
+                if (e.getClickCount() == 2){
+                    // 获取选中行
+                    int row = table1.getSelectedRow();
 
+                    // 获取选中行的列值
+                    String orderId = table1.getValueAt(row,0).toString();
+                    String orderTime = table1.getValueAt(row,4).toString();
+                    String orderList = table1.getValueAt(row,6).toString();
+                    String orderPrice = table1.getValueAt(row,7).toString();
+                    String orderRemark = table1.getValueAt(row,9).toString();
+
+                    // 将获得的orderList分割
+                    String [] oList = orderList.split(" ");
+                    // 订单商品信息
+                    StringBuffer str = new StringBuffer();
+                    // 获取订单中商品的单价
+                    Business_TeaService bts = new Business_TeaServiceImpl();
+                    // 遍历获取所有类别商品信息
+                    for (int i = 1;i < oList.length;i = i + 2){
+                        String count = oList[i];
+                        String name = oList[i - 1];
+                        Tea tea = bts.getTeaByName(name);
+                        // 通过名字获取商品单价
+                        String price = String.valueOf(tea.getPrice());
+                        str.append("商品名称:" +  name + ";商品价格:" + price + ";商品数量:" + count + ",");
+                    }
+                    String s = str.substring(0,str.length() - 1);
+                    String [] itemList = new String[]{s,orderId,orderTime,orderPrice,orderRemark};
+
+                    // 传送信息到打印小票界面
+                    new ReceiptDetails(itemList,boc);
+                }
             }
 
             @Override

@@ -38,7 +38,7 @@ public class User_AddCarServiceImpl implements User_AddCarService {
     }
     @Override
     public List<CarTea> getCarTea1() {
-        List<CarTea> tea = user_addCar.getCarTea();
+        List<CarTea> tea = user_addCar.getCarTea1();
         return tea;
     }
 
