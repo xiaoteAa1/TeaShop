@@ -9,7 +9,6 @@ import cn.edu.guet.weappdemo.domain.Order;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 //将订单信息存入数据库

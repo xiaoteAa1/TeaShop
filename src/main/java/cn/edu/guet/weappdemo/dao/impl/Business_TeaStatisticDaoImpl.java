@@ -71,6 +71,7 @@ public class Business_TeaStatisticDaoImpl implements Business_TeaStatisticDao {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1,sale);
             pstm.setInt(2,teaId);
+            System.out.println("-------========统计表");
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -7,8 +7,6 @@ package cn.edu.guet.weappdemo.dao.impl;
 
 import cn.edu.guet.weappdemo.dao.Business_UpdateDAO;
 import cn.edu.guet.weappdemo.domain.Order;
-import cn.edu.guet.weappdemo.domain.Statistic;
-import cn.edu.guet.weappdemo.domain.Tea;
 import cn.edu.guet.weappdemo.util.JDBCUtils;
 
 import java.sql.*;
@@ -47,4 +45,30 @@ public class Business_UpdateDaoImpl implements Business_UpdateDAO {
             }
         }
     }
+
+    /**
+     * 更新订单状态
+     * @param id 订单表id
+     */
+    @Override
+    public void updateStatus (String id){
+        String sql = "UPDATE order_ SET status = 1 WHERE id = ?";
+        try {
+            conn = JDBCUtils.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                pstmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
 }

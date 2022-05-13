@@ -134,6 +134,7 @@ public class User_SeeCar extends JFrame {
                 getCarTea1();
                 // 传订单金额和部分订单信息
                 new PatternOfPayment(user_seeCar,message,total_fee);
+                System.out.println("提交订单");
             }
         });
 
@@ -184,20 +185,6 @@ public class User_SeeCar extends JFrame {
             res[0][3] = t.getPrice();
             dtm1.addRow(res[idx]);
         }
-
-    /*    // 用户信息
-        String username = "username,无极;";
-        // 用户订单备注
-        String remark = "remark,无:";
-        // 订单信息
-        String itemInfo1 = "id,26;name,芝芝乳品;price,18.00;amount,2#";
-        String itemInfo2 = "id,25;name,安慕希可可;price,20.00;amount,3;";
-        String itemInfos = itemInfo1 + itemInfo2;
-        // 订单部分信息（对应attach附加信息）
-        message = username + remark + itemInfos;
-        total_fee = "1";*/
-//        String str = "id," + ";name," + ";price," + ";amount," + "#";
-
         table1.setModel(dtm1);
         table1.invalidate();
     }
@@ -224,9 +211,9 @@ public class User_SeeCar extends JFrame {
             // 奶茶价格
             double price = t.getPrice();
             // 将订单信息格式化
-            String itemInfo = "id," + teaId + ";name," + name + ";price," + price + ";amount," + count + "#";
+//            String itemInfo = "id," + teaId + ";name," + name + ";price," + price + ";amount," + count + "#";
+            String itemInfo = "1," + teaId + ";1," + name + ";1," + price + ";1," + count + "#";
             System.out.println(itemInfo + "--------------1");
-//            String itemInfo = "1," + teaId + ";1," + name + ";1," + price + ";1," + count + "#";
             itemInfos.append(itemInfo);
             cost += price;
         }
@@ -234,7 +221,7 @@ public class User_SeeCar extends JFrame {
 //        total_fee = String.valueOf((int)cost * 100);
         total_fee = String.valueOf(1);
         String s = itemInfos.substring(0,itemInfos.length()-1);
-        message = new String (s + ";");
+        message = s + ";";
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables

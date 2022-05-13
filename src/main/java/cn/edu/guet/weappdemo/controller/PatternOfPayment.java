@@ -109,7 +109,6 @@ public class PatternOfPayment extends JFrame {
 //                String userInfos = "username," + username + ";" + "remark," + remark + ":";
                 String userInfos = "1," + username + ";" + "1," + remark + ":";
                 String itemInfos = userInfos + message;
-                System.out.println(total_fee + "--------------------");
                 // 生成该订单信息的二维码
                 MainQRCode.createQRCode(itemInfos,total_fee);
 //                // 测试用的方法
@@ -129,7 +128,8 @@ public class PatternOfPayment extends JFrame {
                 // 获取用户订单备注
                 String remark = textArea1.getText();
                 // 订单信息格式化
-                String userInfos = "username," + username + ";" + "remark," + remark + ":";
+//                String userInfos = "username," + username + ";" + "remark," + remark + ":";
+                String userInfos = "1," + username + ";" + "1," + remark + ":";
                 String itemInfos = userInfos + message;
                 setVisible(false);
                 new PayCode(patternOfPayment,itemInfos,total_fee);

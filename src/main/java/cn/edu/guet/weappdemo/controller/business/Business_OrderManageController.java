@@ -4,14 +4,25 @@ package cn.edu.guet.weappdemo.controller.business;
  * @date  2022/5/10 20:56
  */
 
+import cn.edu.guet.weappdemo.controller.ReceiptDetails;
+import cn.edu.guet.weappdemo.controller.user.User_OrderDetails;
+import cn.edu.guet.weappdemo.dao.Business_TeaDao;
 import cn.edu.guet.weappdemo.domain.Order;
+import cn.edu.guet.weappdemo.domain.Tea;
+import cn.edu.guet.weappdemo.service.Business_TeaService;
 import cn.edu.guet.weappdemo.service.impl.Business_OrderManageServiceImpl;
+import cn.edu.guet.weappdemo.service.impl.Business_TeaServiceImpl;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class Business_OrderManageController extends JFrame {
     public Business_OrderManageController() {
@@ -123,6 +134,70 @@ public class Business_OrderManageController extends JFrame {
         table1.setBorder(BorderFactory.createLineBorder(Color.black));
         table1.setPreferredScrollableViewportSize(new Dimension(100,80));
         table1.setFillsViewportHeight(true);
+        table1.getSelectionModel().addListSelectionListener(e -> {
+
+
+        });
+
+        /**
+         * 添加表格鼠标点击事件，点击会弹出打印打印小票信息
+         */
+        table1.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                // 获取选中行
+                int row = table1.getSelectedRow();
+
+                // 获取选中行的列值
+                String orderId = table1.getValueAt(row,0).toString();
+                String orderTime = table1.getValueAt(row,4).toString();
+                String orderList = table1.getValueAt(row,6).toString();
+                String orderPrice = table1.getValueAt(row,7).toString();
+                String orderRemark = table1.getValueAt(row,9).toString();
+
+                // 将获得的orderList分割
+                String [] oList = orderList.split(" ");
+                // 订单商品信息
+                StringBuffer str = new StringBuffer();
+                // 获取订单中商品的单价
+                Business_TeaService bts = new Business_TeaServiceImpl();
+                // 遍历获取所有类别商品信息
+                for (int i = 1;i < oList.length;i = i + 2){
+                    String count = oList[i];
+                    String name = oList[i - 1];
+                    Tea tea = bts.getTeaByName(name);
+                    // 通过名字获取商品单价
+                    String price = String.valueOf(tea.getPrice());
+                    str.append("商品名称:" +  name + ";商品价格:" + price + ";商品数量:" + count + ",");
+                }
+                String s = str.substring(0,str.length() - 1);
+                String [] itemList = new String[]{s,orderId,orderTime,orderPrice,orderRemark};
+
+                // 传送信息到打印小票界面
+                new ReceiptDetails(itemList,boc);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         scrollPane1.setViewportView(table1);
         scrollPane1.setBounds(0,61,600,400);
@@ -150,6 +225,9 @@ public class Business_OrderManageController extends JFrame {
     private JButton button4;
     private JTextField textField1;
     private JLabel label1;
+
+    // 保存此界面
+    private final Business_OrderManageController boc = this;
 
     public static void main(String[] args) {
 
