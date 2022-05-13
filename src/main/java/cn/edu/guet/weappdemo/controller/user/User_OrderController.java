@@ -12,6 +12,7 @@ import cn.edu.guet.weappdemo.util.SwingUtils;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -110,8 +111,8 @@ public class User_OrderController extends JFrame {
                 int selectedRow = table1.getSelectedRow();
                 if(selectedRow == -1)return;
 
-                // 通过唯一的主键id，获取选中行的订单信息，并显示在新打开的界面中
-                int id = (int)table1.getValueAt(selectedRow, 0);
+                // 获取选中行的订单序号，再通过序号取idList中对应的实际序号（唯一的主键id），并显示详情在新打开的界面中
+                int id = (int)idList.get((int)table1.getValueAt(selectedRow, 0) - 1);
                 User_OrderDetails uodet = new User_OrderDetails(uos.getOrderById(id));
                 uodet.setVisible(true);
                 uodet.setResizable(false);
@@ -133,9 +134,12 @@ public class User_OrderController extends JFrame {
         if(list == null || len == 0) {
             return;
         }
+
         Object[][] res = new Object[len][6];
+        int index = 1;
         for(Order t :list){
-            res[0][0] = t.getId();
+            idList.add(t.getId());
+            res[0][0] = index++;
             res[0][1] = t.getStart_time();
             res[0][2] = t.getUsername();
             res[0][3] = t.getList();
@@ -162,6 +166,7 @@ public class User_OrderController extends JFrame {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private static DefaultTableModel dtm;
     private User_OrderService uos = new User_OrderServiceImpl();
+    private List idList = new ArrayList();// 用来储存订单的实际id
 
     // 调试用
 //    public static void main(String[] args) {
