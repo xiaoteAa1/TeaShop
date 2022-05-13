@@ -88,7 +88,7 @@ public class SalesTicket implements Printable {
         float heigth = font.getSize2D();//获取字体的高度
 
 //设置小票的标题标题
-        g2.drawString("商店名字", (float) x + 25, (float) y + heigth);
+        g2.drawString("桂电奶茶1号店", (float) x + 25, (float) y + heigth);
 
         float line = 2 * heigth; //下一行开始打印的高度
         g2.setFont(new Font("宋体", Font.PLAIN, 8));//设置正文字体
@@ -105,7 +105,7 @@ public class SalesTicket implements Printable {
 
 //设置标题
         g2.drawString("名称", (float) x, (float) y + line);
-        g2.drawString("单价", (float) x + 35, (float) y + line);
+        g2.drawString("单价", (float) x + 40, (float) y + line);
         g2.drawString("数量", (float) x + 70, (float) y + line);
         g2.drawString("小计", (float) x + 105, (float) y + line);
         line += heigth;
@@ -140,7 +140,7 @@ public class SalesTicket implements Printable {
             for (Goods gdf : goods) {
                 g2.drawString(gdf.getGname(), (float) x, (float) y + line);
                 g2.drawString(gdf.getPrice(), (float) x + 40, (float) y + line);
-                g2.drawString(gdf.getNum(), (float) x + 70, (float) y + line);
+                g2.drawString(gdf.getNum(), (float) x + 80, (float) y + line);
                 g2.drawString(gdf.getTotal(), (float) x + 105, (float) y + line);
                 line += heigth;
 

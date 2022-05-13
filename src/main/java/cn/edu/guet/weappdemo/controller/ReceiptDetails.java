@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -204,27 +206,38 @@ public class ReceiptDetails extends JFrame {
                 Business_UpdateDAO bu = new Business_UpdateDaoImpl();
                 bu.updateStatus(textField1.getText());
                 // 打印小票
-          /*      List<Goods> goods = new ArrayList<Goods>();
+                List<Goods> goods = new ArrayList<Goods>();
+                // 获取商品列表长度
                 int size = dlm.getSize();
                 for (int i = 0;i < size;i++){
                     String [] str = dlm.getElementAt(i).split("   ");
+                    // 获取商品名字
                     String name = str[0].split(":")[1];
+                    // 获取商品单价
                     String price = str[1].split(":")[1];
+                    // 获取商品购买量
                     String amount = str[2].split(":")[1];
+                    // 将价格后的元字去掉
                     String s = price.substring(0,price.length() - 1);
+                    // 将价格转为double进行计算
                     double a = Double.parseDouble(s);
+                    // 计算该类商品总价
                     double b = a * Integer.parseInt(amount);
-                    int cost = Integer.parseInt(String.valueOf((int)a * 100));
-                    int totalCost = Integer.parseInt(String.valueOf((int)b * 100));
+                    // 该商品总价价格保留两位小数
+                    BigDecimal bd = new BigDecimal(b);
+                    bd = bd.setScale(2, RoundingMode.HALF_UP);
+                    String c = bd.toString();
+//                    int cost = Integer.parseInt(String.valueOf((int)a * 100));
+//                    int totalCost = Integer.parseInt(String.valueOf((int)b * 100));
                     String remark = textField6.getText();
-                    goods.add(new Goods(name,String.valueOf(cost),amount,String.valueOf(totalCost),remark));
+                    goods.add(new Goods(name,String.valueOf(c) + "元",amount,String.valueOf(c) + "元",remark));
                 }
                 int goodsSize = goods.size();
                 String s = Integer.toString(goodsSize);
                 Date date = new Date();
                 SalesTicket stk = new SalesTicket(goods, textField1.getText(), s, textField3.getText(), textField4.getText(), "0",date);
                 Printer p = new Printer(stk);
-                p.printer();*/
+                p.printer();
                 dispose();
                 boc.setVisible(true);
             }
