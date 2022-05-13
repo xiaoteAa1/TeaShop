@@ -33,6 +33,7 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
             data[i][6]=order.getList();
             data[i][7]=order.getAmount();
             int temp=order.getStatus();
+            //将status=0的对应位置转换为”进行中“在swing窗口中显示
             if(temp==0){
                 data[i][8]="进行中";
             }
@@ -61,6 +62,7 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
             data[i][6]=order.getList();
             data[i][7]=order.getAmount();
             int temp=order.getStatus();
+            //将status=0的对应位置转换为”订单异常“在swing窗口中显示
             if(temp==-1){
                 data[i][8]="订单异常";
             }
@@ -89,6 +91,7 @@ public class Business_OrderManageServiceImpl implements Business_OrderManageServ
             data[i][6]=order.getList();
             data[i][7]=order.getAmount();
             int temp=order.getStatus();
+            //将status=0的对应位置转换为”已完成“在swing窗口中显示
             if(temp==1){
                 data[i][8]="已完成";
             }

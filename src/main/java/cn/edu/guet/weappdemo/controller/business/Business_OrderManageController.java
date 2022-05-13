@@ -112,6 +112,7 @@ public class Business_OrderManageController extends JFrame {
                 double amount= (double) table1.getValueAt(rowNo,7);
                 String statu= (String) table1.getValueAt(rowNo,8);
                 int status;
+                //将swing窗口状态栏下对应表格的文字，转换为数据库中对应的数字状态
                 if(statu.equals("进行中")){
                     status=0;
                 }else if(statu.equals("订单异常")){
@@ -142,6 +143,7 @@ public class Business_OrderManageController extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         //禁止改变窗口大小
+        //给窗口添加标题
         super.setTitle("订单管理");
         this.setResizable(false);
         this.setVisible(true);
